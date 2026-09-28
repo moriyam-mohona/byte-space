@@ -1,0 +1,28 @@
+{
+  "status": 200,
+  "headers": {
+    "link": "</_next/static/media/928453f79207f538-s.p.4495q05yg1hqf.woff2>; rel=preload; as=\"font\"; crossorigin=\"\"; type=\"font/woff2\", </icons/logo.svg>; rel=preload; as=\"image\"",
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/design-system/layout,_N_T_/design-system/page,_N_T_/design-system"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/design-system/__PAGE__"
+  ],
+  "prefetchHints": {
+    "hints": 16448,
+    "slots": {
+      "children": {
+        "hints": 16480,
+        "slots": {
+          "children": {
+            "hints": 16544,
+            "slots": null
+          }
+        }
+      }
+    }
+  }
+}

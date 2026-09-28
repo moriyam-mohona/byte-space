@@ -1,0 +1,78 @@
+module.exports = [
+"[project]/src/shared/i18n/dictionaries/en/programs.json.[json].cjs [app-rsc] (ecmascript)", ((__turbopack_context__, module, exports) => {
+
+module.exports = {
+    "featured": {
+        "badge": "Featured Programs",
+        "cards": {
+            "priorityBadge": "High Priority",
+            "protection": {
+                "title": "Women & Child Protection",
+                "description": "We provide 24/7 assistance to protect women and children from violence and abuse.",
+                "action": "View Details"
+            },
+            "emergency": {
+                "title": "Emergency Assistance",
+                "description": "We ensure rapid delivery of relief, food rations, and shelter during natural disasters and emergencies.",
+                "action": "View Details"
+            }
+        }
+    },
+    "focusAreas": {
+        "badge": "Focus Areas",
+        "title": "We Are Here in People's Need",
+        "subtitle": "Our diverse programs collaborate to deliver prompt assistance during critical times of need.",
+        "cards": {
+            "protection": {
+                "title": "Women & Child Protection",
+                "description": "Providing prompt assistance, legal support, and mental health counseling to protect women and children from abuse and violence.",
+                "action": "Report Case"
+            },
+            "missingChild": {
+                "title": "Missing Child Recovery",
+                "description": "Cataloging missing child profiles, nationwide broadcasting, and conducting rapid rescue missions through volunteer networks.",
+                "action": "View Missing"
+            },
+            "emergency": {
+                "title": "Emergency Assistance",
+                "description": "24/7 hotline response during natural disasters, accidents, and critical humanitarian emergencies.",
+                "action": "Get Emergency Aid"
+            },
+            "medical": {
+                "title": "Medical Support",
+                "description": "Free medical consultations, essential medicines, hospital referrals, and community healthcare camps for underprivileged patients.",
+                "action": "Find Health Center"
+            },
+            "blood": {
+                "title": "Blood Donation Network",
+                "description": "Nationwide blood donor registry and volunteer coordination to locate matched blood types during urgent emergencies.",
+                "action": "Find Blood Donor"
+            },
+            "legal": {
+                "title": "Legal Aid",
+                "description": "Legal advice, human rights defense, and pro-bono lawyer assistance for women and children in need.",
+                "action": "Get Legal Aid"
+            },
+            "volunteer": {
+                "title": "Volunteer Network",
+                "description": "Over 3,200+ trained volunteers across Bangladesh deployed rapidly to deliver grassroots community aid.",
+                "action": "Become a Volunteer"
+            },
+            "environment": {
+                "title": "Environment & Food Safety",
+                "description": "Environmental protection, tree plantation campaigns, and awareness programs to ensure safe, adulteration-free food.",
+                "action": "View Campaign"
+            }
+        }
+    },
+    "supportCta": {
+        "title": "Need Immediate Assistance?",
+        "description": "Contact our 24/7 emergency helpline. We are here to support you around the clock.",
+        "reportAction": "Report Incident",
+        "volunteerAction": "Become a Volunteer"
+    }
+};
+}),
+];
+
+//# sourceMappingURL=src_shared_i18n_dictionaries_en_programs_json_%5Bjson%5D_cjs_0aa8soj._.js.map

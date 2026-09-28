@@ -1,0 +1,319 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --surface: #ffffff;
+  --surface-muted: #f8fafc;
+  --border: #e2e8f0;
+
+  /* Layout */
+  --content-width: 1140px;
+
+  /* Base Colors */
+  --base-white: #ffffff;
+  --base-black: #000000;
+
+  /* Primary / Brand (Magenta / Pink Scale) */
+  --primary-25: #ffeaf3;
+  --primary-50: #ffcde3;
+  --primary-100: #ff8fc1;
+  --primary-200: #ff58a2;
+  --primary-300: #ff318b;
+  --primary-400: #ff0b76;
+  --primary-500: #f2006a;
+  --primary-600: #ea0067;
+  --primary-700: #da0060;
+  --primary-800: #cb0059;
+  --primary-900: #c20055;
+
+  /* Primary Brand Aliases */
+  --primary: #f2006a;
+  --primary-soft: #fedeec;
+  --primary-lighter: #ff0b76;
+  --primary-darker: #c20055;
+
+  /* Secondary / Brand (Dark Slate / Navy Scale) */
+  --secondary: #0f172a;
+  --secondary-soft: #eef3fa;
+  --secondary-lighter: #0b1a40;
+  --secondary-darker: #000000;
+  --footer-bg: #061734;
+  --text-secondary: #3d495c;
+  --secondary-text: #3d495c;
+
+  /* Feedback Colors */
+  --success: #22c55e;
+  --warning: #e17100;
+  --error: #ef4444;
+  --info: #06b6d4;
+
+  /* ── Typography: Headings ── */
+  --type-hero-size: 4.125rem;
+  /* 66px */
+  --type-hero-leading: 4.5rem;
+  /* 72px */
+  --type-hero-tracking: -0.01em;
+  /* -1% */
+  --type-hero-weight: 600;
+
+  --type-h1-size: 3rem;
+  /* 48px */
+  --type-h1-leading: 3.25rem;
+  /* 52px */
+  --type-h1-tracking: -0.01em;
+  /* -1% */
+  --type-h1-weight: 600;
+
+  --type-h2-size: 2.5rem;
+  /* 40px */
+  --type-h2-leading: 2.75rem;
+  /* 44px */
+  --type-h2-tracking: -0.01em;
+  /* -1% */
+  --type-h2-weight: 600;
+
+  --type-h3-size: 2rem;
+  /* 32px */
+  --type-h3-leading: 2.25rem;
+  /* 36px */
+  --type-h3-tracking: -0.01em;
+  /* -1% */
+  --type-h3-weight: 600;
+
+  --type-h4-size: 1.5rem;
+  /* 24px */
+  --type-h4-leading: 1.75rem;
+  /* 28px */
+  --type-h4-tracking: -0.01em;
+  /* -1% */
+  --type-h4-weight: 600;
+
+  --type-h5-size: 1.25rem;
+  /* 20px */
+  --type-h5-leading: 1.5rem;
+  /* 24px */
+  --type-h5-tracking: -0.01em;
+  /* -1% */
+  --type-h5-weight: 600;
+
+  /* ── Typography: Body ── */
+  --type-body-2xl-size: 1.25rem;
+  /* 20px */
+  --type-body-2xl-leading: 1.75rem;
+  /* 28px */
+  --type-body-2xl-tracking: 0px;
+
+  --type-body-xl-size: 1.125rem;
+  /* 18px */
+  --type-body-xl-leading: 1.625rem;
+  /* 26px */
+  --type-body-xl-tracking: 0px;
+
+  --type-body-lg-size: 1rem;
+  /* 16px */
+  --type-body-lg-leading: 1.5rem;
+  /* 24px */
+  --type-body-lg-tracking: 0px;
+
+  --type-body-md-size: 0.875rem;
+  /* 14px */
+  --type-body-md-leading: 1.25rem;
+  /* 20px */
+  --type-body-md-tracking: 0px;
+
+  --type-body-sm-size: 0.75rem;
+  /* 12px */
+  --type-body-sm-leading: 1rem;
+  /* 16px */
+  --type-body-sm-tracking: 0px;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-surface-muted: var(--surface-muted);
+  --color-border: var(--border);
+  --max-width-content: var(--content-width);
+
+  /* Base */
+  --color-base-white: var(--base-white);
+  --color-base-black: var(--base-black);
+
+  /* Primary / Brand Scale */
+  --color-primary-25: var(--primary-25);
+  --color-primary-50: var(--primary-50);
+  --color-primary-100: var(--primary-100);
+  --color-primary-200: var(--primary-200);
+  --color-primary-300: var(--primary-300);
+  --color-primary-400: var(--primary-400);
+  --color-primary-500: var(--primary-500);
+  --color-primary-600: var(--primary-600);
+  --color-primary-700: var(--primary-700);
+  --color-primary-800: var(--primary-800);
+  --color-primary-900: var(--primary-900);
+
+  /* Primary Aliases */
+  --color-primary: var(--primary);
+  --color-primary-soft: var(--primary-soft);
+  --color-primary-lighter: var(--primary-lighter);
+  --color-primary-darker: var(--primary-darker);
+
+  /* Secondary / Brand */
+  --color-secondary: var(--secondary);
+  --color-secondary-soft: var(--secondary-soft);
+  --color-secondary-lighter: var(--secondary-lighter);
+  --color-secondary-darker: var(--secondary-darker);
+  --color-footer-bg: var(--footer-bg);
+  --color-text-secondary: var(--text-secondary);
+  --color-secondary-text: var(--secondary-text);
+
+  /* Feedback Colors */
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-error: var(--error);
+  --color-info: var(--info);
+
+  /* ── Typography Utilities: Headings ── */
+  --text-hero: var(--type-hero-size);
+  --text-hero--line-height: var(--type-hero-leading);
+  --text-hero--letter-spacing: var(--type-hero-tracking);
+  --text-hero--font-weight: var(--type-hero-weight);
+
+  --text-heading-1: var(--type-h1-size);
+  --text-heading-1--line-height: var(--type-h1-leading);
+  --text-heading-1--letter-spacing: var(--type-h1-tracking);
+  --text-heading-1--font-weight: var(--type-h1-weight);
+
+  --text-heading-2: var(--type-h2-size);
+  --text-heading-2--line-height: var(--type-h2-leading);
+  --text-heading-2--letter-spacing: var(--type-h2-tracking);
+  --text-heading-2--font-weight: var(--type-h2-weight);
+
+  --text-heading-3: var(--type-h3-size);
+  --text-heading-3--line-height: var(--type-h3-leading);
+  --text-heading-3--letter-spacing: var(--type-h3-tracking);
+  --text-heading-3--font-weight: var(--type-h3-weight);
+
+  --text-heading-4: var(--type-h4-size);
+  --text-heading-4--line-height: var(--type-h4-leading);
+  --text-heading-4--letter-spacing: var(--type-h4-tracking);
+  --text-heading-4--font-weight: var(--type-h4-weight);
+
+  --text-heading-5: var(--type-h5-size);
+  --text-heading-5--line-height: var(--type-h5-leading);
+  --text-heading-5--letter-spacing: var(--type-h5-tracking);
+  --text-heading-5--font-weight: var(--type-h5-weight);
+
+  /* Heading Shorthands (h1 - h5) */
+  --text-h1: var(--type-h1-size);
+  --text-h1--line-height: var(--type-h1-leading);
+  --text-h1--letter-spacing: var(--type-h1-tracking);
+  --text-h1--font-weight: var(--type-h1-weight);
+
+  --text-h2: var(--type-h2-size);
+  --text-h2--line-height: var(--type-h2-leading);
+  --text-h2--letter-spacing: var(--type-h2-tracking);
+  --text-h2--font-weight: var(--type-h2-weight);
+
+  --text-h3: var(--type-h3-size);
+  --text-h3--line-height: var(--type-h3-leading);
+  --text-h3--letter-spacing: var(--type-h3-tracking);
+  --text-h3--font-weight: var(--type-h3-weight);
+
+  --text-h4: var(--type-h4-size);
+  --text-h4--line-height: var(--type-h4-leading);
+  --text-h4--letter-spacing: var(--type-h4-tracking);
+  --text-h4--font-weight: var(--type-h4-weight);
+
+  --text-h5: var(--type-h5-size);
+  --text-h5--line-height: var(--type-h5-leading);
+  --text-h5--letter-spacing: var(--type-h5-tracking);
+  --text-h5--font-weight: var(--type-h5-weight);
+
+  /* ── Typography Utilities: Body ── */
+  --text-body-2xl: var(--type-body-2xl-size);
+  --text-body-2xl--line-height: var(--type-body-2xl-leading);
+  --text-body-2xl--letter-spacing: var(--type-body-2xl-tracking);
+
+  --text-body-xl: var(--type-body-xl-size);
+  --text-body-xl--line-height: var(--type-body-xl-leading);
+  --text-body-xl--letter-spacing: var(--type-body-xl-tracking);
+
+  --text-body-lg: var(--type-body-lg-size);
+  --text-body-lg--line-height: var(--type-body-lg-leading);
+  --text-body-lg--letter-spacing: var(--type-body-lg-tracking);
+
+  --text-body-md: var(--type-body-md-size);
+  --text-body-md--line-height: var(--type-body-md-leading);
+  --text-body-md--letter-spacing: var(--type-body-md-tracking);
+
+  --text-body-sm: var(--type-body-sm-size);
+  --text-body-sm--line-height: var(--type-body-sm-leading);
+  --text-body-sm--letter-spacing: var(--type-body-sm-tracking);
+
+  /*
+    Tailwind font-sans utility — uses Ubuntu Sans as default font.
+    --font-ubuntu is injected by next/font/google via layout.tsx.
+  */
+  --font-sans: var(--font-ubuntu), sans-serif;
+}
+
+html {
+  --font-body: var(--font-ubuntu), sans-serif;
+}
+
+
+/* ─── Base ──────────────────────────────────────────────────────────────── */
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-body);
+}
+
+/* ─── Layout ─────────────────────────────────────────────────────────────
+   Reusable content wrapper — centers content and caps width at 1140px.
+   Full-bleed sections set their own background, then put
+   <div className="container"> inside for the content.
+──────────────────────────────────────────────────────────────────────── */
+
+.container {
+  width: 100%;
+  max-width: var(--content-width);
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+
+/* ─── Reusable Section Padding Utility ──────────────────────────────────
+   Usage: className="section-padding"
+   Mobile:  40px top (pt-10), 32px bottom (pb-8)
+   Desktop: 52px top (pt-13), 48px bottom (pb-12)
+──────────────────────────────────────────────────────────────────────── */
+
+.section-padding {
+  padding-top: 2.5rem;
+  padding-bottom: 2rem;
+}
+
+@media (min-width: 640px) {
+  .section-padding {
+    padding-top: 3.25rem;
+    padding-bottom: 3rem;
+  }
+}
+
+/* ─── Campaign Progress Utility ────────────────────────────────────────── */
+.progress-bar-64 {
+  width: 64%;
+}
+
+/* ─── Hide Scrollbar Utility ────────────────────────────────────────────── */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
