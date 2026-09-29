@@ -20,6 +20,10 @@ export interface Course {
   duration: string;
   category: string;
   featured?: boolean;
+  commentsCount?: number;
+  enrolledAvatars?: string[];
+  enrolledCountBadge?: string;
+  billingPeriod?: string;
 }
 
 export interface Category {
