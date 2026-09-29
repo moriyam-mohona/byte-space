@@ -26,18 +26,21 @@ Adding a new package requires a formal proposal and justification.
 src/
 │
 ├── app/                         # Next.js routing (App Router)
-│   ├── (marketing)/
-│   │   ├── layout.tsx           # Marketing layout (Navbar + Footer)
-│   │   └── page.tsx             # ByteSpace Landing Page (/)
-│   ├── courses/
-│   │   ├── layout.tsx           # Courses layout (Navbar + Footer)
-│   │   ├── page.tsx             # Course Catalog (/courses)
-│   │   └── [slug]/
-│   │       └── page.tsx         # Course Detail (/courses/[slug])
-│   ├── login/
-│   │   └── page.tsx             # Login Screen (/login)
-│   ├── signup/
-│   │   └── page.tsx             # Signup Screen (/signup)
+│   ├── (site)/                  # Main public website route group
+│   │   ├── layout.tsx           # Shared Site layout
+│   │   ├── page.tsx             # ByteSpace Landing Page (/)
+│   │   ├── courses/
+│   │   │   ├── page.tsx         # Course Catalog (/courses)
+│   │   │   └── [slug]/
+│   │   │       └── page.tsx     # Course Detail (/courses/[slug])
+│   │   └── creators/
+│   │       └── page.tsx         # Creators / Instructors Page (/creators)
+│   ├── (auth)/                  # Authentication route group
+│   │   ├── layout.tsx           # Focused Auth layout
+│   │   ├── login/
+│   │   │   └── page.tsx         # Login Screen (/login)
+│   │   └── signup/
+│   │       └── page.tsx         # Signup Screen (/signup)
 │   ├── design-system/
 │   │   └── page.tsx             # Style Guide & Design System Showcase (/design-system)
 │   ├── layout.tsx               # Root HTML shell layout (Poppins font & metadata)
