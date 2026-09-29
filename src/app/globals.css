@@ -257,6 +257,7 @@
 }
 
 /* ── 03 Layout Grid Utilities ── */
+.container,
 .container-custom {
   width: 100%;
   max-width: var(--content-width);
@@ -267,6 +268,7 @@
 }
 
 @media (min-width: 640px) {
+  .container,
   .container-custom {
     padding-left: 2rem;
     padding-right: 2rem;
@@ -274,6 +276,7 @@
 }
 
 @media (min-width: 1280px) {
+  .container,
   .container-custom {
     padding-left: var(--grid-margin);
     padding-right: var(--grid-margin);

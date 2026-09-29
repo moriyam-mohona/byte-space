@@ -58,7 +58,7 @@ All design tokens are centrally configured in `src/app/globals.css`.
 | **Label XS** | `.text-label-xs` | Satoshi | 12px (`0.750rem`) | 120% (1.2) | Medium (500) |
 
 ### 📐 12-Column Grid & Layout Container
-- **Container**: `.container-custom` (`max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-[120px]`).
+- **Container**: `.container` (`max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-[120px]`).
 - **12-Column Grid**: `.grid-12` (`grid grid-cols-12 gap-5 sm:gap-8 lg:gap-[40px]`).
 
 ---

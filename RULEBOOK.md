@@ -71,7 +71,7 @@
     - `Label XS` (12px / 120%): MUST use `.text-label-xs`
 - **Token Priority**:
   - **MUST** use token utility classes from `globals.css` for colors: `bg-primary`, `text-primary`, `bg-secondary`, `text-neutral-*`, `bg-neutral-*`.
-  - **MUST** use layout tokens: `.container-custom` (1440px max-width, 120px desktop margin), `.grid-12` (12-column grid, 40px desktop gutter).
+  - **MUST** use layout tokens: `.container` (1440px max-width, 120px desktop margin), `.grid-12` (12-column grid, 40px desktop gutter).
 - **Prohibited Styling Practices**:
   - **MUST NOT** use arbitrary bracket values when a token exists (e.g. NEVER `text-[72px]`, `leading-[120%]`, `bg-[#2872ff]`, `max-w-[1440px]`).
   - **MUST NOT** use inline `style={{ }}` attributes on JSX elements.

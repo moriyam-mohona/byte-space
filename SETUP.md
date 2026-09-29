@@ -146,7 +146,7 @@ public/
 - **Secondary (Crimson / Lime)**: `secondary-50` (`#fdffe4`) to `secondary-950` (`#243300`), and `#cbfc01` (`500`)
 
 ### Layout Utilities
-- `.container-custom`: `max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-[120px]`
+- `.container`: `max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-[120px]`
 - `.grid-12`: `grid grid-cols-12 gap-5 sm:gap-8 lg:gap-[40px]`
 
 ---

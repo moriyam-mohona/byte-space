@@ -140,16 +140,24 @@ export default function DesignSystemPage() {
     <div className="min-h-screen bg-white text-neutral-950">
       {/* ─── 01 Colors Frame ─── */}
       <section className="border-b border-neutral-200">
-        <div className="bg-black text-white px-8 sm:px-16 py-4">
-          <div className="flex items-center gap-2">
-            <span className="text-[#38ef7d] font-mono text-sm font-semibold">
-              01
-            </span>
-            <span className="font-heading font-semibold text-lg">Colors</span>
+        <div className="bg-black text-white py-4">
+          <div className="container-custom flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <span className="text-[#38ef7d] font-mono text-sm font-semibold">
+                01
+              </span>
+              <span className="font-heading font-semibold text-lg">Colors</span>
+            </div>
+            <Link
+              href="/"
+              className="text-xs text-neutral-400 hover:text-white transition-colors"
+            >
+              ← Back to App
+            </Link>
           </div>
         </div>
 
-        <div className="max-w-[1200px] mx-auto px-6 sm:px-12 py-16 space-y-12">
+        <div className="container py-16 space-y-12">
           {/* Neutral */}
           <div className="space-y-4">
             <div>
@@ -231,9 +239,9 @@ export default function DesignSystemPage() {
       </section>
 
       {/* ─── 02 Layout Grid Frame ─── */}
-      <section>
-        <div className="bg-black text-white px-8 sm:px-16 py-4">
-          <div className="flex items-center gap-2">
+      <section className="border-b border-neutral-200">
+        <div className="bg-black text-white py-4">
+          <div className="container flex items-center gap-2">
             <span className="text-[#38ef7d] font-mono text-sm font-semibold">
               02
             </span>
@@ -243,7 +251,7 @@ export default function DesignSystemPage() {
           </div>
         </div>
 
-        <div className="max-w-[1440px] mx-auto px-6 sm:px-12 lg:px-[120px] py-16 space-y-6">
+        <div className="container py-16 space-y-6">
           <div>
             <h2 className="font-heading font-bold text-2xl text-neutral-950">
               Style
@@ -272,10 +280,9 @@ export default function DesignSystemPage() {
       </section>
 
       {/* ─── 03 Typography Frame ─── */}
-      <section className="border-b border-neutral-200">
-        {/* Banner */}
-        <div className="bg-black text-white px-8 sm:px-16 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-2">
+      <section>
+        <div className="bg-black text-white py-4">
+          <div className="container flex items-center gap-2">
             <span className="text-[#38ef7d] font-mono text-sm font-semibold">
               03
             </span>
@@ -283,15 +290,9 @@ export default function DesignSystemPage() {
               Typography
             </span>
           </div>
-          <Link
-            href="/"
-            className="text-xs text-neutral-400 hover:text-white transition-colors"
-          >
-            ← Back to App
-          </Link>
         </div>
 
-        <div className="max-w-[1200px] mx-auto px-6 sm:px-12 py-16 space-y-16">
+        <div className="container py-16 space-y-16">
           {/* Header & Font Download Info */}
           <div className="flex flex-col md:flex-row md:items-start justify-between gap-8 pb-8 border-b border-neutral-200">
             <div className="space-y-1">
