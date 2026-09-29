@@ -1,19 +1,18 @@
 import type { Metadata } from "next";
-import { Ubuntu_Sans } from "next/font/google";
+import { Poppins } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./providers";
-import { Header, Footer, BangladeshMapBackground } from "@/shared/components/layout";
 
-const ubuntuSans = Ubuntu_Sans({
+const poppins = Poppins({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
-  variable: "--font-ubuntu",
+  variable: "--font-poppins",
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Byte Space | Non-Profit Humanitarian Foundation",
-  description: "Byte Space non-profit humanitarian foundation in Bangladesh",
+  title: "ByteSpace — Online Learning & Course Marketplace",
+  description: "Learn high-impact skills from top creators and industry leaders on ByteSpace.",
 };
 
 export default function RootLayout({
@@ -24,15 +23,11 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${ubuntuSans.variable} h-full antialiased`}
+      className={`${poppins.variable} h-full antialiased`}
       suppressHydrationWarning
     >
-      <body className="min-h-full flex flex-col font-sans" suppressHydrationWarning>
-        <Providers>
-          <Header />
-          <BangladeshMapBackground opacity={0.8}>{children}</BangladeshMapBackground>
-          <Footer />
-        </Providers>
+      <body className="min-h-full flex flex-col font-sans bg-background text-foreground" suppressHydrationWarning>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );
