@@ -1,0 +1,46 @@
+import { Course } from "@/types/course";
+
+export const COURSES_DATA: Course[] = [
+  {
+    id: "1",
+    slug: "learn-figma-from-basic-to-advanced",
+    title: "Learn Figma from Basic to Advanced UI/UX",
+    description: "Master modern user interface and user experience design in Figma with practical projects.",
+    image: "/images/sample.png",
+    instructor: {
+      name: "PurePearl Studio",
+      avatar: "/images/sample.png",
+      role: "Lead Product Designer",
+    },
+    rating: 4.8,
+    reviewsCount: 128,
+    price: 49,
+    originalPrice: 99,
+    level: "Beginner",
+    lessons: 24,
+    duration: "6 hours 30 mins",
+    category: "Design",
+    featured: true,
+  },
+  {
+    id: "2",
+    slug: "nextjs-fullstack-mastery",
+    title: "Next.js & React Fullstack Engineering",
+    description: "Build scalable web applications with Next.js 16, TypeScript, Server Components, and Tailwind CSS.",
+    image: "/images/sample.png",
+    instructor: {
+      name: "Alex Dev",
+      avatar: "/images/sample.png",
+      role: "Senior Software Engineer",
+    },
+    rating: 4.9,
+    reviewsCount: 256,
+    price: 79,
+    originalPrice: 120,
+    level: "Intermediate",
+    lessons: 36,
+    duration: "12 hours",
+    category: "Development",
+    featured: true,
+  },
+];

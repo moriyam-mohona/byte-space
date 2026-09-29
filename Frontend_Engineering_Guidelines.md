@@ -161,46 +161,89 @@ Before implementation, record:
 
 ## Colors
 
-Extract actual Figma values instead of guessing.
+Extracted directly from the Figma Style Guide:
 
-Example structure:
-
+### Neutral (Black Scale)
 ``` text
-Primary Blue:
-Accent Lime:
-Primary Text:
-Secondary Text:
-Background:
-Border:
-Muted Background:
+White:       #FFFFFF
+Neutral-50:  #f5f5f6
+Neutral-100: #e5e6e8
+Neutral-200: #ced0d3
+Neutral-300: #abaeb5
+Neutral-400: #82868e
+Neutral-500: #666973
+Neutral-600: #585a62
+Neutral-700: #4b4c53
+Neutral-800: #424348
+Neutral-900: #3a3b3f
+Neutral-950: #242528
+```
+
+### Primary (Electric Violet / Blue Scale)
+``` text
+White:       #FFFFFF
+Primary-50:  #e7f6ff
+Primary-100: #d3eeff
+Primary-200: #b0ddff
+Primary-300: #81c5ff
+Primary-400: #4f9dff
+Primary-500: #2872ff
+Primary-600: #0445ff
+Primary-700: #0043ff
+Primary-800: #003be2
+Primary-900: #0b36a4
+Primary-950: #071e5f
+```
+
+### Secondary (Crimson / Lime Scale)
+``` text
+White:         #FFFFFF
+Secondary-50:  #fdffe4
+Secondary-100: #faffc5
+Secondary-200: #f2ff92
+Secondary-300: #e4ff54
+Secondary-400: #d4fb20
+Secondary-500: #cbfc01
+Secondary-600: #8cb400
+Secondary-700: #6a8902
+Secondary-800: #546b09
+Secondary-900: #465a0d
+Secondary-950: #243300
 ```
 
 ## Typography
 
-Record:
-
+### Headings (Poppins SemiBold 600, Line Height: 120%)
 ``` text
-Font family:
-Heading font weight:
-Body font weight:
-Heading sizes:
-Body sizes:
-Button sizes:
-Line heights:
+Heading L:  72px (4.5rem)   | Line Height: 120% (1.2) | SemiBold
+Heading M:  44px (2.75rem)  | Line Height: 120% (1.2) | SemiBold
+Heading S:  36px (2.25rem)  | Line Height: 120% (1.2) | SemiBold
+Heading XS: 20px (1.25rem)  | Line Height: 120% (1.2) | SemiBold
 ```
 
-## Spacing
+### Body (Satoshi Regular 400, Line Height: 160%)
+``` text
+Body L:     18px (1.125rem) | Line Height: 160% (1.6) | Regular
+Body M:     16px (1.000rem) | Line Height: 160% (1.6) | Regular
+Body S:     14px (0.875rem) | Line Height: 160% (1.6) | Regular
+Body XS:    12px (0.750rem) | Line Height: 160% (1.6) | Regular
+```
 
-Identify common spacing patterns:
+### Labels (Satoshi Medium 500, Line Height: 120%)
+``` text
+Label L:    18px (1.125rem) | Line Height: 120% (1.2) | Medium
+Label M:    16px (1.000rem) | Line Height: 120% (1.2) | Medium
+Label S:    14px (0.875rem) | Line Height: 120% (1.2) | Medium
+Label XS:   12px (0.750rem) | Line Height: 120% (1.2) | Medium
+```
+
+## Layout Grid & Spacing
 
 ``` text
-Section padding:
-Container width:
-Card gap:
-Grid gap:
-Navbar height:
-Button height:
-Input height:
+Grid Columns:     12 Columns
+Desktop Margin:   120px
+Desktop Gutter:   40px
+Container Width:  1440px max-width (.container-custom)
 ```
 
 ## Components
@@ -208,16 +251,16 @@ Input height:
 Identify repeated UI:
 
 ``` text
-Button
-Input
-Badge
+Button (Primary, Secondary, Outline, Ghost, Soft)
+Input (Search, Text, Email, Password)
+Badge / Category Pill
 Avatar Group
-Course Card
+Course Card (Image, Meta, Title, Instructor, Rating, Price)
 Course Metadata
-Section Heading
-Navbar
-Footer
-Category Button
+Section Heading (Pill + Heading + Subtitle)
+Navbar (Brand, Nav Links, Actions, Mobile Drawer)
+Footer (Columns, Brand, Copyright)
+Category Card / Button
 Testimonial Card
 ```
 
@@ -225,66 +268,54 @@ Testimonial Card
 
 # 6. Project Architecture
 
-Use an architecture that is simple and maintainable.
-
-Example:
+Use an architecture that is strictly organized, scalable, and maintainable.
 
 ``` text
 src/
-├── app/
-│   ├── page.tsx
+│
+├── app/                         # Next.js routing (App Router)
+│   ├── (marketing)/
+│   │   ├── layout.tsx           # Marketing layout (Navbar + Footer)
+│   │   └── page.tsx             # ByteSpace Landing Page (/)
 │   ├── courses/
-│   │   └── page.tsx
+│   │   ├── layout.tsx           # Courses layout (Navbar + Footer)
+│   │   ├── page.tsx             # Course Catalog (/courses)
+│   │   └── [slug]/
+│   │       └── page.tsx         # Course Detail (/courses/[slug])
 │   ├── login/
-│   │   └── page.tsx
-│   └── signup/
-│       └── page.tsx
+│   │   └── page.tsx             # Login Screen (/login)
+│   ├── signup/
+│   │   └── page.tsx             # Signup Screen (/signup)
+│   ├── design-system/
+│   │   └── page.tsx             # Style Guide & Design System Showcase (/design-system)
+│   ├── layout.tsx               # Root layout (Poppins font & metadata)
+│   ├── globals.css              # Central tokens, typography utilities, grid layout
+│   └── providers.tsx            # Root client provider wrapper
 │
-├── components/
-│   ├── ui/
-│   │   ├── Button.tsx
-│   │   ├── Input.tsx
-│   │   ├── Badge.tsx
-│   │   └── AvatarGroup.tsx
-│   │
-│   ├── layout/
-│   │   ├── Navbar.tsx
-│   │   └── Footer.tsx
-│   │
-│   ├── home/
-│   │   ├── Hero.tsx
-│   │   ├── TrustedCompanies.tsx
-│   │   ├── FeaturedCourses.tsx
-│   │   ├── Categories.tsx
-│   │   ├── GrowthSection.tsx
-│   │   ├── CreatorSection.tsx
-│   │   ├── CreatorCTA.tsx
-│   │   └── Testimonials.tsx
-│   │
-│   ├── courses/
-│   │   ├── CourseCard.tsx
-│   │   ├── CourseGrid.tsx
-│   │   ├── CourseFilters.tsx
-│   │   └── CourseSearch.tsx
-│   │
-│   └── auth/
-│       ├── AuthLayout.tsx
-│       ├── LoginForm.tsx
-│       └── SignupForm.tsx
+├── components/                  # Generic reusable UI
+│   ├── ui/                      # Base primitives (Button, Input, Badge, AvatarGroup)
+│   └── layout/                  # Layout primitives (Navbar, Footer, MobileMenu)
 │
-├── data/
-│   ├── courses.ts
-│   ├── categories.ts
-│   └── testimonials.ts
+├── features/                    # Feature-specific domain code
+│   ├── home/                    # Hero, TrustedLogos, Categories, Growth, CreatorCTA, Testimonials
+│   ├── courses/                 # CourseCard, CourseGrid, CourseFilters, CourseSearch
+│   └── auth/                    # AuthLayout, LoginForm, SignupForm
 │
-├── types/
-│   ├── course.ts
-│   └── common.ts
+├── lib/                         # Utilities / API / helpers
+│   ├── api.ts                   # Fetcher and API client helpers
+│   ├── utils.ts                 # cn class merging utility
+│   └── constants.ts             # Site-wide constants & navigation links
 │
-├── lib/
-│   └── utils.ts
+├── hooks/                       # Reusable React hooks (e.g. useDebounce)
 │
-└── styles/
+├── types/                       # Shared TypeScript type definitions (course.ts, common.ts)
+│
+└── data/                        # Static mock data (courses.ts, categories.ts)
+
+public/
+├── images/                      # Course thumbnails, hero visuals, avatars
+├── icons/                       # SVG icons & vector assets
+└── fonts/                       # Local font assets
 ```
 
 This is a guideline, not a rigid requirement.

@@ -1,159 +1,127 @@
-# byte-space — Frontend Setup
+# SETUP — ByteSpace Frontend
 
-Written against your actual uploaded project: a bare `create-next-app` scaffold — Next.js 16.3.4, React 19.2.8, Tailwind v4, React Compiler on. Nothing else installed yet. Backend and page content/copy are both deferred — this is structure only.
+This document outlines the active setup, dependency baseline, and folder architecture for **ByteSpace**.
 
 ---
 
-## 1. Install dependencies
-
-Same core stack as your other two projects, **minus shadcn** (skipped per your call — you're designing this one yourself):
-
-```bash
-# Server state
-npm install @tanstack/react-query
-npm install -D @tanstack/react-query-devtools
-
-# Client state (light use — filters, menu toggles)
-npm install zustand
-
-# Forms + validation (donation form, contact form, later)
-npm install react-hook-form zod @hookform/resolvers
-
-# HTTP client
-npm install axios
-```
-
-## 2. One config change
-
-Same as your other Next 16 projects — enable Cache Components so `"use cache"`/`cacheLife`/`cacheTag` are available:
-
-```ts
-// next.config.ts
-import type { NextConfig } from "next";
-
-const nextConfig: NextConfig = {
-  reactCompiler: true,
-  cacheComponents: true,
-};
-
-export default nextConfig;
-```
-
-## 3. Font — worth deciding now, not later
-
-Your current `layout.tsx` only loads Geist with the `latin` subset, which doesn't cover Bengali script. Since this site's content is Bangla, swap or add a font with Bengali glyph support before you start building pages — retrofitting fonts after content exists means re-touching every page. `next/font/google` has Bengali-supporting options (e.g. Noto Sans Bengali, Hind Siliguri); pick one when you're ready for design, no action needed today beyond knowing this is pending.
-
-## 4. Folder structure
-
-No section names or copy baked in — just the skeleton, organized the same way as your other two projects (feature-based, thin `app/` routes):
+## 1. Project Directory Structure
 
 ```
 src/
-├── app/
+│
+├── app/                         # Next.js routing (App Router)
 │   ├── (marketing)/
-│   │   ├── page.tsx                    # homepage
-│   │   └── layout.tsx
-│   ├── layout.tsx                      # existing root layout — add <Providers> here
-│   └── providers.tsx                   # new — TanStack QueryClientProvider
+│   │   ├── layout.tsx           # Marketing layout (Navbar + Footer)
+│   │   └── page.tsx             # ByteSpace Landing Page (/)
+│   ├── courses/
+│   │   ├── layout.tsx           # Courses layout (Navbar + Footer)
+│   │   ├── page.tsx             # Course Catalog (/courses)
+│   │   └── [slug]/
+│   │       └── page.tsx         # Course Detail (/courses/[slug])
+│   ├── login/
+│   │   └── page.tsx             # Login Screen (/login)
+│   ├── signup/
+│   │   └── page.tsx             # Signup Screen (/signup)
+│   ├── design-system/
+│   │   └── page.tsx             # Style Guide & Design System Showcase (/design-system)
+│   ├── layout.tsx               # Root layout (Poppins font & metadata)
+│   ├── globals.css              # Central tokens, typography utilities, grid layout
+│   └── providers.tsx            # Root client provider wrapper
 │
-├── features/                           # empty for now — add a folder per section once
-│                                        # scope is locked in (each gets api/, components/, etc.)
+├── components/                  # Generic reusable UI
+│   ├── ui/                      # Base primitives (Button, Input, Badge, AvatarGroup)
+│   └── layout/                  # Layout primitives (Navbar, Footer, MobileMenu)
 │
-├── shared/
-│   ├── components/                     # unstyled primitives — you're designing these
-│   ├── lib/
-│   │   ├── axios.ts                    # placeholder, points at an API URL later
-│   │   └── queryClient.ts
-│   └── utils/
+├── features/                    # Feature-specific domain code
+│   ├── home/                    # Hero, TrustedLogos, Categories, Growth, CreatorCTA, Testimonials
+│   ├── courses/                 # CourseCard, CourseGrid, CourseFilters, CourseSearch
+│   └── auth/                    # AuthLayout, LoginForm, SignupForm
 │
-└── proxy.ts                            # rate limiting / bot protection — matters given expected traffic volume
+├── lib/                         # Utilities / API / helpers
+│   ├── api.ts                   # Fetcher and API client helpers
+│   ├── utils.ts                 # cn class merging utility
+│   └── constants.ts             # Site-wide constants & navigation links
+│
+├── hooks/                       # Reusable React hooks (e.g. useDebounce)
+│
+├── types/                       # Shared TypeScript type definitions (course.ts, common.ts)
+│
+└── data/                        # Static mock data (courses.ts, categories.ts)
+
+public/
+├── images/                      # Course thumbnails, hero visuals, avatars
+├── icons/                       # SVG icons & vector assets
+└── fonts/                       # Local font assets
 ```
 
-## 5. Core setup files
+---
 
-### `src/shared/lib/queryClient.ts`
-```ts
-import { QueryClient } from "@tanstack/react-query";
+## 2. Installed Dependencies
 
-export const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      staleTime: 60 * 1000,
-      retry: 1,
-    },
+Minimal production stack with zero unnecessary bloat:
+
+```json
+{
+  "dependencies": {
+    "clsx": "^2.1.1",
+    "next": "16.3.4",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "tailwind-merge": "^3.6.0"
   },
-});
-```
-
-### `src/app/providers.tsx`
-```tsx
-"use client";
-
-import { QueryClientProvider } from "@tanstack/react-query";
-import { queryClient } from "@/shared/lib/queryClient";
-
-export function Providers({ children }: { children: React.ReactNode }) {
-  return (
-    <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
-  );
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "babel-plugin-react-compiler": "1.0.0",
+    "eslint": "^9",
+    "eslint-config-next": "16.3.4",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  }
 }
 ```
 
-### Update your existing `src/app/layout.tsx`
-Wrap `{children}`, keep everything else as-is for now:
-```tsx
-import { Providers } from "./providers";
-// ...existing font imports stay (swap for Bengali-supporting fonts when ready — see §3)
+---
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
-  return (
-    <html lang="bn" className={/* existing className stays */}>
-      <body className="min-h-full flex flex-col">
-        <Providers>{children}</Providers>
-      </body>
-    </html>
-  );
-}
+## 3. Fonts & Typography Setup
+
+- **Headings**: `Poppins` (Google Font)
+  - Loaded in `src/app/layout.tsx` via `next/font/google`
+  - Variable: `--font-poppins`
+  - Weights: `400`, `500`, `600`, `700`
+- **Body & Labels**: `Satoshi`
+  - Loaded in `src/app/globals.css` via Fontshare CSS
+  - Fallbacks: `-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif`
+  - Variable: `--font-body`
+
+---
+
+## 4. Global Styles & Design Tokens
+
+Configured in `src/app/globals.css`:
+
+### Color System
+- **Neutral (Black scale)**: `50` (`#f5f5f6`) to `950` (`#242528`), and `#FFFFFF`
+- **Primary (Electric Violet / Blue)**: `50` (`#e7f6ff`) to `950` (`#071e5f`), and `#2872ff` (`500`)
+- **Secondary (Crimson / Lime)**: `50` (`#fdffe4`) to `950` (`#243300`), and `#cbfc01` (`500`)
+
+### 12-Column Layout Grid
+- `.container-custom`: Max-width `1440px`, centered with `120px` desktop padding.
+- `.grid-12`: 12-column CSS grid with `40px` desktop gutter.
+
+---
+
+## 5. Key Verification Commands
+
+```bash
+# Run local development server
+npm run dev
+
+# Run TypeScript typecheck
+npx tsc --noEmit
+
+# Run production build validation
+npm run build
 ```
-(`lang="bn"` since content is Bangla — update if the site will be bilingual.)
-
-### `src/shared/lib/axios.ts` (placeholder)
-```ts
-import axios from "axios";
-
-export const api = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_API_URL,
-  timeout: 10_000,
-});
-
-// TODO once backend connects: auth headers if needed, response interceptors
-```
-
-### `src/proxy.ts` (stub — rate limiting logic added once real traffic patterns are known)
-```ts
-import { NextRequest, NextResponse } from "next/server";
-
-export function proxy(request: NextRequest) {
-  // TODO: rate limiting / bot protection once backend and infra are in place
-  return NextResponse.next();
-}
-
-export const config = {
-  matcher: ["/:path*"],
-};
-```
-
-## 6. Caching approach (for when pages exist)
-
-No pages built yet, but keep this in mind as you add them — same Next 16 Cache Components model as your other projects:
-
-- Static/marketing pages (once written): `"use cache"`, `cacheLife("days")` or `"max"` — this content barely changes.
-- Any future large dataset section (once backend defines it): `"use cache"` with a shorter `cacheLife` and a `cacheTag`, same pattern as the storefront's product pages.
-- Never put `"use cache"` directly on a page — cache the data-fetcher function it calls.
-
-## 7. Explicitly deferred
-
-- **Backend**: no API to connect to yet — `axios.ts` and any data fetchers stay placeholders.
-- **Content/copy**: not added per your instruction — folders under `features/` stay empty until scope for each section is confirmed.
-- **Design**: Tailwind only, no component library — you're building `shared/components/` yourself.
-- **Search/large-dataset layer**: once the backend and the actual dataset (referenced in the plan you shared) are defined, this likely needs the same dedicated search-engine approach discussed for high-volume datasets — revisit then.
