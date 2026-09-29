@@ -26,23 +26,23 @@ export function Hero() {
   };
 
   return (
-    <section className="relative w-full bg-primary-700 bg-hero-grid overflow-hidden pt-12 sm:pt-16 lg:pt-20 pb-0">
-      {/* ─── Floating 3D Shapes (Left Side) ─── */}
-      {/* Top-Left Lime Zigzag */}
-      <div className="absolute top-2 -left-8 sm:left-0 lg:left-6 w-28 sm:w-40 lg:w-52 h-auto pointer-events-none select-none z-10 animate-float-slow">
+    <section className="relative w-full bg-primary-700 bg-hero-grid overflow-hidden pt-8 sm:pt-14 lg:pt-16 pb-0">
+      {/* ─── 3D Floating Shapes: Left Side ─── */}
+      {/* Top-Left Lime Zigzag (bleeds partially off the top-left edge) */}
+      <div className="absolute -top-6 sm:-top-8 lg:-top-10 -left-12 sm:-left-10 lg:-left-6 w-36 sm:w-56 lg:w-72 h-auto pointer-events-none select-none z-10 animate-float-slow">
         <Image
           src="/images/hero/lime-zigzag.png"
           alt=""
           width={531}
           height={774}
           priority
-          className="w-full h-auto drop-shadow-lg"
+          className="w-full h-auto drop-shadow-xl"
           aria-hidden="true"
         />
       </div>
 
-      {/* Mid-Left White Small Zigzag */}
-      <div className="absolute top-44 sm:top-56 lg:top-64 left-4 sm:left-12 lg:left-24 w-14 sm:w-20 lg:w-28 h-auto pointer-events-none select-none z-10 animate-float-reverse">
+      {/* Mid-Left White Small Zigzag (tilted floating squiggle) */}
+      <div className="absolute top-52 sm:top-64 lg:top-72 left-4 sm:left-12 lg:left-24 w-16 sm:w-24 lg:w-32 h-auto pointer-events-none select-none z-10 animate-float-reverse rotate-12">
         <Image
           src="/images/hero/whiye-small-zigzag.png"
           alt=""
@@ -54,35 +54,35 @@ export function Hero() {
         />
       </div>
 
-      {/* Bottom-Left White Donut / Torus */}
-      <div className="absolute bottom-8 sm:bottom-14 lg:bottom-20 left-2 sm:left-8 lg:left-16 w-28 sm:w-44 lg:w-60 h-auto pointer-events-none select-none z-10 animate-float-zoom">
+      {/* Bottom-Left White Donut / Torus (BIGGER, tilted ~35deg, right edge close to lime arc) */}
+      <div className="absolute bottom-6 sm:bottom-10 lg:bottom-12 -left-6 sm:left-4 lg:left-14 w-44 sm:w-64 lg:w-[340px] h-auto pointer-events-none select-none z-20 animate-float-zoom rotate-12">
         <Image
           src="/images/hero/white-donut.png"
           alt=""
           width={688}
           height={686}
           priority
-          className="w-full h-auto drop-shadow-xl"
+          className="w-full h-auto drop-shadow-2xl"
           aria-hidden="true"
         />
       </div>
 
-      {/* ─── Floating 3D Shapes (Right Side) ─── */}
-      {/* Top-Right Lime Cylinder */}
-      <div className="absolute top-2 -right-8 sm:right-0 lg:right-4 w-28 sm:w-40 lg:w-52 h-auto pointer-events-none select-none z-10 animate-float-slow">
+      {/* ─── 3D Floating Shapes: Right Side ─── */}
+      {/* Top-Right Lime Cylinder (bleeds partially off the top-right edge) */}
+      <div className="absolute -top-4 sm:-top-6 lg:-top-8 -right-12 sm:-right-8 lg:-right-4 w-36 sm:w-56 lg:w-72 h-auto pointer-events-none select-none z-10 animate-float-slow">
         <Image
           src="/images/hero/lime-cylinder.png"
           alt=""
           width={426}
           height={744}
           priority
-          className="w-full h-auto drop-shadow-lg"
+          className="w-full h-auto drop-shadow-xl"
           aria-hidden="true"
         />
       </div>
 
       {/* Mid-Right White Pyramid */}
-      <div className="absolute top-48 sm:top-60 lg:top-68 right-4 sm:right-12 lg:right-28 w-16 sm:w-24 lg:w-36 h-auto pointer-events-none select-none z-10 animate-float-subtle">
+      <div className="absolute top-56 sm:top-68 lg:top-76 right-4 sm:right-12 lg:right-28 w-20 sm:w-32 lg:w-44 h-auto pointer-events-none select-none z-10 animate-float-subtle">
         <Image
           src="/images/hero/white-pyramid.png"
           alt=""
@@ -94,28 +94,28 @@ export function Hero() {
         />
       </div>
 
-      {/* Bottom-Right White Large Zigzag / Spring Coil */}
-      <div className="absolute bottom-8 sm:bottom-12 lg:bottom-16 right-2 sm:right-8 lg:right-16 w-28 sm:w-40 lg:w-56 h-auto pointer-events-none select-none z-10 animate-float-reverse">
+      {/* Bottom-Right White Large Zigzag / Spring Coil (BIGGER, close to right side of lime arc) */}
+      <div className="absolute bottom-6 sm:bottom-8 lg:bottom-12 -right-6 sm:right-6 lg:right-16 w-40 sm:w-56 lg:w-[300px] h-auto pointer-events-none select-none z-20 animate-float-reverse">
         <Image
           src="/images/hero/white-large-zigzag.png"
           alt=""
           width={633}
           height={664}
           priority
-          className="w-full h-auto drop-shadow-xl"
+          className="w-full h-auto drop-shadow-2xl"
           aria-hidden="true"
         />
       </div>
 
-      {/* ─── Center Hero Content ─── */}
-      <div className="container relative z-20 flex flex-col items-center text-center">
+      {/* ─── Center Hero Content (Headline, Subtitle, Search) ─── */}
+      <div className="container relative z-30 flex flex-col items-center text-center px-4 sm:px-4">
         {/* Main Headline */}
-        <h1 className="text-heading-l text-white font-bold tracking-tight max-w-4xl text-balance leading-tight">
+        <h1 className="text-3xl sm:text-5xl lg:text-heading-xl text-white font-bold tracking-tight max-w-xl leading-[1.15]">
           Get Access to Hundreds Courses Available
         </h1>
 
         {/* Subtitle */}
-        <p className="text-body-l text-white/80 max-w-2xl mt-4 sm:mt-5 leading-relaxed">
+        <p className="text-body-m sm:text-body-l text-white/85 mt-4 sm:mt-5 leading-relaxed">
           Unlock your creativity, gain valuable knowledge, and grow your business
           with our wide range of courses.
         </p>
@@ -123,7 +123,7 @@ export function Hero() {
         {/* Pill Search Bar */}
         <form
           onSubmit={handleSearch}
-          className="mt-8 sm:mt-10 w-full max-w-2xl flex items-center bg-white rounded-full p-2 pl-6 sm:pl-7 shadow-2xl border border-white/20 transition-all focus-within:ring-4 focus-within:ring-white/20"
+          className="mt-6 sm:mt-9 w-full max-w-2xl flex items-center bg-white rounded-full p-1.5 sm:p-2 pl-5 sm:pl-7 shadow-2xl border border-white/20 transition-all focus-within:ring-4 focus-within:ring-white/20"
         >
           {/* Search Lens Icon */}
           <svg
@@ -148,35 +148,35 @@ export function Hero() {
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="Course, topic, creator"
             aria-label="Search for courses, topics, or creators"
-            className="w-full bg-transparent text-neutral-900 placeholder:text-neutral-400 text-body-m focus:outline-hidden px-4"
+            className="w-full bg-transparent text-neutral-900 placeholder:text-neutral-400 text-body-m sm:text-body-l focus:outline-hidden px-3 sm:px-4"
           />
 
           {/* Search Button */}
           <button
             type="submit"
-            className="shrink-0 px-7 sm:px-8 py-3 sm:py-3.5 rounded-full bg-secondary text-neutral-950 text-label-m font-semibold hover:bg-secondary-400 active:scale-95 transition-all shadow-xs cursor-pointer"
+            className="shrink-0 px-6 sm:px-8 py-2.5 sm:py-3.5 rounded-full bg-secondary text-neutral-950 text-label-s sm:text-label-m font-semibold hover:bg-secondary-400 active:scale-95 transition-all shadow-xs cursor-pointer"
           >
             Search
           </button>
         </form>
       </div>
 
-      {/* ─── Hero Stage: Lime Arc, Student & 3 Floating Cards ─── */}
-      <div className="relative mt-8 sm:mt-12 lg:mt-14 max-w-5xl mx-auto flex justify-center items-end px-4">
-        {/* Lime Background Crescent Arc */}
-        <div className="relative w-full max-w-4xl flex justify-center items-end">
+      {/* ─── Hero Stage: Giant Lime Arc, Student & 3 Floating Cards ─── */}
+      <div className="relative mt-6 sm:mt-10 lg:mt-12 w-full max-w-[1240px] mx-auto flex justify-center items-end px-2 sm:px-6">
+        {/* Lime Background Crescent Arc (Scaled up to 1150px max width) */}
+        <div className="relative w-full max-w-[1150px] flex justify-center items-end">
           <Image
             src="/images/hero/lime-arc.svg"
             alt=""
             width={1149}
             height={442}
             priority
-            className="w-full h-auto object-contain pointer-events-none select-none"
+            className="w-full h-auto object-contain pointer-events-none select-none translate-y-1"
             aria-hidden="true"
           />
 
-          {/* Central Student with Laptop */}
-          <div className="absolute bottom-0 w-3/4 sm:w-2/3 max-w-[620px] flex justify-center items-end z-10 pointer-events-none select-none">
+          {/* Central Student with Laptop (Grounded at bottom, head reaching above the arc) */}
+          <div className="absolute bottom-0 w-[82%] sm:w-[70%] max-w-[700px] flex justify-center items-end z-10 pointer-events-none select-none">
             <Image
               src="/images/hero/laptop-guy.png"
               alt="Student smiling with headphones and laptop learning on ByteSpace"
@@ -187,9 +187,9 @@ export function Hero() {
             />
           </div>
 
-          {/* ── Floating Card 1: UI/UX Design (Top-Left of Student) ── */}
-          <div className="absolute top-8 sm:top-14 lg:top-20 left-2 sm:left-10 lg:left-14 z-20 animate-float-subtle">
-            <div className="bg-white rounded-2xl p-4 sm:p-5 shadow-2xl border border-neutral-100/80 flex flex-col gap-1 min-w-[170px] sm:min-w-[210px] text-left">
+          {/* ── Floating Card 1: UI/UX Design (Left of student's ear, partly on lime arc) ── */}
+          <div className="absolute top-[8%] sm:top-[12%] lg:top-[15%] left-[2%] sm:left-[8%] lg:left-[14%] z-20 animate-float-subtle origin-left scale-[0.65] sm:scale-[0.85] lg:scale-100">
+            <div className="bg-white rounded-2xl p-3.5 sm:p-5 shadow-2xl border border-neutral-100 flex flex-col gap-1 min-w-[170px] sm:min-w-[210px] text-left">
               <h4 className="text-label-m font-bold text-neutral-950">
                 UI/UX Design
               </h4>
@@ -199,9 +199,9 @@ export function Hero() {
             </div>
           </div>
 
-          {/* ── Floating Card 2: Learning Progress (Right of Student) ── */}
-          <div className="absolute top-12 sm:top-20 lg:top-24 right-2 sm:right-8 lg:right-14 z-20 animate-float-slow">
-            <div className="bg-white rounded-2xl p-4 sm:p-5 shadow-2xl border border-neutral-100/80 flex flex-col gap-2 min-w-[180px] sm:min-w-[220px] text-left">
+          {/* ── Floating Card 2: Learning Progress (Right of student's head, on lime arc) ── */}
+          <div className="absolute top-[12%] sm:top-[16%] lg:top-[18%] right-[2%] sm:right-[6%] lg:right-[12%] z-20 animate-float-slow origin-right scale-[0.65] sm:scale-[0.85] lg:scale-100">
+            <div className="bg-white rounded-2xl p-3.5 sm:p-5 shadow-2xl border border-neutral-100 flex flex-col gap-1.5 sm:gap-2 min-w-[175px] sm:min-w-[220px] text-left">
               <span className="text-label-xs text-neutral-600 font-medium">
                 Learning Progress
               </span>
@@ -209,7 +209,7 @@ export function Hero() {
                 55%
               </span>
               {/* Progress Bar track and fill */}
-              <div className="w-full bg-neutral-200 h-2.5 rounded-full overflow-hidden mt-1">
+              <div className="w-full bg-neutral-200 h-2 sm:h-2.5 rounded-full overflow-hidden mt-1">
                 <div
                   className="bg-secondary h-full rounded-full transition-all duration-1000 w-[55%]"
                   role="progressbar"
@@ -221,9 +221,9 @@ export function Hero() {
             </div>
           </div>
 
-          {/* ── Floating Card 3: Happy Students (Bottom-Left of Student) ── */}
-          <div className="absolute bottom-4 sm:bottom-8 lg:bottom-12 left-4 sm:left-12 lg:left-20 z-20 animate-float-reverse">
-            <div className="bg-white rounded-2xl p-4 sm:p-5 shadow-2xl border border-neutral-100/80 flex flex-col gap-2.5 min-w-[210px] sm:min-w-[240px] text-left">
+          {/* ── Floating Card 3: Happy Students (Bottom-Left of student, overlapping arc border) ── */}
+          <div className="absolute bottom-[6%] sm:bottom-[10%] lg:bottom-[14%] left-[4%] sm:left-[10%] lg:left-[16%] z-20 animate-float-reverse origin-bottom-left scale-[0.65] sm:scale-[0.85] lg:scale-100">
+            <div className="bg-white rounded-2xl p-3.5 sm:p-5 shadow-2xl border border-neutral-100 flex flex-col gap-2 min-w-[200px] sm:min-w-[240px] text-left">
               <div className="flex items-center justify-between gap-3">
                 <h4 className="text-label-m font-bold text-neutral-950">
                   Happy Students
@@ -237,7 +237,7 @@ export function Hero() {
               <AvatarGroup
                 avatars={STUDENT_AVATARS}
                 badgeText="2K+"
-                size={30}
+                size={28}
               />
             </div>
           </div>
