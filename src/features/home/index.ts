@@ -1,2 +1,1 @@
-// Feature module for Home landing page
-export {};
+export { Hero } from "./Hero";
