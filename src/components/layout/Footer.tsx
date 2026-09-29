@@ -65,6 +65,7 @@ export function Footer() {
                 type="email"
                 placeholder="Enter your email"
                 aria-label="Email address for newsletter"
+                suppressHydrationWarning
                 className="flex-1 px-5 py-3 rounded-full border border-neutral-300 text-body-m placeholder:text-neutral-400 focus:outline-none transition-colors"
               />
               <button
