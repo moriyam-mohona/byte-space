@@ -1,162 +1,188 @@
-# GUIDELINE — ByteSpace
+# GUIDELINE — ByteSpace Engineering Playbook
 
-> **Recommendations, patterns, and rationale.**
-> These are the preferred practices and engineering guidelines for the ByteSpace project.
-> When in doubt, follow these.
-
----
-
-## 1. Project Context
-
-**ByteSpace** is an online learning & course marketplace frontend.
-The platform enables students to discover courses, learn from top creators, and upgrade their careers.
-The design is hand-built with Next.js 16 (App Router), React 19, TypeScript, and Tailwind CSS v4, with centralized tokens in `src/app/globals.css`.
-
-Key traits:
-- **Typography System**: `Poppins` for bold, impactful headings; `Satoshi` for body copy and UI labels.
-- **Brand Identity**: Electric Violet / Blue primary palette paired with high-contrast Crimson / Lime neon accents and crisp Neutral black/gray tones.
-- **12-Column Responsive Grid**: Standardized 12-column layout with 120px margins and 40px gutters on desktop.
-- **Server Components by Default**: Zero unnecessary client-side JavaScript bundle; `"use client"` is reserved for interactive filters, modals, and navigation drawers.
-- **Clean Component Architecture**: Reusable UI primitives in `src/components/ui/` and domain feature modules in `src/features/`.
+> **Methodology, Implementation Workflow & Architectural Patterns**
+> This playbook provides the detailed reasoning, execution steps, and engineering practices for building ByteSpace.
 
 ---
 
-## 2. Page & Routing Architecture
+## 1. Project Engineering Objective & Reviewer Expectations
 
-Routes reside inside `src/app/`:
-- `src/app/(marketing)/page.tsx` — Landing page (Hero, Trusted Logos, Featured Courses, Categories, Growth, Creators, CTA, Testimonials).
-- `src/app/courses/page.tsx` — Course catalog with multi-criteria filtering and search.
-- `src/app/courses/[slug]/page.tsx` — Detailed course overview & syllabus.
-- `src/app/login/page.tsx` & `src/app/signup/page.tsx` — Authentication screens.
-- `src/app/design-system/page.tsx` — Design system token and typography verification showcase.
+### Objective
+ByteSpace is an online learning and course marketplace frontend built to production standards. The goal is to translate the Figma visual design into a high-performance, pixel-accurate, responsive, and accessible Next.js web application with maintainable TypeScript code.
 
-Keep page components thin — compose them from focused feature components and UI primitives.
+### Target Reviewer Impression
+> *"This engineer understands design systems, translates Figma specifications accurately into Next.js/React/TypeScript, structures components cleanly with minimal dependencies, handles responsive states gracefully, and writes code that any senior engineer can maintain."*
 
 ---
 
-## 3. Project Folder Structure
+## 2. Figma as Visual Source of Truth
 
-```
-src/
-│
-├── app/                         # Next.js routing (App Router)
-│   ├── (site)/                  # Main public website route group
-│   │   ├── layout.tsx           # Shared Site layout
-│   │   ├── page.tsx             # ByteSpace Landing Page (/)
-│   │   ├── courses/
-│   │   │   ├── page.tsx         # Course Catalog (/courses)
-│   │   │   └── [slug]/
-│   │   │       └── page.tsx     # Course Detail (/courses/[slug])
-│   │   └── creators/
-│   │       └── page.tsx         # Creators / Instructors Page (/creators)
-│   ├── (auth)/                  # Authentication route group
-│   │   ├── layout.tsx           # Focused Auth layout
-│   │   ├── login/
-│   │   │   └── page.tsx         # Login Screen (/login)
-│   │   └── signup/
-│   │       └── page.tsx         # Signup Screen (/signup)
-│   ├── design-system/
-│   │   └── page.tsx             # Style Guide & Design System Showcase (/design-system)
-│   ├── layout.tsx               # Root layout (Poppins font & metadata)
-│   ├── globals.css              # Central tokens, typography utilities, grid layout
-│   └── providers.tsx            # Root client provider wrapper
-│
-├── components/                  # Generic reusable UI
-│   ├── ui/                      # Base primitives (Button, Input, Badge, AvatarGroup)
-│   └── layout/                  # Layout primitives (Navbar, Footer, MobileMenu)
-│
-├── features/                    # Feature-specific domain code
-│   ├── home/                    # Hero, TrustedLogos, Categories, Growth, CreatorCTA, Testimonials
-│   ├── courses/                 # CourseCard, CourseGrid, CourseFilters, CourseSearch
-│   └── auth/                    # AuthLayout, LoginForm, SignupForm
-│
-├── lib/                         # Utilities / API / helpers
-│   ├── api.ts                   # Fetcher and API client helpers
-│   ├── utils.ts                 # cn class merging utility
-│   └── constants.ts             # Site-wide constants & navigation links
-│
-├── hooks/                       # Reusable React hooks (e.g. useDebounce)
-│
-├── types/                       # Shared TypeScript type definitions (course.ts, common.ts)
-│
-└── data/                        # Static mock data (courses.ts, categories.ts)
+The Figma design is the authoritative visual specification. Never guess or approximate visual properties from memory.
 
-public/
-├── images/                      # Course thumbnails, hero visuals, avatars
-├── icons/                       # SVG icons & vector assets
-└── fonts/                       # Local font assets
-```
+### Visual Properties to Compare:
+- **Typography**: Font family, font weight, font size, line height, letter spacing
+- **Colors & Tokens**: Background fills, borders, badge tints, text contrast
+- **Spacing Rhythm**: Section padding, container widths, card inner padding, flex/grid gaps
+- **Components**: Card structures, image aspect ratios, avatar stacks, button variants
+- **Responsive Behavior**: Mobile column collapse, hamburger drawer, search bar reflow
 
 ---
 
-## 4. Section Layout & 12-Column Grid
+## 3. Design System & Token Inventory
 
-Every page section follows the full-bleed background + 12-column constrained container pattern:
+All design tokens are centrally configured in `src/app/globals.css`.
 
-```tsx
-<section className="py-16 lg:py-24 bg-surface">
-  <div className="container-custom">
-    {/* 12-Column Grid or Flex layout */}
-    <div className="grid-12">
-      <div className="col-span-12 lg:col-span-6">
-        {/* Left Column Content */}
-      </div>
-      <div className="col-span-12 lg:col-span-6">
-        {/* Right Column Content */}
-      </div>
-    </div>
-  </div>
-</section>
-```
+### 🎨 Color System
 
-- **Container**: Use `.container-custom` (`max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-[120px]`).
-- **Grid**: Use `.grid-12` (`grid grid-cols-12 gap-5 sm:gap-8 lg:gap-[40px]`).
+| Palette Scale | Tokens / Classes | Hex Range | Applied Usage |
+|---|---|---|---|
+| **Neutral (Black Scale)** | `neutral-50` ... `neutral-950`, `white` | `#f5f5f6` → `#242528` (`#FFFFFF`) | Base backgrounds, card surfaces, borders, body text, dark footer |
+| **Primary (Electric Violet)** | `primary-50` ... `primary-950`, `primary` | `#e7f6ff` → `#071e5f` (`#2872ff`) | Main CTA buttons, active navigation, brand badges, key accents |
+| **Secondary (Crimson / Lime)** | `secondary-50` ... `secondary-950`, `secondary` | `#fdffe4` → `#243300` (`#cbfc01`) | High-contrast highlight badges, callout tags, accent markers |
 
----
+### 🔤 Typography Hierarchy
 
-## 5. Design Tokens & Styling Priority
-
-### 🚨 Design Token Priority Rule
-1. **Always use tokens and utility classes from `globals.css` FIRST:**
-   - **Colors**: Use semantic tokens (`bg-primary`, `bg-secondary`, `bg-surface`, `border-border`, `text-neutral-950`, `text-neutral-500`, etc.).
-   - **Typography**: Use standardized classes (`text-heading-l`, `text-heading-m`, `text-heading-s`, `text-heading-xs`, `text-body-l`, `text-body-m`, `text-body-s`, `text-body-xs`, `text-label-l`, `text-label-m`, `text-label-s`, `text-label-xs`).
-2. **Never use arbitrary bracket values** when a token exists (e.g. avoid `bg-[#2872ff]` — use `bg-primary` or `bg-primary-500`).
-3. **No inline `style={{ }}`** attributes unless dynamically computed (e.g., progress bar percentages).
-
----
-
-## 6. Token Reference Guide
-
-### 🎨 Color Palette
-
-| Scale | Swatches | Purpose / Usage |
-|---|---|---|
-| **Neutral (Black Scale)** | `50` (`#f5f5f6`) → `950` (`#242528`), `#FFFFFF` | Backgrounds, surfaces, borders, text contrast, secondary icons |
-| **Primary (Electric Violet)** | `50` (`#e7f6ff`) → `950` (`#071e5f`), `#2872ff` (`500`) | Primary CTA buttons, brand badges, active links, accents |
-| **Secondary (Crimson / Lime)** | `50` (`#fdffe4`) → `950` (`#243300`), `#cbfc01` (`500`) | Highlight callouts, attention badges, high-contrast markers |
-
-### 🔤 Typography Scale
-
-| Token Class | Font Family | Size | Line Height | Weight | Usage |
+| Level | Utility Class | Font Family | Size | Line Height | Weight |
 |---|---|---|---|---|---|
-| `.text-heading-l` | Poppins | 72px (`4.5rem`) | 120% (1.2) | SemiBold (600) | Hero display headlines |
-| `.text-heading-m` | Poppins | 44px (`2.75rem`) | 120% (1.2) | SemiBold (600) | Major section headings |
-| `.text-heading-s` | Poppins | 36px (`2.25rem`) | 120% (1.2) | SemiBold (600) | Subsection headings & modal titles |
-| `.text-heading-xs` | Poppins | 20px (`1.25rem`) | 120% (1.2) | SemiBold (600) | Card headings, feature titles |
-| `.text-body-l` | Satoshi | 18px (`1.125rem`) | 160% (1.6) | Regular (400) | Lead body text, hero descriptions |
-| `.text-body-m` | Satoshi | 16px (`1.000rem`) | 160% (1.6) | Regular (400) | Default body copy, paragraphs |
-| `.text-body-s` | Satoshi | 14px (`0.875rem`) | 160% (1.6) | Regular (400) | Secondary text, course descriptions |
-| `.text-body-xs` | Satoshi | 12px (`0.750rem`) | 160% (1.6) | Regular (400) | Small metadata, helper text |
-| `.text-label-l` | Satoshi | 18px (`1.125rem`) | 120% (1.2) | Medium (500) | Large button labels |
-| `.text-label-m` | Satoshi | 16px (`1.000rem`) | 120% (1.2) | Medium (500) | Primary button labels, input labels |
-| `.text-label-s` | Satoshi | 14px (`0.875rem`) | 120% (1.2) | Medium (500) | Badges, filter chips, navigation links |
-| `.text-label-xs` | Satoshi | 12px (`0.750rem`) | 120% (1.2) | Medium (500) | Micro tags, timestamp indicators |
+| **Heading L** | `.text-heading-l` | Poppins | 72px (`4.5rem`) | 120% (1.2) | SemiBold (600) |
+| **Heading M** | `.text-heading-m` | Poppins | 44px (`2.75rem`) | 120% (1.2) | SemiBold (600) |
+| **Heading S** | `.text-heading-s` | Poppins | 36px (`2.25rem`) | 120% (1.2) | SemiBold (600) |
+| **Heading XS** | `.text-heading-xs` | Poppins | 20px (`1.25rem`) | 120% (1.2) | SemiBold (600) |
+| **Body L** | `.text-body-l` | Satoshi | 18px (`1.125rem`) | 160% (1.6) | Regular (400) |
+| **Body M** | `.text-body-m` | Satoshi | 16px (`1.000rem`) | 160% (1.6) | Regular (400) |
+| **Body S** | `.text-body-s` | Satoshi | 14px (`0.875rem`) | 160% (1.6) | Regular (400) |
+| **Body XS** | `.text-body-xs` | Satoshi | 12px (`0.750rem`) | 160% (1.6) | Regular (400) |
+| **Label L** | `.text-label-l` | Satoshi | 18px (`1.125rem`) | 120% (1.2) | Medium (500) |
+| **Label M** | `.text-label-m` | Satoshi | 16px (`1.000rem`) | 120% (1.2) | Medium (500) |
+| **Label S** | `.text-label-s` | Satoshi | 14px (`0.875rem`) | 120% (1.2) | Medium (500) |
+| **Label XS** | `.text-label-xs` | Satoshi | 12px (`0.750rem`) | 120% (1.2) | Medium (500) |
+
+### 📐 12-Column Grid & Layout Container
+- **Container**: `.container-custom` (`max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-[120px]`).
+- **12-Column Grid**: `.grid-12` (`grid grid-cols-12 gap-5 sm:gap-8 lg:gap-[40px]`).
 
 ---
 
-## 7. Accessibility & Best Practices
+## 4. Component Design & Abstraction Strategy
 
-- Every interactive button and link must have clear keyboard focus styles and hover feedback.
-- Use semantic HTML (`<header>`, `<nav>`, `<main>`, `<section>`, `<article>`, `<footer>`).
-- Images must use `next/image` with explicit `width`, `height`, and descriptive `alt` text.
-- Form inputs must have connected `<label>` elements.
+### Rule 1: Build Around Clear Responsibilities
+- `CourseCard`: Renders course thumbnail, level badge, title, instructor info, rating score, and price.
+- `CourseGrid`: Renders a responsive 1-to-3 column grid container for courses.
+- `CourseFilters`: Handles category, price, and level filter state.
+- `CourseSearch`: Handles debounced search input.
+
+### Rule 2: When to Abstract vs. When Not to Abstract
+- **Abstract when**:
+  - A UI element is repeated $\ge 2$ times (e.g. `Button`, `Badge`, `CourseCard`).
+  - A component encapsulates distinct behavior (e.g. `Navbar` mobile drawer, `useDebounce`).
+  - It makes parent components cleaner and easier to read.
+- **Do NOT abstract when**:
+  - It is a single-use `<div>` layout wrapper.
+  - The abstraction hides standard Tailwind classes without providing real reuse.
+
+---
+
+## 5. Data-Driven UI Architecture
+
+All repeated UI is driven by typed data structures located in `src/data/` and typed via `src/types/`.
+
+### Course Model Example (`src/types/course.ts`):
+```ts
+export type CourseLevel = "Beginner" | "Intermediate" | "Advanced";
+
+export interface Course {
+  id: string;
+  slug: string;
+  title: string;
+  description: string;
+  image: string;
+  instructor: {
+    name: string;
+    avatar: string;
+    role: string;
+  };
+  rating: number;
+  reviewsCount: number;
+  price: number;
+  originalPrice?: number;
+  level: CourseLevel;
+  lessons: number;
+  duration: string;
+  category: string;
+  featured?: boolean;
+}
+```
+
+---
+
+## 6. Next.js Server & Client Component Strategy
+
+- **Server Components (Default)**:
+  - `src/app/(site)/page.tsx`
+  - `src/app/(site)/courses/page.tsx`
+  - `src/app/(site)/courses/[slug]/page.tsx`
+  - `src/components/layout/Footer.tsx`
+  - Static marketing sections (Hero layout, Trusted Logos, Categories grid)
+- **Client Components (`"use client"`)**:
+  - `Navbar.tsx` (Mobile menu toggle state, pathname active link detection)
+  - `CourseSearch.tsx` (Interactive search input + debounced state)
+  - `CourseFilters.tsx` (Interactive category filter buttons and checkboxes)
+  - Interactive auth forms
+
+---
+
+## 7. Responsive Design Strategy
+
+The application must be fully responsive across all device breakpoints:
+
+| Viewport | Breakpoint | Layout Behavior |
+|---|---|---|
+| **Mobile** | `< 640px` | Single column grid (`grid-cols-1`), mobile navigation drawer, stacked hero elements, full-width inputs. |
+| **Tablet** | `640px - 1023px` | 2-column course grid (`md:grid-cols-2`), compact header spacing, 2-column feature blocks. |
+| **Desktop** | `1024px - 1279px` | 3-column course grid (`lg:grid-cols-3`), full desktop navigation links, visible action buttons. |
+| **Large Desktop** | `≥ 1280px` | Constrained at 1440px with 120px margins (`.container-custom`) and 40px gutters (`.grid-12`). |
+
+---
+
+## 8. Dynamic UI States (Loading, Empty, Error)
+
+When rendering dynamic or filter-driven views, always provide clean feedback states:
+1. **Loading State**: Render skeleton placeholders (`<CourseCardSkeleton />`) that match the exact shape of content.
+2. **Success State**: Render the populated course grid.
+3. **Empty State**: Display an informative empty message with a "Clear Filters" or "Reset Search" action when no results match.
+4. **Error State**: Render a friendly error recovery prompt.
+
+---
+
+## 9. Phased Implementation & Comparison Workflow
+
+For every milestone:
+1. **Plan**: Define components, props, data requirements, and tokens needed.
+2. **Implement**: Build the section using data-driven Server Components and minimal Client Components.
+3. **Inspect**: Run dev server (`npm run dev`) and test responsive viewports.
+4. **Compare**: Measure against Figma (typography, colors, borders, spacing, alignment).
+5. **Correct**: Fix any visual or functional discrepancies.
+6. **Refactor**: Clean up class names, simplify logic, ensure strict TypeScript types.
+7. **Commit**: Save clean, descriptive Git commit (`type: description`).
+
+---
+
+## 10. AI-Assisted Development Workflow
+
+When developing with AI assistance:
+- **Never blindly paste generated code**: Always review prop contracts, accessibility attributes, and styling tokens.
+- **Enforce Token Usage**: Ensure the AI uses tokens from `globals.css` instead of inventing arbitrary values (`[#...]`).
+- **Validate Locally**: Always run `npx tsc --noEmit` and `next build` to guarantee error-free compilation.
+
+---
+
+## 11. Final Definition of Done
+
+A page, section, or feature is **DONE** only when:
+- [ ] Matches the Figma visual design with pixel accuracy.
+- [ ] Responsive across Mobile, Tablet, Desktop, and Large Desktop.
+- [ ] Zero TypeScript errors (`npx tsc --noEmit`).
+- [ ] Production build succeeds without errors or warnings (`next build`).
+- [ ] Semantic HTML and proper keyboard accessibility in place.
+- [ ] No arbitrary bracket classes or inline styles.
+- [ ] Images optimized via `next/image` with localized alt text.

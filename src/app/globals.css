@@ -60,6 +60,58 @@
   --color-secondary-900: #465a0d;
   --color-secondary-950: #243300;
   --secondary: #cbfc01;
+
+  /* ── 02 Typography Tokens (Figma Exact) ── */
+  /* Headings: Poppins SemiBold (600), Line height 120% */
+  --type-heading-l-size: 72px;
+  --type-heading-l-leading: 1.2;
+  --type-heading-l-weight: 600;
+
+  --type-heading-m-size: 44px;
+  --type-heading-m-leading: 1.2;
+  --type-heading-m-weight: 600;
+
+  --type-heading-s-size: 36px;
+  --type-heading-s-leading: 1.2;
+  --type-heading-s-weight: 600;
+
+  --type-heading-xs-size: 20px;
+  --type-heading-xs-leading: 1.2;
+  --type-heading-xs-weight: 600;
+
+  /* Body: Satoshi Regular (400), Line height 160% */
+  --type-body-l-size: 18px;
+  --type-body-l-leading: 1.6;
+  --type-body-l-weight: 400;
+
+  --type-body-m-size: 16px;
+  --type-body-m-leading: 1.6;
+  --type-body-m-weight: 400;
+
+  --type-body-s-size: 14px;
+  --type-body-s-leading: 1.6;
+  --type-body-s-weight: 400;
+
+  --type-body-xs-size: 12px;
+  --type-body-xs-leading: 1.6;
+  --type-body-xs-weight: 400;
+
+  /* Labels: Satoshi Medium (500), Line height 120% */
+  --type-label-l-size: 18px;
+  --type-label-l-leading: 1.2;
+  --type-label-l-weight: 500;
+
+  --type-label-m-size: 16px;
+  --type-label-m-leading: 1.2;
+  --type-label-m-weight: 500;
+
+  --type-label-s-size: 14px;
+  --type-label-s-leading: 1.2;
+  --type-label-s-weight: 500;
+
+  --type-label-xs-size: 12px;
+  --type-label-xs-leading: 1.2;
+  --type-label-xs-weight: 500;
 }
 
 @theme inline {
@@ -115,92 +167,96 @@
   --color-secondary: var(--secondary);
 }
 
-/* ── Typography Utilities ── */
+/* ── 02 Typography Utilities ── */
+
+/* Headings (Poppins SemiBold, Line Height: 120%) */
 .text-heading-l {
   font-family: var(--font-heading);
-  font-size: 72px;
-  line-height: 1.2;
-  font-weight: 600;
+  font-size: var(--type-heading-l-size);
+  line-height: var(--type-heading-l-leading);
+  font-weight: var(--type-heading-l-weight);
 }
 
 .text-heading-m {
   font-family: var(--font-heading);
-  font-size: 44px;
-  line-height: 1.2;
-  font-weight: 600;
+  font-size: var(--type-heading-m-size);
+  line-height: var(--type-heading-m-leading);
+  font-weight: var(--type-heading-m-weight);
 }
 
 .text-heading-s {
   font-family: var(--font-heading);
-  font-size: 36px;
-  line-height: 1.2;
-  font-weight: 600;
+  font-size: var(--type-heading-s-size);
+  line-height: var(--type-heading-s-leading);
+  font-weight: var(--type-heading-s-weight);
 }
 
 .text-heading-xs {
   font-family: var(--font-heading);
-  font-size: 20px;
-  line-height: 1.2;
-  font-weight: 600;
+  font-size: var(--type-heading-xs-size);
+  line-height: var(--type-heading-xs-leading);
+  font-weight: var(--type-heading-xs-weight);
 }
 
+/* Body (Satoshi Regular, Line Height: 160%) */
 .text-body-l {
   font-family: var(--font-body);
-  font-size: 18px;
-  line-height: 1.6;
-  font-weight: 400;
+  font-size: var(--type-body-l-size);
+  line-height: var(--type-body-l-leading);
+  font-weight: var(--type-body-l-weight);
 }
 
 .text-body-m {
   font-family: var(--font-body);
-  font-size: 16px;
-  line-height: 1.6;
-  font-weight: 400;
+  font-size: var(--type-body-m-size);
+  line-height: var(--type-body-m-leading);
+  font-weight: var(--type-body-m-weight);
 }
 
 .text-body-s {
   font-family: var(--font-body);
-  font-size: 14px;
-  line-height: 1.6;
-  font-weight: 400;
+  font-size: var(--type-body-s-size);
+  line-height: var(--type-body-s-leading);
+  font-weight: var(--type-body-s-weight);
 }
 
 .text-body-xs {
   font-family: var(--font-body);
-  font-size: 12px;
-  line-height: 1.6;
-  font-weight: 400;
+  font-size: var(--type-body-xs-size);
+  line-height: var(--type-body-xs-leading);
+  font-weight: var(--type-body-xs-weight);
 }
 
+/* Labels (Satoshi Medium, Line Height: 120%) */
 .text-label-l {
   font-family: var(--font-body);
-  font-size: 18px;
-  line-height: 1.2;
-  font-weight: 500;
+  font-size: var(--type-label-l-size);
+  line-height: var(--type-label-l-leading);
+  font-weight: var(--type-label-l-weight);
 }
 
 .text-label-m {
   font-family: var(--font-body);
-  font-size: 16px;
-  line-height: 1.2;
-  font-weight: 500;
+  font-size: var(--type-label-m-size);
+  line-height: var(--type-label-m-leading);
+  font-weight: var(--type-label-m-weight);
 }
 
 .text-label-s {
   font-family: var(--font-body);
-  font-size: 14px;
-  line-height: 1.2;
-  font-weight: 500;
+  font-size: var(--type-label-s-size);
+  line-height: var(--type-label-s-leading);
+  font-weight: var(--type-label-s-weight);
 }
 
 .text-label-xs {
   font-family: var(--font-body);
-  font-size: 12px;
-  line-height: 1.2;
-  font-weight: 500;
+  font-size: var(--type-label-xs-size);
+  line-height: var(--type-label-xs-leading);
+  font-weight: var(--type-label-xs-weight);
 }
 
-/* ── Layout Grid Utilities ── */
+/* ── 03 Layout Grid Utilities ── */
 .container-custom {
   width: 100%;
   max-width: var(--content-width);

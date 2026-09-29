@@ -1,113 +1,125 @@
 # RULEBOOK — ByteSpace
 
-> **Hard rules. No exceptions without an explicit architectural decision recorded here.**
-> Applies to every engineer working in this repository.
+> **Hard Rules & Non-Negotiable Standards**
+> This document defines the strict, enforceable rules for the ByteSpace frontend repository.
+> Every human engineer and AI coding assistant MUST follow these rules without exception.
 
 ---
 
-## 1. Tech Stack — use only what is installed
+## 1. Tech Stack & Dependency Rules
 
-| Need | Tool | Do NOT use |
-|---|---|---|
-| Framework | Next.js 16 (App Router) + React 19 | Pages router, Vite, CRA |
-| Language | TypeScript (Strict mode) | JavaScript, loose typing (`any`) |
-| Styling | Tailwind CSS v4 + Design tokens in `globals.css` | `styled-components`, `emotion`, `CSS Modules`, arbitrary `[#...]`, inline styles |
-| Component Library | **Hand-built only** | shadcn, MUI, Chakra, Radix (direct), Mantine |
-| Class Merging | `clsx` + `tailwind-merge` (`cn` from `@/lib/utils`) | String concatenation, template string mess |
-| State Management | React built-in (`useState`, `useReducer`, URL params) | Redux, Zustand, Recoil (unnecessary overhead for present scope) |
-
-Adding a new package requires a formal proposal and justification.
-
----
-
-## 2. Exact Project Folder Structure
-
-```
-src/
-│
-├── app/                         # Next.js routing (App Router)
-│   ├── (site)/                  # Main public website route group
-│   │   ├── layout.tsx           # Shared Site layout
-│   │   ├── page.tsx             # ByteSpace Landing Page (/)
-│   │   ├── courses/
-│   │   │   ├── page.tsx         # Course Catalog (/courses)
-│   │   │   └── [slug]/
-│   │   │       └── page.tsx     # Course Detail (/courses/[slug])
-│   │   └── creators/
-│   │       └── page.tsx         # Creators / Instructors Page (/creators)
-│   ├── (auth)/                  # Authentication route group
-│   │   ├── layout.tsx           # Focused Auth layout
-│   │   ├── login/
-│   │   │   └── page.tsx         # Login Screen (/login)
-│   │   └── signup/
-│   │       └── page.tsx         # Signup Screen (/signup)
-│   ├── design-system/
-│   │   └── page.tsx             # Style Guide & Design System Showcase (/design-system)
-│   ├── layout.tsx               # Root HTML shell layout (Poppins font & metadata)
-│   ├── globals.css              # Central tokens, typography utilities, grid layout
-│   └── providers.tsx            # Root client provider wrapper
-│
-├── components/                  # Generic reusable UI
-│   ├── ui/                      # Base primitives (Button, Input, Badge, AvatarGroup)
-│   └── layout/                  # Layout primitives (Navbar, Footer, MobileMenu)
-│
-├── features/                    # Feature-specific domain code
-│   ├── home/                    # Hero, TrustedLogos, Categories, Growth, CreatorCTA, Testimonials
-│   ├── courses/                 # CourseCard, CourseGrid, CourseFilters, CourseSearch
-│   └── auth/                    # AuthLayout, LoginForm, SignupForm
-│
-├── lib/                         # Utilities / API / helpers
-│   ├── api.ts                   # Fetcher and API client helpers
-│   ├── utils.ts                 # cn class merging utility
-│   └── constants.ts             # Site-wide constants & navigation links
-│
-├── hooks/                       # Reusable React hooks (e.g. useDebounce)
-│
-├── types/                       # Shared TypeScript type definitions (course.ts, common.ts)
-│
-└── data/                        # Static mock data (courses.ts, categories.ts)
-
-public/
-├── images/                      # Course thumbnails, hero visuals, avatars
-├── icons/                       # SVG icons & vector assets
-└── fonts/                       # Local font assets
-```
+- **Allowed Dependencies ONLY**:
+  - `next` (v16.x App Router)
+  - `react` / `react-dom` (v19.x)
+  - `typescript` (v5.x)
+  - `tailwindcss` (v4.x)
+  - `clsx` and `tailwind-merge`
+- **MUST NOT** install component libraries (`shadcn`, `MUI`, `Chakra`, `Radix`, `Ant Design`). All components MUST be hand-built.
+- **MUST NOT** introduce unapproved state libraries (`Redux`, `Zustand`, `MobX`, `Jotai`). Use React built-in state (`useState`, `useReducer`, URL search parameters).
+- **MUST NOT** install heavy HTTP or data fetching libraries (`axios`, `SWR`, `react-query`) unless explicitly requested and approved.
+- **MUST NOT** add utility or icon libraries without explicit approval.
 
 ---
 
-## 3. Typography & Styling Rules
+## 2. Architecture & Directory Boundaries
 
-### MANDATORY Design Token Priority
-1. **Always use tokens and classes from `globals.css` FIRST:**
-   - **Headings**: Use `.text-heading-l`, `.text-heading-m`, `.text-heading-s`, `.text-heading-xs` (Poppins SemiBold 600, line-height 120%).
-   - **Body**: Use `.text-body-l`, `.text-body-m`, `.text-body-s`, `.text-body-xs` (Satoshi Regular 400, line-height 160%).
-   - **Labels**: Use `.text-label-l`, `.text-label-m`, `.text-label-s`, `.text-label-xs` (Satoshi Medium 500, line-height 120%).
-   - **Colors**: Use semantic classes (`bg-primary`, `text-primary`, `bg-secondary`, `bg-neutral-50` through `bg-neutral-950`).
-2. **Prohibited:**
-   - No arbitrary bracket values (e.g. `text-[72px]`, `bg-[#2872ff]`). Use token utilities.
-   - No inline `style={{ }}` attributes.
-   - Dark mode is disabled; design is clean light-mode with high-contrast accents.
+- **MUST** follow the exact repository directory structure:
+  - `src/app/(site)/`: All public-facing pages (`/`, `/courses`, `/courses/[slug]`, `/creators`).
+  - `src/app/(auth)/`: Authentication screens (`/login`, `/signup`).
+  - `src/app/design-system/`: Design system and token verification showcase.
+  - `src/components/ui/`: Generic, domain-agnostic UI primitives (`Button`, `Input`, `Badge`, `AvatarGroup`).
+  - `src/components/layout/`: Global layout components (`Navbar`, `Footer`, `MobileMenu`).
+  - `src/features/<feature>/`: Domain-specific components scoped to features (`home`, `courses`, `auth`).
+  - `src/lib/`: Shared utility functions, API stubs, and constants (`utils.ts`, `api.ts`, `constants.ts`).
+  - `src/hooks/`: Generic reusable hooks (`useDebounce.ts`).
+  - `src/types/`: Shared TypeScript types and interfaces (`course.ts`, `common.ts`).
+  - `src/data/`: Static mock data and fixtures (`courses.ts`, `categories.ts`).
+- **MUST NOT** place business logic, data fixtures, or feature-specific UI directly inside `src/app/` route files. Route files MUST remain thin.
+- **MUST NOT** create ad-hoc root folders outside the approved structure.
+- **MUST** import shared modules using the `@/*` path alias. Relative imports going up more than one directory (e.g. `../../`) MUST NOT be used.
 
 ---
 
-## 4. Layout Grid Rules
+## 3. Server & Client Component Rules
 
-- **12-Column Responsive Grid**: Use `.grid-12` (`grid grid-cols-12 gap-5 sm:gap-8 lg:gap-[40px]`).
-- **Container**: Use `.container-custom` (`max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-[120px]`).
-- Sections must be full-bleed with constrained inner content container.
+- **Server Components by Default**: All components MUST be Server Components unless client-side interactivity is strictly required.
+- **"use client" Restrictions**:
+  - **MUST ONLY** use `"use client"` when component requires: React hooks (`useState`, `useEffect`, `useCallback`), event listeners, browser APIs, or interactive state (e.g., search debounce, mobile menu toggle, interactive filters).
+  - **MUST NOT** put `"use client"` on layout shells, static marketing sections, static cards, or root page wrappers.
+  - **MUST** push client component boundaries to the furthest leaves of the component tree.
+
+---
+
+## 4. Design Tokens & Typography Rules
+
+- **Source of Truth**: `src/app/globals.css` is the single source of truth for color, typography, and grid tokens.
+- **Typography Tokens (Figma Exact)**:
+  - **Headings (Poppins SemiBold 600, Line Height: 120%)**:
+    - `Heading L` (72px / 120%): MUST use `.text-heading-l`
+    - `Heading M` (44px / 120%): MUST use `.text-heading-m`
+    - `Heading S` (36px / 120%): MUST use `.text-heading-s`
+    - `Heading XS` (20px / 120%): MUST use `.text-heading-xs`
+  - **Body (Satoshi Regular 400, Line Height: 160%)**:
+    - `Body L` (18px / 160%): MUST use `.text-body-l`
+    - `Body M` (16px / 160%): MUST use `.text-body-m`
+    - `Body S` (14px / 160%): MUST use `.text-body-s`
+    - `Body XS` (12px / 160%): MUST use `.text-body-xs`
+  - **Labels (Satoshi Medium 500, Line Height: 120%)**:
+    - `Label L` (18px / 120%): MUST use `.text-label-l`
+    - `Label M` (16px / 120%): MUST use `.text-label-m`
+    - `Label S` (14px / 120%): MUST use `.text-label-s`
+    - `Label XS` (12px / 120%): MUST use `.text-label-xs`
+- **Token Priority**:
+  - **MUST** use token utility classes from `globals.css` for colors: `bg-primary`, `text-primary`, `bg-secondary`, `text-neutral-*`, `bg-neutral-*`.
+  - **MUST** use layout tokens: `.container-custom` (1440px max-width, 120px desktop margin), `.grid-12` (12-column grid, 40px desktop gutter).
+- **Prohibited Styling Practices**:
+  - **MUST NOT** use arbitrary bracket values when a token exists (e.g. NEVER `text-[72px]`, `leading-[120%]`, `bg-[#2872ff]`, `max-w-[1440px]`).
+  - **MUST NOT** use inline `style={{ }}` attributes on JSX elements.
+  - **MUST NOT** invent design tokens, random colors, or approximate spacing not present in the Figma style guide.
+  - **Dark Mode**: Disabled. The entire app MUST use the clean light-mode token theme exclusively.
 
 ---
 
 ## 5. TypeScript Rules
 
-- `strict: true` must remain enabled.
-- `any` is strictly forbidden. Use proper interfaces, generics, or `unknown` with narrowing.
-- All repeated domain items (courses, categories, testimonials) must have explicit types in `src/types/`.
+- **Strict Mode**: `strict: true` in `tsconfig.json` MUST NOT be disabled or relaxed.
+- **No `any`**: The use of `any` is strictly FORBIDDEN. Use explicit interfaces, union types, generics, or `unknown` with type narrowing.
+- **Explicit Types**:
+  - All component props MUST have an explicit `interface` or `type`.
+  - All domain entities (`Course`, `Category`, `Testimonial`) MUST have strict definitions in `src/types/`.
+  - Type assertions (`as SomeType`) MUST AVOIDED unless narrowing DOM refs or library interop with explicit justification.
 
 ---
 
-## 6. Next.js & Performance Rules
+## 6. Component & Data-Driven UI Rules
 
-- **Server Components by Default**: Only add `"use client"` when component requires client state (e.g. search filter input, mobile menu toggle, interactive carousel).
-- **Images**: Always use `next/image` with explicit width/height and descriptive `alt` text.
-- **Links**: Always use `next/link` for internal routing.
+- **Single Responsibility**: Each component MUST have a single, well-defined responsibility.
+- **No Duplicated JSX**: Repeated UI structures MUST be rendered via data arrays (`data.map(...)`) and reusable components.
+- **No Over-Abstraction**: Do NOT create a component wrapper merely because a `<div>` exists. Abstract only when UI is repeated, domain-meaningful, or encapsulates distinct behavior.
+- **Explicit Prop Contracts**: Components MUST receive structured props rather than unstructured nested objects.
+
+---
+
+## 7. Images & Asset Rules
+
+- **Next/Image ONLY**: All image rendering MUST use `next/image`. Raw HTML `<img>` tags MUST NOT be used.
+- **Dimensions & Alt**: Every `<Image>` MUST include explicit `width`, `height` (or `fill`), appropriate `sizes`, and a descriptive `alt` attribute.
+- **Asset Paths**: Static assets MUST be stored under `public/images/`, `public/icons/`, or `public/fonts/`.
+
+---
+
+## 8. Accessibility Rules
+
+- **Semantic HTML**: MUST use proper HTML5 semantic elements (`<header>`, `<nav>`, `<main>`, `<section>`, `<article>`, `<footer>`, `<button>`, `<label>`).
+- **No Clickable Divs**: Interactive elements MUST use native `<button>` or `<Link>` elements.
+- **Keyboard Navigation**: All interactive triggers, links, and forms MUST be keyboard focusable with visible focus rings.
+- **Form Labels**: Every input element MUST have an accessible, associated `<label>` (not just `placeholder`).
+
+---
+
+## 9. Git & AI Coding Rules
+
+- **Phased Development**: MUST work in small phases: Plan → Implement → Inspect → Compare → Correct → Refactor → Commit.
+- **No Silent Changes**: Do NOT make unrelated modifications to configuration, architecture, or working code.
+- **AI Verification**: All AI-generated code MUST be reviewed, type-checked (`npx tsc --noEmit`), and verified against the build (`next build`) before committing.
+- **Commit Messages**: MUST follow conventional commits (`feat:`, `fix:`, `style:`, `refactor:`, `chore:`).
