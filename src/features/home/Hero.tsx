@@ -110,14 +110,14 @@ export function Hero() {
       {/* ─── Center Hero Content (Headline, Subtitle, Search) ─── */}
       <div className="container relative z-30 flex flex-col items-center text-center px-4 sm:px-8">
         {/* Main Headline */}
-        <h1 className="text-3xl sm:text-5xl lg:text-heading-l text-white font-bold tracking-tight max-w-2xl text-balance leading-[1.15]">
+        <h1 className="font-heading font-semibold text-4xl sm:text-5xl lg:text-heading-l text-white tracking-tight max-w-6xl text-balance">
           Get Access to Hundreds Courses Available
         </h1>
 
         {/* Subtitle */}
-        <p className="text-body-m sm:text-body-l text-white/85 max-w-2xl mt-4 sm:mt-5 leading-relaxed">
-          Unlock your creativity, gain valuable knowledge, and grow your business
-          with our wide range of courses.
+        <p className="text-body-m sm:text-body-l text-white/85 mt-4 sm:mt-5 leading-relaxed">
+          Unlock your creativity, gain valuable knowledge, and grow your
+          business with our wide range of courses.
         </p>
 
         {/* ─── Figma Exact Pill Search Bar (581px Row, 16px Gap) ─── */}
@@ -126,7 +126,7 @@ export function Hero() {
           className="mt-6 sm:mt-9 w-full max-w-[581px] flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4"
         >
           {/* White Input Pill (W: 461px, H: 52px, Px: 24px, Gap: 8px) */}
-          <div className="w-full sm:w-[461px] h-[52px] bg-white rounded-full px-6 flex items-center gap-2 shadow-md border border-white/20 transition-all focus-within:ring-2 focus-within:ring-white/40">
+          <div className="w-full sm:w-115.25 h-[52px] bg-white rounded-full px-6 flex items-center gap-2 shadow-md border border-white/20 transition-all focus-within:ring-2 focus-within:ring-white/40">
             {/* Search Lens Icon */}
             <Image
               src="/icons/search.svg"

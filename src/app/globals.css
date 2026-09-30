@@ -170,28 +170,28 @@
 /* ── 02 Typography Utilities ── */
 
 /* Headings (Poppins SemiBold, Line Height: 120%) */
-.text-heading-l {
+@utility text-heading-l {
   font-family: var(--font-heading);
   font-size: var(--type-heading-l-size);
   line-height: var(--type-heading-l-leading);
   font-weight: var(--type-heading-l-weight);
 }
 
-.text-heading-m {
+@utility text-heading-m {
   font-family: var(--font-heading);
   font-size: var(--type-heading-m-size);
   line-height: var(--type-heading-m-leading);
   font-weight: var(--type-heading-m-weight);
 }
 
-.text-heading-s {
+@utility text-heading-s {
   font-family: var(--font-heading);
   font-size: var(--type-heading-s-size);
   line-height: var(--type-heading-s-leading);
   font-weight: var(--type-heading-s-weight);
 }
 
-.text-heading-xs {
+@utility text-heading-xs {
   font-family: var(--font-heading);
   font-size: var(--type-heading-xs-size);
   line-height: var(--type-heading-xs-leading);
@@ -199,28 +199,28 @@
 }
 
 /* Body (Satoshi Regular, Line Height: 160%) */
-.text-body-l {
+@utility text-body-l {
   font-family: var(--font-body);
   font-size: var(--type-body-l-size);
   line-height: var(--type-body-l-leading);
   font-weight: var(--type-body-l-weight);
 }
 
-.text-body-m {
+@utility text-body-m {
   font-family: var(--font-body);
   font-size: var(--type-body-m-size);
   line-height: var(--type-body-m-leading);
   font-weight: var(--type-body-m-weight);
 }
 
-.text-body-s {
+@utility text-body-s {
   font-family: var(--font-body);
   font-size: var(--type-body-s-size);
   line-height: var(--type-body-s-leading);
   font-weight: var(--type-body-s-weight);
 }
 
-.text-body-xs {
+@utility text-body-xs {
   font-family: var(--font-body);
   font-size: var(--type-body-xs-size);
   line-height: var(--type-body-xs-leading);
@@ -228,28 +228,28 @@
 }
 
 /* Labels (Satoshi Medium, Line Height: 120%) */
-.text-label-l {
+@utility text-label-l {
   font-family: var(--font-body);
   font-size: var(--type-label-l-size);
   line-height: var(--type-label-l-leading);
   font-weight: var(--type-label-l-weight);
 }
 
-.text-label-m {
+@utility text-label-m {
   font-family: var(--font-body);
   font-size: var(--type-label-m-size);
   line-height: var(--type-label-m-leading);
   font-weight: var(--type-label-m-weight);
 }
 
-.text-label-s {
+@utility text-label-s {
   font-family: var(--font-body);
   font-size: var(--type-label-s-size);
   line-height: var(--type-label-s-leading);
   font-weight: var(--type-label-s-weight);
 }
 
-.text-label-xs {
+@utility text-label-xs {
   font-family: var(--font-body);
   font-size: var(--type-label-xs-size);
   line-height: var(--type-label-xs-leading);
