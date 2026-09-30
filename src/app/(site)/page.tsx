@@ -5,6 +5,7 @@ import {
   Categories,
   GrowthFeatures,
   CreatorBanner,
+  Testimonials,
 } from "@/features/home";
 
 export default function HomePage() {
@@ -16,6 +17,7 @@ export default function HomePage() {
       <Categories />
       <GrowthFeatures />
       <CreatorBanner />
+      <Testimonials />
     </>
   );
 }

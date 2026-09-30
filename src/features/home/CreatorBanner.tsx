@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export function CreatorBanner() {
   return (
-    <section className="relative w-full bg-[#003be2] text-white py-16 sm:py-20 lg:py-24 overflow-hidden">
+    <section className="relative w-full bg-primary-800 text-white py-16 sm:py-20 lg:py-24 overflow-hidden">
       {/* ─── Geometric Grid Overlay (88px square grid) ─── */}
       <div
         className="pointer-events-none absolute inset-0 z-0 opacity-30 select-none"
@@ -113,7 +113,7 @@ export function CreatorBanner() {
           Creator with ByteSpace
         </h2>
 
-        <p className="font-body text-white/85 text-xs sm:text-[13.5px] lg:text-[14.5px] leading-relaxed max-w-[680px] mx-auto font-normal">
+        <p className="font-body text-white/85 text-xs sm:text-[13.5px] lg:text-[14.5px] leading-relaxed max-w-170 mx-auto font-normal">
           Experience the collaboration of numerous creators and an expanding
           selection of courses. Register now and become a part of a community
           comprising over 10,000 local and international creators. Utilize our
