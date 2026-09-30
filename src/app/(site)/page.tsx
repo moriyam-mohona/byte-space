@@ -4,6 +4,7 @@ import {
   FeaturedCourses,
   Categories,
   GrowthFeatures,
+  CreatorBanner,
 } from "@/features/home";
 
 export default function HomePage() {
@@ -14,6 +15,7 @@ export default function HomePage() {
       <FeaturedCourses />
       <Categories />
       <GrowthFeatures />
+      <CreatorBanner />
     </>
   );
 }

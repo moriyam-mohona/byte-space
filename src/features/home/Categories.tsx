@@ -56,7 +56,7 @@ export function Categories() {
           <h2 className="font-heading font-bold text-3xl sm:text-4xl lg:text-heading-s text-neutral-950 tracking-tight">
             Explore Diverse Learning Paths at Bytespace
           </h2>
-          <p className="max-w-[947px] mx-auto font-body text-body-s sm:text-body-l text-neutral-500 leading-relaxed px-2">
+          <p className="max-w-236.75 mx-auto font-body text-body-s sm:text-body-l text-neutral-500 leading-relaxed px-2">
             At Bytespace, we believe in empowering individuals through
             knowledge. Our diverse range of courses spans various fields,
             ensuring there&apos;s something for everyone. Unleash your potential

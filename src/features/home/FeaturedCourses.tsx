@@ -225,7 +225,7 @@ export function FeaturedCourses() {
                 type="button"
                 onClick={handleNext}
                 disabled={mobileIndex === displayedCourses.length - 1}
-                className="w-9 h-9 rounded-full border border-neutral-200 flex items-center justify-center text-neutral-700 hover:bg-neutral-100 hover:border-neutral-300 active:scale-95 transition-all disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer"
+                className="w-9 h-9 rounded-full border border-neutral-200 flex items-center justify-center text-neutral-700 hover:bg-neutral-100 hover:border-neutral-300 active:scale-95 transition-all disabled:opacity-30 cursor-pointer disabled:cursor-not-allowed"
                 aria-label="Next course"
               >
                 <svg

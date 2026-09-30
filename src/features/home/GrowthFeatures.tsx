@@ -148,7 +148,7 @@ export function GrowthFeatures() {
             {/* Central Student Portrait */}
             <div className="relative z-10 w-full max-w-[380px] sm:max-w-[440px] lg:max-w-[460px]">
               <NextImage
-                src="/images/hero/laptop-guy               .png"
+                src="/images/hero/laptop-guy.png"
                 alt="Student smiling with laptop"
                 width={1444}
                 height={1030}
