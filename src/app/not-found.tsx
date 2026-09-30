@@ -3,7 +3,7 @@ import { Navbar } from "@/components/layout/Navbar";
 
 export default function NotFound() {
   return (
-    <div className="min-h-screen w-full bg-[#003be2] text-white flex flex-col justify-between overflow-hidden relative selection:bg-secondary selection:text-neutral-950">
+    <div className="min-h-screen w-full bg-primary-800 text-white flex flex-col justify-between overflow-hidden relative selection:bg-secondary selection:text-neutral-950">
       {/* ─── Top Header Navigation ─── */}
       <Navbar />
 
@@ -23,12 +23,12 @@ export default function NotFound() {
       {/* ─── 404 Visual Content Stage ─── */}
       <main className="relative z-10 flex-1 flex flex-col items-center justify-center px-4 sm:px-6 py-12 sm:py-16 text-center my-auto">
         <div className="relative flex flex-col items-center justify-center w-full max-w-4xl mx-auto">
-          {/* Giant Background 404 with Lime Gradient */}
+          {/* Giant Background 404 with Secondary Lime Gradient */}
           <div
             className="font-heading font-black text-[150px] xs:text-[200px] sm:text-[280px] md:text-[340px] lg:text-[400px] leading-none select-none tracking-tighter"
             style={{
               background:
-                "linear-gradient(180deg, #CBFC01 0%, rgba(203, 252, 1, 0.85) 35%, rgba(203, 252, 1, 0.2) 75%, transparent 100%)",
+                "linear-gradient(180deg, var(--color-secondary-500) 0%, rgba(203, 252, 1, 0.85) 35%, rgba(203, 252, 1, 0.2) 75%, transparent 100%)",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
             }}
@@ -44,14 +44,14 @@ export default function NotFound() {
               for doesn&apos;t exist
             </h1>
 
-            <p className="font-body text-white/85 text-xs sm:text-sm md:text-base max-w-md sm:max-w-lg mx-auto font-normal leading-relaxed">
+            <p className="font-body text-white/85 text-body-s sm:text-body-m max-w-md sm:max-w-lg mx-auto font-normal leading-relaxed">
               Try to use a correct url or go back to homepage to start again
             </p>
 
             <div className="pt-3 sm:pt-4">
               <Link
                 href="/"
-                className="inline-flex items-center justify-center font-heading font-bold text-xs sm:text-sm md:text-base bg-secondary text-neutral-950 px-8 sm:px-10 py-3 sm:py-3.5 rounded-full shadow-lg hover:bg-[#d8ff1a] hover:shadow-xl hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer select-none"
+                className="inline-flex items-center justify-center font-heading font-bold text-label-s sm:text-label-m bg-secondary text-neutral-950 px-8 sm:px-10 py-3 sm:py-3.5 rounded-full shadow-lg hover:bg-secondary-400 hover:shadow-xl hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer select-none"
               >
                 Back to Home
               </Link>
