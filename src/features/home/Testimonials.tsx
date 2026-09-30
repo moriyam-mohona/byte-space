@@ -93,7 +93,7 @@ export function Testimonials() {
           </div>
 
           <div className="lg:col-span-6">
-            <p className="font-body text-body-m sm:text-body-l text-black-950 leading-relaxed">
+            <p className="font-body text-body-m sm:text-body-l text-neutral-950 leading-relaxed">
               At ByteSpace, our vibrant community of learners and creators is at
               the heart of what we do. Hear directly from those who have
               experienced the transformative journey of learning and creating on
@@ -121,7 +121,7 @@ export function Testimonials() {
                   />
                 </div>
                 <div>
-                  <h3 className="font-heading text-heading-xs text-black-950">
+                  <h3 className="font-heading text-heading-xs text-neutral-950">
                     {item.name}
                   </h3>
                   <p className="font-body text-body-l text-primary font-medium mt-0.5">
@@ -131,7 +131,7 @@ export function Testimonials() {
               </div>
 
               {/* Quote Content */}
-              <p className="font-body text-body-l text-black-700 leading-relaxed">
+              <p className="font-body text-body-l text-neutral-700 leading-relaxed">
                 {item.content}
               </p>
             </div>

@@ -31,7 +31,7 @@ export function CourseCard({
   return (
     <article
       className={cn(
-        "group relative flex flex-col rounded-3xl bg-white border border-neutral-200 p-5 sm:p-6 shadow-xs transition-all duration-200 hover:-translate-y-1 hover:shadow-md",
+        "group relative flex flex-col rounded-3xl bg-white text-neutral-950 border border-neutral-200 p-5 sm:p-6 shadow-xs transition-all duration-200 hover:-translate-y-1 hover:shadow-md",
         className,
       )}
     >
@@ -48,13 +48,13 @@ export function CourseCard({
 
         {/* Frosted Bottom Metadata Pills */}
         <div className="absolute inset-x-2.5 bottom-2.5 flex items-center justify-between gap-1.5 sm:gap-2 select-none">
-          <span className=" font-body px-2.5 sm:px-3 py-1.5 rounded-full bg-white/60 backdrop-blur-lg text-black-700 text-label-xs font-medium shadow-xs text-center truncate">
+          <span className="font-body px-2.5 sm:px-3 py-1.5 rounded-full bg-white/60 backdrop-blur-lg text-neutral-700 text-label-xs font-medium shadow-xs text-center truncate">
             {course.lessons} Lessons
           </span>
-          <span className=" font-body px-2.5 sm:px-3 py-1.5 rounded-full bg-white/60 backdrop-blur-lg text-black-700 text-label-xs font-medium shadow-xs text-center truncate">
+          <span className="font-body px-2.5 sm:px-3 py-1.5 rounded-full bg-white/60 backdrop-blur-lg text-neutral-700 text-label-xs font-medium shadow-xs text-center truncate">
             {course.duration}
           </span>
-          <span className=" font-body px-2.5 sm:px-3 py-1.5 rounded-full bg-white/60 backdrop-blur-lg text-black-700 text-label-xs font-medium shadow-xs text-center truncate">
+          <span className="font-body px-2.5 sm:px-3 py-1.5 rounded-full bg-white/60 backdrop-blur-lg text-neutral-700 text-label-xs font-medium shadow-xs text-center truncate">
             {course.commentsCount ?? course.reviewsCount} Comments
           </span>
         </div>
@@ -66,7 +66,7 @@ export function CourseCard({
           <h3 className="text-heading-xs font-semibold tracking-tight truncate">
             <Link
               href={`/courses/${course.slug}`}
-              className="hover:text-primary transition-colors focus:outline-hidden focus:ring-2 focus:ring-primary/40 rounded-sm"
+              className="text-neutral-950 hover:text-primary transition-colors focus:outline-hidden focus:ring-2 focus:ring-primary/40 rounded-sm"
             >
               {course.title}
             </Link>
@@ -91,7 +91,7 @@ export function CourseCard({
             {course.rating.toFixed(1)}
           </span>
           <svg
-            className="w-4 h-4 text-neutral-400 fill-current"
+            className="w-4 h-4 text-secondary-500 fill-current"
             viewBox="0 0 20 20"
             aria-hidden="true"
           >
