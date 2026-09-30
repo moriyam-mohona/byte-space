@@ -1,4 +1,9 @@
-import { Hero, Partners, FeaturedCourses } from "@/features/home";
+import {
+  Hero,
+  Partners,
+  FeaturedCourses,
+  Categories,
+} from "@/features/home";
 
 export default function HomePage() {
   return (
@@ -6,6 +11,7 @@ export default function HomePage() {
       <Hero />
       <Partners />
       <FeaturedCourses />
+      <Categories />
     </>
   );
 }
