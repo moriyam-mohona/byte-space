@@ -1,36 +1,136 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ByteSpace
+
+A modern e-learning marketplace platform built with Next.js, React, TypeScript, and Tailwind CSS.
+
+---
+
+## Features
+
+- **Responsive Marketplace Interface**: Tailored desktop, tablet, and mobile layouts with fluid typography and zero unwanted scrollbars.
+- **Hero & Course Discovery**: Search with category filter dropdown, live stats, and 3D floating elements.
+- **Interactive Category Filtering**: 3-row pill filter system and mobile peeking carousel with touch swipe navigation.
+- **Dual-Block Growth Features**: Professional growth and course creation showcase with exact 4-layer Figma ambient radial glows.
+- **3D Creator CTA Banner**: Full-width electric royal blue geometric grid banner with 7 floating clay objects.
+- **Community Testimonials**: Review cards matching Figma typography and ambient gradient specs.
+- **Authentication**: Dedicated Sign In (`/login`) and Sign Up (`/signup`) screens with interactive 3D course card composition and social logins.
+- **Custom 404 Page**: Full-screen branded not found page with lime gradient backdrop and home navigation.
+- **Design System Showcase**: Verification page at `/design-system` for tokens, colors, and typography.
+- **Figma Pixel-Accurate Implementation**: Precise font scales (Poppins headings + Satoshi body/labels), exact color codes, and layer blurs.
+
+---
+
+## Tech Stack
+
+- **Next.js** (v16.x App Router)
+- **React** (v19.x)
+- **TypeScript** (Strict Mode)
+- **Tailwind CSS** (v4.x)
+- **clsx** & **tailwind-merge**
+- **ESLint**
+
+---
+
+## Project Structure
+
+```text
+byte-space/
+├── public/
+│   ├── icons/            # SVG logos, cart, search, learning paths
+│   └── images/           # 3D assets, course previews, user avatars
+│       ├── auth/         # 3D floating auth shapes
+│       ├── avatars/      # Learner & instructor avatars
+│       ├── courses/      # Course preview cards
+│       ├── cta/          # 3D floating banner shapes
+│       └── hero/         # Hero student & 3D clay shapes
+├── src/
+│   ├── app/              # Next.js App Router
+│   │   ├── (auth)/       # Authentication route group
+│   │   │   ├── login/    # /login page
+│   │   │   └── signup/   # /signup page
+│   │   ├── (site)/       # Public site route group
+│   │   │   └── page.tsx  # Landing page (Home)
+│   │   ├── design-system/# Token verification page
+│   │   ├── globals.css   # Single source of truth for tokens
+│   │   ├── layout.tsx    # Root HTML shell & fonts
+│   │   └── not-found.tsx # Custom 404 page
+│   ├── components/
+│   │   ├── layout/       # Navbar, Footer, MobileMenu
+│   │   └── ui/           # Generic primitives (AvatarGroup, etc.)
+│   ├── features/
+│   │   ├── auth/         # AuthVisualStage, LoginForm, SignupForm
+│   │   └── home/         # Hero, FeaturedCourses, GrowthFeatures, CreatorBanner, Testimonials
+│   ├── types/            # Strict TypeScript definitions (Course, Testimonial, Common)
+│   └── lib/              # Utilities (cn class merger)
+├── GUIDELINE.md          # Architectural guidelines
+├── RULEBOOK.md           # Non-negotiable repository rules
+├── SETUP.md              # Setup guide & token reference
+└── README.md             # Project documentation
+```
+
+---
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- **Node.js**: `20.x` or higher
+- **Package Manager**: `npm` (or `pnpm` / `yarn`)
+
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/moriyam-mohona/byte-space.git
+   cd byte-space
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Run the development server:
+   ```bash
+   npm run dev
+   ```
+
+4. Open in browser:
+   ```
+   http://localhost:3000
+   ```
+
+---
+
+## Available Scripts
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run dev      # Start development server with hot-reloading
+npm run build    # Create optimized production build
+npm run start    # Start production server
+npm run lint     # Run ESLint validation
+npx tsc --noEmit # Run strict TypeScript type check
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Git Workflow
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Development was organized using structured feature branches and pull requests:
 
-## Learn More
+```text
+main
+├── reusable-foundation   # Design system, tokens, and core layout primitives
+├── home-page             # Hero, Featured Courses, Growth Features, Creator CTA, Testimonials
+├── auth                  # Login and Sign Up pages with 3D showcase
+└── not-found             # Custom 404 error page
+```
 
-To learn more about Next.js, take a look at the following resources:
+Features were developed on separate branches and merged into `main` through pull requests.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Deployment
 
-## Deploy on Vercel
+The project is deployed on Vercel.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Live Production URL**: [ByteSpace on Vercel](https://byte-space-woad.vercel.app)
