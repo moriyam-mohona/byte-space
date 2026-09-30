@@ -18,7 +18,7 @@ export function Navbar() {
   ];
 
   return (
-    <header className="w-full bg-primary-700 text-white sticky top-0 z-40 shadow-xs">
+    <header className="absolute top-0 left-0 right-0 z-40 w-full text-white">
       <div className="container flex items-center justify-between h-20">
         {/* Left: ByteSpace Logo */}
         <Link

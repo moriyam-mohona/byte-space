@@ -26,7 +26,7 @@ export function Hero() {
   };
 
   return (
-    <section className="relative w-full bg-primary-700 bg-hero-grid overflow-hidden pt-8 sm:pt-14 lg:pt-16 pb-0">
+    <section className="relative w-full bg-primary-700 bg-hero-grid overflow-hidden pt-28 sm:pt-32 lg:pt-36 pb-0">
       {/* ─── 3D Floating Shapes: Left Side ─── */}
       {/* Top-Left Lime Zigzag (bleeds partially off the top-left edge) */}
       <div className="absolute -top-6 sm:-top-8 lg:-top-10 -left-12 sm:-left-10 lg:-left-6 w-36 sm:w-56 lg:w-72 h-auto pointer-events-none select-none z-10 animate-float-slow">
