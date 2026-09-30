@@ -3,6 +3,7 @@ import {
   Partners,
   FeaturedCourses,
   Categories,
+  GrowthFeatures,
 } from "@/features/home";
 
 export default function HomePage() {
@@ -12,6 +13,7 @@ export default function HomePage() {
       <Partners />
       <FeaturedCourses />
       <Categories />
+      <GrowthFeatures />
     </>
   );
 }
