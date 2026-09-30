@@ -1,5 +1,32 @@
-@import url("https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap");
 @import "tailwindcss";
+
+/* ── Satoshi Font Face (Weights: 400 Regular, 500 Medium, 700 Bold) ── */
+@font-face {
+  font-family: 'Satoshi';
+  src: url('https://cdn.fontshare.com/wf/TTX2Z3BF3P6Y5BQT3IV2VNOK6FL22KUT/7QYRJOI3JIMYHGY6CH7SOIFRQLZOLNJ6/KFIAZD4RUMEZIYV6FQ3T3GP5PDBDB6JY.woff2') format('woff2'),
+       url('https://cdn.fontshare.com/wf/TTX2Z3BF3P6Y5BQT3IV2VNOK6FL22KUT/7QYRJOI3JIMYHGY6CH7SOIFRQLZOLNJ6/KFIAZD4RUMEZIYV6FQ3T3GP5PDBDB6JY.woff') format('woff');
+  font-weight: 400;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Satoshi';
+  src: url('https://cdn.fontshare.com/wf/P2LQKHE6KA6ZP4AAGN72KDWMHH6ZH3TA/ZC32TK2P7FPS5GFTL46EU6KQJA24ZYDB/7AHDUZ4A7LFLVFUIFSARGIWCRQJHISQP.woff2') format('woff2'),
+       url('https://cdn.fontshare.com/wf/P2LQKHE6KA6ZP4AAGN72KDWMHH6ZH3TA/ZC32TK2P7FPS5GFTL46EU6KQJA24ZYDB/7AHDUZ4A7LFLVFUIFSARGIWCRQJHISQP.woff') format('woff');
+  font-weight: 500;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Satoshi';
+  src: url('https://cdn.fontshare.com/wf/LAFFD4SDUCDVQEXFPDC7C53EQ4ZELWQI/PXCT3G6LO6ICM5I3NTYENYPWJAECAWDD/GHM6WVH6MILNYOOCXHXB5GTSGNTMGXZR.woff2') format('woff2'),
+       url('https://cdn.fontshare.com/wf/LAFFD4SDUCDVQEXFPDC7C53EQ4ZELWQI/PXCT3G6LO6ICM5I3NTYENYPWJAECAWDD/GHM6WVH6MILNYOOCXHXB5GTSGNTMGXZR.woff') format('woff');
+  font-weight: 700;
+  font-display: swap;
+  font-style: normal;
+}
 
 :root {
   --background: #ffffff;
@@ -170,28 +197,28 @@
 /* ── 02 Typography Utilities ── */
 
 /* Headings (Poppins SemiBold, Line Height: 120%) */
-.text-heading-l {
+@utility text-heading-l {
   font-family: var(--font-heading);
   font-size: var(--type-heading-l-size);
   line-height: var(--type-heading-l-leading);
   font-weight: var(--type-heading-l-weight);
 }
 
-.text-heading-m {
+@utility text-heading-m {
   font-family: var(--font-heading);
   font-size: var(--type-heading-m-size);
   line-height: var(--type-heading-m-leading);
   font-weight: var(--type-heading-m-weight);
 }
 
-.text-heading-s {
+@utility text-heading-s {
   font-family: var(--font-heading);
   font-size: var(--type-heading-s-size);
   line-height: var(--type-heading-s-leading);
   font-weight: var(--type-heading-s-weight);
 }
 
-.text-heading-xs {
+@utility text-heading-xs {
   font-family: var(--font-heading);
   font-size: var(--type-heading-xs-size);
   line-height: var(--type-heading-xs-leading);
@@ -199,28 +226,28 @@
 }
 
 /* Body (Satoshi Regular, Line Height: 160%) */
-.text-body-l {
+@utility text-body-l {
   font-family: var(--font-body);
   font-size: var(--type-body-l-size);
   line-height: var(--type-body-l-leading);
   font-weight: var(--type-body-l-weight);
 }
 
-.text-body-m {
+@utility text-body-m {
   font-family: var(--font-body);
   font-size: var(--type-body-m-size);
   line-height: var(--type-body-m-leading);
   font-weight: var(--type-body-m-weight);
 }
 
-.text-body-s {
+@utility text-body-s {
   font-family: var(--font-body);
   font-size: var(--type-body-s-size);
   line-height: var(--type-body-s-leading);
   font-weight: var(--type-body-s-weight);
 }
 
-.text-body-xs {
+@utility text-body-xs {
   font-family: var(--font-body);
   font-size: var(--type-body-xs-size);
   line-height: var(--type-body-xs-leading);
@@ -228,28 +255,28 @@
 }
 
 /* Labels (Satoshi Medium, Line Height: 120%) */
-.text-label-l {
+@utility text-label-l {
   font-family: var(--font-body);
   font-size: var(--type-label-l-size);
   line-height: var(--type-label-l-leading);
   font-weight: var(--type-label-l-weight);
 }
 
-.text-label-m {
+@utility text-label-m {
   font-family: var(--font-body);
   font-size: var(--type-label-m-size);
   line-height: var(--type-label-m-leading);
   font-weight: var(--type-label-m-weight);
 }
 
-.text-label-s {
+@utility text-label-s {
   font-family: var(--font-body);
   font-size: var(--type-label-s-size);
   line-height: var(--type-label-s-leading);
   font-weight: var(--type-label-s-weight);
 }
 
-.text-label-xs {
+@utility text-label-xs {
   font-family: var(--font-body);
   font-size: var(--type-label-xs-size);
   line-height: var(--type-label-xs-leading);
@@ -293,4 +320,64 @@
   .grid-12 {
     gap: var(--grid-gutter);
   }
+}
+
+/* ── 04 Hero Micro-Animations ── */
+@keyframes float-slow {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-14px) rotate(2deg);
+  }
+}
+
+@keyframes float-reverse {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(12px) rotate(-2deg);
+  }
+}
+
+@keyframes float-subtle {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes float-zoom {
+  0%, 100% {
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-10px) scale(1.04);
+  }
+}
+
+.animate-float-slow {
+  animation: float-slow 6s ease-in-out infinite;
+}
+
+.animate-float-reverse {
+  animation: float-reverse 7s ease-in-out infinite;
+}
+
+.animate-float-subtle {
+  animation: float-subtle 4.5s ease-in-out infinite;
+}
+
+.animate-float-zoom {
+  animation: float-zoom 5.5s ease-in-out infinite;
+}
+
+.bg-hero-grid {
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-size: 80px 80px;
 }
