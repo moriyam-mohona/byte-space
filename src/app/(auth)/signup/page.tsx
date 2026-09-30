@@ -3,7 +3,8 @@ import { AuthVisualStage, SignupForm } from "@/features/auth";
 
 export const metadata: Metadata = {
   title: "Sign Up | ByteSpace",
-  description: "Create your ByteSpace account and start your learning and teaching journey today.",
+  description:
+    "Create your ByteSpace account and start your learning and teaching journey today.",
 };
 
 export default function SignupPage() {
