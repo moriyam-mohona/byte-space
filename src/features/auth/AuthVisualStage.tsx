@@ -19,7 +19,10 @@ export function AuthVisualStage({ title, subtitle }: AuthVisualStageProps) {
     <div className="flex flex-col justify-between h-full space-y-10 lg:space-y-14">
       {/* ─── Top Branding: Lime "b" Mark & Headings ─── */}
       <div className="space-y-6 sm:space-y-8">
-        <Link href="/" className="inline-block transition-transform hover:scale-105">
+        <Link
+          href="/"
+          className="inline-block transition-transform hover:scale-105"
+        >
           <NextImage
             src="/icons/logo-mark.svg"
             alt="ByteSpace"
@@ -41,7 +44,7 @@ export function AuthVisualStage({ title, subtitle }: AuthVisualStageProps) {
       </div>
 
       {/* ─── Layered Interactive Course Showcase with 3D Shapes ─── */}
-      <div className="relative w-full max-w-[440px] mx-auto lg:mx-0 py-6">
+      <div className="relative w-full max-w-110 mx-auto lg:mx-0 py-6">
         {/* 3D Floating Lime Ring (Top-Left) */}
         <div className="pointer-events-none absolute -top-8 -left-6 w-20 sm:w-24 z-20 animate-float-slow select-none">
           <NextImage
@@ -81,7 +84,7 @@ export function AuthVisualStage({ title, subtitle }: AuthVisualStageProps) {
         {/* ── Background Peeking Card: Build Digital Assets ── */}
         <div className="absolute top-4 -left-6 z-0 w-[85%] scale-95 opacity-80 select-none">
           <div className="bg-white rounded-2xl p-4 shadow-xl border border-neutral-100/90 text-left space-y-3">
-            <div className="relative w-full aspect-16/9 rounded-xl overflow-hidden bg-neutral-100">
+            <div className="relative w-full aspect-video rounded-xl overflow-hidden bg-neutral-100">
               <NextImage
                 src="/images/courses/course-digital-assets.jpg"
                 alt="Build Digital Assets"
@@ -99,7 +102,10 @@ export function AuthVisualStage({ title, subtitle }: AuthVisualStageProps) {
                 Build Digital Assets
               </h4>
               <p className="text-[11px] text-neutral-500">
-                by <span className="text-primary font-medium">purepearl studio</span>
+                by{" "}
+                <span className="text-primary font-medium">
+                  purepearl studio
+                </span>
               </p>
             </div>
             <div className="flex items-center justify-between pt-1 border-t border-neutral-100">
@@ -107,7 +113,10 @@ export function AuthVisualStage({ title, subtitle }: AuthVisualStageProps) {
                 Beginner
               </span>
               <span className="font-heading font-bold text-label-s text-primary">
-                $25<span className="text-[10px] text-neutral-400 font-normal">/lifetime</span>
+                $25
+                <span className="text-[10px] text-neutral-400 font-normal">
+                  /lifetime
+                </span>
               </span>
             </div>
           </div>
@@ -141,7 +150,10 @@ export function AuthVisualStage({ title, subtitle }: AuthVisualStageProps) {
                 the Power of Big Data
               </h3>
               <p className="text-[11px] text-neutral-500 mt-0.5">
-                by <span className="text-primary font-medium">purepearl studio</span>
+                by{" "}
+                <span className="text-primary font-medium">
+                  purepearl studio
+                </span>
               </p>
             </div>
             <div className="flex items-center gap-1 text-[11.5px] font-semibold text-neutral-900 shrink-0">
@@ -155,20 +167,31 @@ export function AuthVisualStage({ title, subtitle }: AuthVisualStageProps) {
               <span className="px-2 py-0.5 rounded-full bg-neutral-100 text-[10px] font-medium text-neutral-700">
                 Beginner
               </span>
-              <AvatarGroup avatars={STUDENT_AVATARS} badgeText="26+" size={20} />
+              <AvatarGroup
+                avatars={STUDENT_AVATARS}
+                badgeText="26+"
+                size={20}
+              />
             </div>
             <span className="font-heading font-bold text-label-s text-primary">
-              $25<span className="text-[10px] text-neutral-400 font-normal">/lifetime</span>
+              $25
+              <span className="text-[10px] text-neutral-400 font-normal">
+                /lifetime
+              </span>
             </span>
           </div>
         </div>
 
         {/* ── Lime Floating Card: Happy Students ── */}
         <div className="absolute -bottom-6 left-6 z-20 animate-float-slow origin-bottom-left scale-90 sm:scale-95">
-          <div className="bg-secondary text-neutral-950 rounded-2xl p-3 sm:p-3.5 shadow-xl border border-secondary-400/50 min-w-[190px] text-left space-y-1.5">
+          <div className="bg-secondary text-neutral-950 rounded-2xl p-3 sm:p-3.5 shadow-xl border border-secondary-400/50 min-w-47.5 text-left space-y-1.5">
             <div className="flex items-center justify-between gap-2">
-              <span className="font-heading font-bold text-[12px]">Happy Students</span>
-              <span className="text-[10px] font-bold text-neutral-800">4.5 (240) ★</span>
+              <span className="font-heading font-bold text-[12px]">
+                Happy Students
+              </span>
+              <span className="text-[10px] font-bold text-neutral-800">
+                4.5 (240) ★
+              </span>
             </div>
             <AvatarGroup avatars={STUDENT_AVATARS} badgeText="2K+" size={22} />
           </div>
