@@ -115,7 +115,7 @@ export function Hero() {
         </h1>
 
         {/* Subtitle */}
-        <p className="text-body-m sm:text-body-l text-white/85 mt-4 sm:mt-5 leading-relaxed">
+        <p className="font-body text-body-m sm:text-body-l text-white/85 mt-4 sm:mt-5 leading-relaxed">
           Unlock your creativity, gain valuable knowledge, and grow your
           business with our wide range of courses.
         </p>

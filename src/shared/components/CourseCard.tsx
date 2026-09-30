@@ -32,7 +32,7 @@ export function CourseCard({
     <article
       className={cn(
         "group relative flex flex-col rounded-3xl bg-white border border-neutral-200 p-5 sm:p-6 shadow-xs transition-all duration-200 hover:-translate-y-1 hover:shadow-md",
-        className
+        className,
       )}
     >
       {/* ─── Top Thumbnail with Frosted Pills ─── */}
@@ -48,13 +48,13 @@ export function CourseCard({
 
         {/* Frosted Bottom Metadata Pills */}
         <div className="absolute inset-x-2.5 bottom-2.5 flex items-center justify-between gap-1.5 sm:gap-2 select-none">
-          <span className="px-2.5 sm:px-3 py-1 rounded-full bg-white/80 backdrop-blur-md text-neutral-800 text-body-xs font-medium shadow-xs text-center truncate">
+          <span className=" font-body px-2.5 sm:px-3 py-1.5 rounded-full bg-white/60 backdrop-blur-lg text-black-700 text-label-xs font-medium shadow-xs text-center truncate">
             {course.lessons} Lessons
           </span>
-          <span className="px-2.5 sm:px-3 py-1 rounded-full bg-white/80 backdrop-blur-md text-neutral-800 text-body-xs font-medium shadow-xs text-center truncate">
+          <span className=" font-body px-2.5 sm:px-3 py-1.5 rounded-full bg-white/60 backdrop-blur-lg text-black-700 text-label-xs font-medium shadow-xs text-center truncate">
             {course.duration}
           </span>
-          <span className="px-2.5 sm:px-3 py-1 rounded-full bg-white/80 backdrop-blur-md text-neutral-800 text-body-xs font-medium shadow-xs text-center truncate">
+          <span className=" font-body px-2.5 sm:px-3 py-1.5 rounded-full bg-white/60 backdrop-blur-lg text-black-700 text-label-xs font-medium shadow-xs text-center truncate">
             {course.commentsCount ?? course.reviewsCount} Comments
           </span>
         </div>
@@ -63,7 +63,7 @@ export function CourseCard({
       {/* ─── Title, Instructor & Rating ─── */}
       <div className="mt-5 flex items-start justify-between gap-3">
         <div className="flex-1 min-w-0">
-          <h3 className="text-heading-xs text-neutral-950 font-semibold tracking-tight truncate">
+          <h3 className="text-heading-xs font-semibold tracking-tight truncate">
             <Link
               href={`/courses/${course.slug}`}
               className="hover:text-primary transition-colors focus:outline-hidden focus:ring-2 focus:ring-primary/40 rounded-sm"
@@ -71,10 +71,10 @@ export function CourseCard({
               {course.title}
             </Link>
           </h3>
-          <p className="text-body-s text-neutral-500 mt-1">
+          <p className="font-body text-body-xs text-neutral-500 mt-1">
             by{" "}
             <Link
-              href="/creators"
+              href="/"
               className="text-primary font-medium hover:underline focus:outline-hidden"
             >
               {course.instructor.name.toLowerCase()}
@@ -87,7 +87,7 @@ export function CourseCard({
           className="flex items-center gap-1 shrink-0 pt-0.5"
           aria-label={`Rating: ${course.rating} out of 5 stars`}
         >
-          <span className="text-body-l font-medium text-neutral-800">
+          <span className="font-body text-body-l font-medium text-neutral-600">
             {course.rating.toFixed(1)}
           </span>
           <svg
@@ -101,9 +101,9 @@ export function CourseCard({
       </div>
 
       {/* ─── Level Badge & Student Avatar Stack ─── */}
-      <div className="mt-5 flex items-center justify-between gap-3">
+      <div className="mt-5 flex items-center justify-baseline gap-3">
         {/* Level Indicator Badge */}
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-neutral-100 text-neutral-800 text-label-s font-medium select-none">
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-neutral-50 text-neutral-800 text-label-s font-medium select-none">
           <svg
             className="w-3.5 h-3.5 text-neutral-700 fill-current"
             viewBox="0 0 16 16"
@@ -121,11 +121,11 @@ export function CourseCard({
       </div>
 
       {/* ─── Price / Lifetime ─── */}
-      <div className="mt-5 flex items-baseline gap-1 pt-1">
-        <span className="text-heading-s font-bold text-primary-600">
+      <div className="mt-3 flex items-baseline gap-1 pt-1">
+        <span className="text-heading-xs text-primary-600">
           ${course.price}
         </span>
-        <span className="text-body-s text-neutral-500 font-normal">
+        <span className="text-body-xs text-neutral-500 font-normal">
           /{billing}
         </span>
       </div>
