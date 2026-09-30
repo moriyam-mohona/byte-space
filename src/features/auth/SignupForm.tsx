@@ -14,19 +14,19 @@ export function SignupForm() {
   };
 
   return (
-    <div className="bg-white rounded-3xl p-8 sm:p-10 lg:p-12 shadow-2xl w-full max-w-[480px] mx-auto space-y-6">
+    <div className="bg-white rounded-3xl p-8 sm:p-10 lg:p-14 shadow-2xl w-full max-w-lg mx-auto space-y-6">
       <div className="space-y-1.5 text-left">
-        <span className="font-body text-label-s text-primary font-semibold">
+        <span className="font-body text-body-l text-primary-800">
           Create an Account
         </span>
-        <h2 className="font-heading font-bold text-2xl sm:text-3xl lg:text-[32px] text-neutral-950 tracking-tight">
+        <h2 className="font-heading text-heading-m text-neutral-950 tracking-tight">
           Welcome to ByteSpace
         </h2>
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-4 text-left">
         <div className="space-y-1.5">
-          <label className="block font-body text-label-s text-neutral-700 font-medium">
+          <label className="block font-body text-label-s text-neutral-950">
             Full Name
           </label>
           <input
@@ -35,12 +35,12 @@ export function SignupForm() {
             value={fullName}
             onChange={(e) => setFullName(e.target.value)}
             placeholder="Jamie Davis"
-            className="w-full px-4 py-3 rounded-xl bg-neutral-50/70 border border-neutral-200 text-neutral-900 placeholder:text-neutral-400 font-body text-body-s focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all"
+            className="w-full px-4 py-3 rounded-xl bg-neutral-50 border border-neutral-200 text-neutral-900 placeholder:text-neutral-400 font-body text-body-s focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all"
           />
         </div>
 
         <div className="space-y-1.5">
-          <label className="block font-body text-label-s text-neutral-700 font-medium">
+          <label className="block font-body text-label-s text-neutral-950">
             Email
           </label>
           <input
@@ -49,12 +49,12 @@ export function SignupForm() {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="designer@example.com"
-            className="w-full px-4 py-3 rounded-xl bg-neutral-50/70 border border-neutral-200 text-neutral-900 placeholder:text-neutral-400 font-body text-body-s focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all"
+            className="w-full px-4 py-3 rounded-xl bg-neutral-50 border border-neutral-200 text-neutral-900 placeholder:text-neutral-400 font-body text-body-s focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all"
           />
         </div>
 
         <div className="space-y-1.5">
-          <label className="block font-body text-label-s text-neutral-700 font-medium">
+          <label className="block font-body text-label-s text-neutral-950">
             Password
           </label>
           <input
@@ -63,22 +63,22 @@ export function SignupForm() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             placeholder="********"
-            className="w-full px-4 py-3 rounded-xl bg-neutral-50/70 border border-neutral-200 text-neutral-900 placeholder:text-neutral-400 font-body text-body-s focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all"
+            className="w-full px-4 py-3 rounded-xl bg-neutral-50 border border-neutral-200 text-neutral-900 placeholder:text-neutral-400 font-body text-body-s focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all"
           />
         </div>
 
         <div className="pt-2 flex justify-end">
           <button
             type="submit"
-            className="w-full sm:w-auto px-8 py-3 rounded-full bg-secondary text-neutral-950 font-heading font-bold text-label-m shadow-md hover:bg-[#d8ff1a] hover:shadow-lg hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer"
+            className="w-full sm:w-auto px-6 py-3 rounded-full bg-secondary text-neutral-950 font-heading text-label-s shadow-md hover:bg-secondary-400 hover:shadow-lg hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer"
           >
             Continue
           </button>
         </div>
       </form>
 
-      <div className="pt-2 text-center">
-        <p className="font-body text-label-s text-neutral-600">
+      <div className="pt-28 text-center">
+        <p className="font-body text-body-m text-neutral-600">
           Already have an account?{" "}
           <Link
             href="/login"

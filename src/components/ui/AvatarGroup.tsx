@@ -5,6 +5,7 @@ interface AvatarGroupProps {
   avatars: string[];
   badgeText?: string;
   className?: string;
+  badgeClassName?: string;
   size?: number;
 }
 
@@ -12,6 +13,7 @@ export function AvatarGroup({
   avatars,
   badgeText,
   className,
+  badgeClassName,
   size = 32,
 }: AvatarGroupProps) {
   return (
@@ -33,7 +35,10 @@ export function AvatarGroup({
       ))}
       {badgeText && (
         <div
-          className="relative inline-flex items-center justify-center w-8 h-8 rounded-full bg-secondary text-neutral-950 font-bold text-xs ring-2 ring-white shrink-0 select-none"
+          className={cn(
+            "relative inline-flex items-center justify-center w-8 h-8 rounded-full bg-neutral-900 text-white font-bold text-xs ring-2 ring-white shrink-0 select-none",
+            badgeClassName,
+          )}
           style={{ width: size, height: size }}
           aria-label={`${badgeText} more students`}
         >
