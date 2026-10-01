@@ -1,16 +1,7 @@
 import Image from "next/image";
 import { AvatarGroup } from "@/components/ui/AvatarGroup";
+import { STUDENT_AVATARS } from "@/data/avatars";
 import { HeroSearchBar } from "./HeroSearchBar";
-
-const STUDENT_AVATARS = [
-  "/images/avatars/avatar-1.jpg",
-  "/images/avatars/avatar-2.jpg",
-  "/images/avatars/avatar-3.jpg",
-  "/images/avatars/avatar-4.jpg",
-  "/images/avatars/avatar-1.jpg",
-  "/images/avatars/avatar-2.jpg",
-  "/images/avatars/avatar-3.jpg",
-];
 
 export function Hero() {
   return (

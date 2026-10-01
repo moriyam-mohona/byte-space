@@ -2,16 +2,7 @@ import NextImage from "next/image";
 import { AvatarGroup } from "@/components/ui/AvatarGroup";
 import { CourseCard } from "@/shared/components/CourseCard";
 import { COURSES_DATA } from "@/data/courses";
-
-const STUDENT_AVATARS = [
-  "/images/avatars/avatar-1.jpg",
-  "/images/avatars/avatar-2.jpg",
-  "/images/avatars/avatar-3.jpg",
-  "/images/avatars/avatar-4.jpg",
-  "/images/avatars/avatar-1.jpg",
-  "/images/avatars/avatar-2.jpg",
-  "/images/avatars/avatar-3.jpg",
-];
+import { STUDENT_AVATARS } from "@/data/avatars";
 
 export function GrowthFeatures() {
   const checklist = [

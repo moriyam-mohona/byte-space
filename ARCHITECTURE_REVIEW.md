@@ -39,19 +39,9 @@ src/
 - [FeaturedCourses.tsx](file:///d:/byte-space/src/features/home/FeaturedCourses.tsx) is now a Server Component; extracted [FeaturedCoursesInteractive.tsx](file:///d:/byte-space/src/features/home/FeaturedCoursesInteractive.tsx) for category filtering & mobile carousel.
 - [Testimonials.tsx](file:///d:/byte-space/src/features/home/Testimonials.tsx) is now a Server Component; extracted [TestimonialsCarousel.tsx](file:///d:/byte-space/src/features/home/TestimonialsCarousel.tsx) for mobile swipe interactions.
 
-### 2.2 ❌ Duplicate Data Definitions in `AuthVisualStage.tsx`
+### 2.2 ✅ Duplicate Course Data Removed
 
-`AuthVisualStage.tsx` re-defines full `Course` objects (`DEFAULT_BUILD_DIGITAL_ASSET`, `DEFAULT_BIG_DATA`) as fallback constants, duplicating data already in `COURSES_DATA`. This is **data duplication** and will cause silent desync bugs when course data changes.
-
-**Fix:** Remove fallback inline objects. Use `COURSES_DATA` directly with proper lookups:
-
-```tsx
-// ❌ Current (fragile, duplicated):
-const DEFAULT_BUILD_DIGITAL_ASSET: Course = COURSES_DATA[1] ?? { id: "2", ... }
-
-// ✅ Better:
-const course = COURSES_DATA.find(c => c.slug === 'build-digital-asset');
-```
+[AuthVisualStage.tsx](file:///d:/byte-space/src/features/auth/AuthVisualStage.tsx) now queries [COURSES_DATA](file:///d:/byte-space/src/data/courses.ts) directly (`find(c => c.slug === ...)`), removing duplicate fallback objects.
 
 ### 2.3 ✅ Carousel Logic Centralized & DRY
 
@@ -66,14 +56,12 @@ Used across both [FeaturedCoursesInteractive.tsx](file:///d:/byte-space/src/feat
 
 **Fix:** Use `SITE_CONFIG.navLinks` from constants in the Navbar. Remove the duplicate inline array.
 
-### 2.5 ❌ Hardcoded Avatar Arrays in 3 Files
+### 2.5 ✅ Centralized Avatars Dataset
 
-`STUDENT_AVATARS` constant is defined identically in:
-- `GrowthFeatures.tsx`
-- `AuthVisualStage.tsx`
-- `Hero.tsx`
-
-**Fix:** Move to `src/data/avatars.ts` and import from a single source of truth.
+`STUDENT_AVATARS` has been moved to [src/data/avatars.ts](file:///d:/byte-space/src/data/avatars.ts) and is now imported across:
+- [Hero.tsx](file:///d:/byte-space/src/features/home/Hero.tsx)
+- [GrowthFeatures.tsx](file:///d:/byte-space/src/features/home/GrowthFeatures.tsx)
+- [AuthVisualStage.tsx](file:///d:/byte-space/src/features/auth/AuthVisualStage.tsx)
 
 ### 2.6 ❌ `Providers.tsx` Is an Empty Shell
 
