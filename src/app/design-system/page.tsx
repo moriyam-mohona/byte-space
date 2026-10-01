@@ -1,9 +1,10 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 
-export const metadata = {
-  title: "ByteSpace — Design System & Style Guide",
+export const metadata: Metadata = {
+  title: "Design System & Style Guide | ByteSpace",
   description:
-    "Figma style guide reference for typography, colors, and layout grid",
+    "Figma style guide reference for typography, colors, and layout grid.",
 };
 
 export default function DesignSystemPage() {
