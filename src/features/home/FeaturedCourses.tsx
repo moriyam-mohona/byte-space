@@ -83,7 +83,7 @@ export function FeaturedCourses() {
         className={cn(
           "font-body px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-label-s sm:text-label-m transition-all duration-200 cursor-pointer select-none",
           isActive
-            ? "bg-secondary text-neutral-950 font-semibold shadow-xs"
+            ? "bg-secondary text-neutral-950 shadow-xs"
             : "bg-neutral-50 text-neutral-700 hover:bg-neutral-100 hover:text-neutral-950 font-medium active:scale-95",
         )}
       >
@@ -97,7 +97,7 @@ export function FeaturedCourses() {
       <div className="container">
         {/* ─── Section Header (Headline & Subtitle) ─── */}
         <div className="text-center max-w-4xl mx-auto space-y-4 sm:space-y-5">
-          <h2 className="font-heading font-bold text-3xl sm:text-4xl lg:text-heading-m text-neutral-950 tracking-tight leading-tight">
+          <h2 className="font-heading text-3xl sm:heading-s font-medium lg:text-heading-m text-neutral-950 tracking-tight leading-tight">
             Discover Your Passion,
             <br />
             Build Your Skills
