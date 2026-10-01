@@ -47,7 +47,7 @@ export function MobileMenu({
         "fixed inset-0 z-50 md:hidden transition-all duration-300 ease-in-out",
         isOpen
           ? "opacity-100 pointer-events-auto visible"
-          : "opacity-0 pointer-events-none invisible"
+          : "opacity-0 pointer-events-none invisible",
       )}
       role="dialog"
       aria-modal="true"
@@ -58,7 +58,7 @@ export function MobileMenu({
       <div
         className={cn(
           "fixed inset-0 bg-neutral-950/60 backdrop-blur-xs transition-opacity duration-300 ease-in-out",
-          isOpen ? "opacity-100" : "opacity-0"
+          isOpen ? "opacity-100" : "opacity-0",
         )}
         onClick={onClose}
         aria-hidden="true"
@@ -67,8 +67,8 @@ export function MobileMenu({
       {/* Drawer Panel with smooth slide-in and slide-out */}
       <div
         className={cn(
-          "fixed inset-y-0 right-0 w-full max-w-xs bg-primary-700 text-white shadow-2xl flex flex-col p-6 z-10 transition-transform duration-300 ease-in-out",
-          isOpen ? "translate-x-0" : "translate-x-full"
+          "fixed inset-y-0 right-0 w-full max-w-xs bg-primary-800 text-white shadow-2xl flex flex-col p-6 z-10 transition-transform duration-300 ease-in-out",
+          isOpen ? "translate-x-0" : "translate-x-full",
         )}
       >
         {/* Header: Logo & Close Button */}
@@ -119,7 +119,7 @@ export function MobileMenu({
                   "text-heading-xs py-2 transition-colors",
                   isActive
                     ? "text-secondary font-semibold"
-                    : "text-white/90 hover:text-white"
+                    : "text-white/90 hover:text-white",
                 )}
                 aria-current={isActive ? "page" : undefined}
               >

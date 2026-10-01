@@ -59,7 +59,7 @@ export function Footer() {
             {/* Newsletter Input + Button */}
             <form
               action="#"
-              className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 max-w-md"
+              className="flex items-stretch sm:items-center gap-3 max-w-md"
             >
               <input
                 type="email"
@@ -70,7 +70,7 @@ export function Footer() {
               />
               <button
                 type="submit"
-                className="px-8 py-3 rounded-full bg-secondary text-neutral-950 text-label-l font-semibold hover:bg-secondary-400 active:scale-95 transition-all shadow-xs cursor-pointer"
+                className="px-8 py-3 rounded-full bg-secondary text-neutral-950 text-label-l font-body hover:bg-secondary-400 active:scale-95 transition-all shadow-xs cursor-pointer"
               >
                 Search
               </button>

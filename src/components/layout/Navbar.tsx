@@ -50,10 +50,8 @@ export function Navbar() {
                 key={link.label}
                 href={link.href}
                 className={cn(
-                  "text-label-m inline-block transition-all duration-200 ease-out hover:-translate-y-0.5",
-                  isActive
-                    ? "text-white font-semibold"
-                    : "text-white/90 hover:text-white"
+                  "font-body text-neutral-50  inline-block transition-all duration-200 ease-out hover:-translate-y-0.5",
+                  isActive ? "text-label-m" : "text-body-m",
                 )}
                 aria-current={isActive ? "page" : undefined}
               >
@@ -67,13 +65,13 @@ export function Navbar() {
         <div className="hidden md:flex items-center gap-6 lg:gap-8">
           <Link
             href="/login"
-            className="text-label-m text-white/90 hover:text-white transition-colors"
+            className="text-body-m text-white/90 hover:text-white transition-colors"
           >
             Sign In
           </Link>
           <Link
             href="/signup"
-            className="text-label-m text-white/90 hover:text-white transition-colors"
+            className="text-body-m text-white/90 hover:text-white transition-colors"
           >
             Join Us
           </Link>
