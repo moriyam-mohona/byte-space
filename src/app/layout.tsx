@@ -11,8 +11,12 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "ByteSpace — Online Learning & Course Marketplace",
-  description: "Learn high-impact skills from top creators and industry leaders on ByteSpace.",
+  title: {
+    default: "ByteSpace — Online Learning & Course Marketplace",
+    template: "%s — ByteSpace",
+  },
+  description:
+    "Learn high-impact skills from top creators and industry leaders on ByteSpace.",
 };
 
 export default function RootLayout({

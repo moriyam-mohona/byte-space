@@ -3,74 +3,14 @@ import Link from "next/link";
 import { AvatarGroup } from "@/components/ui/AvatarGroup";
 import { CourseCard } from "@/shared/components/CourseCard";
 import { COURSES_DATA } from "@/data/courses";
+import { STUDENT_AVATARS } from "@/data/avatars";
 import { Course } from "@/types/course";
 
-const STUDENT_AVATARS = [
-  "/images/avatars/avatar-1.jpg",
-  "/images/avatars/avatar-2.jpg",
-  "/images/avatars/avatar-3.jpg",
-  "/images/avatars/avatar-4.jpg",
-];
+const DEFAULT_BUILD_DIGITAL_ASSET: Course =
+  COURSES_DATA.find((c) => c.slug === "build-digital-asset") ?? COURSES_DATA[1];
 
-const DEFAULT_BUILD_DIGITAL_ASSET: Course = COURSES_DATA[1] ?? {
-  id: "2",
-  slug: "build-digital-asset",
-  title: "Build Digital Asset",
-  description:
-    "Learn how to conceptualize, design, and monetize digital products and design systems.",
-  image: "/images/courses/course-digital-assets.jpg",
-  instructor: {
-    name: "purepearl studio",
-    avatar: "/images/avatars/avatar-2.jpg",
-    role: "Design Systems Lead",
-  },
-  rating: 4.5,
-  reviewsCount: 59,
-  commentsCount: 59,
-  price: 25,
-  billingPeriod: "lifetime",
-  level: "Beginner",
-  lessons: 17,
-  duration: "2 hours 16 mins",
-  category: "Graphic Design",
-  enrolledCountBadge: "26+",
-  enrolledAvatars: STUDENT_AVATARS,
-};
-
-const DEFAULT_BIG_DATA: Course = COURSES_DATA[2] ?? {
-  id: "3",
-  slug: "the-power-of-big-data",
-  title: "the Power of Big Data",
-  description:
-    "Harness the power of data analytics, cloud pipelines, and visualization architectures.",
-  image: "/images/courses/course-big-data.jpg",
-  instructor: {
-    name: "purepearl studio",
-    avatar: "/images/avatars/avatar-3.jpg",
-    role: "Data Architect",
-  },
-  rating: 4.5,
-  reviewsCount: 59,
-  commentsCount: 59,
-  price: 25,
-  billingPeriod: "lifetime",
-  level: "Beginner",
-  lessons: 17,
-  duration: "2 hours 16 mins",
-  category: "Data Science",
-  enrolledCountBadge: "26+",
-  enrolledAvatars: STUDENT_AVATARS,
-};
-
-const HAPPY_STUDENTS_AVATARS = [
-  "/images/avatars/avatar-1.jpg",
-  "/images/avatars/avatar-2.jpg",
-  "/images/avatars/avatar-3.jpg",
-  "/images/avatars/avatar-4.jpg",
-  "/images/avatars/avatar-james.jpg",
-  "/images/avatars/avatar-1.jpg",
-  "/images/avatars/avatar-2.jpg",
-];
+const DEFAULT_BIG_DATA: Course =
+  COURSES_DATA.find((c) => c.slug === "the-power-of-big-data") ?? COURSES_DATA[2];
 
 interface AuthVisualStageProps {
   title: string;
@@ -185,7 +125,7 @@ export function AuthVisualStage({
             </div>
             <div className="mt-2 sm:mt-3">
               <AvatarGroup
-                avatars={HAPPY_STUDENTS_AVATARS}
+                avatars={STUDENT_AVATARS}
                 badgeText="2K+"
                 size={28}
                 badgeClassName="bg-neutral-900 text-white font-bold text-[10px] sm:text-[11px]"
