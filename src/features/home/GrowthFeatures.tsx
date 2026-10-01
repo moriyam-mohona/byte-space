@@ -1,5 +1,7 @@
 import NextImage from "next/image";
 import { AvatarGroup } from "@/components/ui/AvatarGroup";
+import { CourseCard } from "@/shared/components/CourseCard";
+import { COURSES_DATA } from "@/data/courses";
 
 const STUDENT_AVATARS = [
   "/images/avatars/avatar-1.jpg",
@@ -18,21 +20,23 @@ export function GrowthFeatures() {
 
   return (
     <section className="relative w-full bg-white py-20 sm:py-24 lg:py-28 overflow-hidden">
-      {/* ─── Ambient Figma Exact Radial Glows (Z-0 above white background, behind Z-10 content) ─── */}
+      {/* ─── Ambient Figma Exact Radial Glows (Z-0 above white background, aligned to 1440px artboard) ─── */}
       <div
-        className="pointer-events-none absolute inset-0 overflow-hidden select-none z-0"
+        className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-[1440px] h-full overflow-visible select-none z-0"
         aria-hidden="true"
       >
         {/* Ellipse 11: Top Left Lime Glow (1137x1137, Top: -466px, Left: -152px, Blur: 40px) */}
+        {/* Ellipse 11: Top Left Lime Glow */}
+        {/* Ellipse 11: Top Left Lime Glow */}
         <div
-          className="absolute rounded-full"
+          className="absolute rounded-full pointer-events-none"
           style={{
             width: "1137px",
             height: "1137px",
             top: "-466px",
             left: "-152px",
             background:
-              "radial-gradient(circle, rgba(203, 252, 1, 0.45) 0%, rgba(203, 252, 1, 0.23) 40%, rgba(203, 252, 1, 0.06) 70%, transparent 100%)",
+              "radial-gradient(circle at 50% 50%, rgba(203, 252, 1, .4) 0%, rgba(203, 252, 1, 0.13) 35%, rgba(203, 252, 1, 0.06) 65%, rgba(203, 252, 1, 0) 100%)",
             filter: "blur(40px)",
           }}
         />
@@ -86,12 +90,12 @@ export function GrowthFeatures() {
         ═══════════════════════════════════════════════════════════════ */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           {/* Left Column: Copy & Stats (5 Cols) */}
-          <div className="lg:col-span-5 space-y-6 sm:space-y-8">
-            <div className="space-y-4">
-              <h2 className="font-heading font-bold text-3xl sm:text-4xl lg:text-heading-m text-neutral-950 tracking-tight leading-tight">
+          <div className="lg:col-span-6 space-y-6 sm:space-y-8">
+            <div className="space-y-10">
+              <h2 className="font-heading text-3xl sm:text-4xl lg:text-heading-m text-neutral-950t">
                 Your Path to Professional Growth Starts Here!
               </h2>
-              <p className="font-body text-body-s sm:text-body-m text-neutral-600 leading-relaxed">
+              <p className="font-body text-body-m sm:text-body-l text-neutral-700 leading-relaxed max-w-119.25">
                 Explore our curated selection of courses tailored to enhance
                 your capabilities and accelerate your career journey. Whether
                 you are looking to sharpen specific skills, gain industry
@@ -99,120 +103,84 @@ export function GrowthFeatures() {
                 resources you need.
               </p>
             </div>
-
             {/* 3 Stats Counters */}
-            <div className="pt-2 flex items-center gap-10 sm:gap-14 border-t border-neutral-100">
+            <div className="pt-2 flex items-center gap-10 sm:gap-14">
               <div>
-                <div className="text-heading-s sm:text-heading-m font-bold text-primary tracking-tight">
+                <div className="text-heading-s sm:text-display-xs text-primary-800">
                   12K
                 </div>
-                <div className="font-body text-body-xs sm:text-body-s text-neutral-500 font-medium mt-0.5">
+                <div className="font-body text-body-xs sm:text-body-l text-neutral-700 font-medium mt-0.5">
                   Students
                 </div>
               </div>
 
               <div>
-                <div className="text-heading-s sm:text-heading-m font-bold text-primary tracking-tight">
+                <div className="text-heading-s sm:text-display-xs text-primary-800">
                   70+
                 </div>
-                <div className="font-body text-body-xs sm:text-body-s text-neutral-500 font-medium mt-0.5">
+                <div className="font-body text-body-xs sm:text-body-l text-neutral-700 font-medium mt-0.5">
                   Courses
                 </div>
               </div>
 
               <div>
-                <div className="text-heading-s sm:text-heading-m font-bold text-primary tracking-tight">
+                <div className="text-heading-s sm:text-display-xs text-primary-800">
                   16
                 </div>
-                <div className="font-body text-body-xs sm:text-body-s text-neutral-500 font-medium mt-0.5">
+                <div className="font-body text-body-xs sm:text-body-l text-neutral-700 font-medium mt-0.5">
                   Creators
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Right Column: Visual Stage with Student Guy (7 Cols) */}
-          <div className="lg:col-span-7 relative flex justify-center items-center py-6 sm:py-10">
-            {/* 3D Floating Lime Zigzag behind student */}
-            <div className="absolute top-4 sm:top-8 right-6 sm:right-16 w-24 sm:w-36 lg:w-44 h-auto pointer-events-none select-none z-0 animate-float-slow opacity-90">
+          {/* Right Column: Visual Stage with Student Guy (6 Cols) */}
+          <div className="lg:col-span-6 relative w-full mx-auto py-6 sm:py-10 flex justify-center items-center">
+            {/* 3D Floating Lime Zigzag behind student (Top-Right) */}
+            <div className="absolute -top-2 sm:top-22 -right-2 sm:right-4 lg:-right-10 w-28 sm:w-36 lg:w-48 h-auto pointer-events-none select-none z-40 animate-float-slow">
               <NextImage
-                src="/images/hero/lime-zigzag.png"
+                src="/images/growth/zigzag-boy.png"
                 alt=""
                 width={531}
                 height={774}
-                className="w-full h-auto drop-shadow-xl"
+                className="w-full h-auto"
                 aria-hidden="true"
               />
             </div>
 
-            {/* Central Student Portrait */}
-            <div className="relative z-10 w-full max-w-[380px] sm:max-w-[440px] lg:max-w-[460px]">
-              <NextImage
-                src="/images/hero/laptop-guy.png"
-                alt="Student smiling with laptop"
-                width={1444}
-                height={1030}
-                className="w-full h-auto object-contain drop-shadow-2xl"
-                priority
+            {/* Floating Mini Course Card (Top-Left, behind student) */}
+            <div className="absolute top-0 sm:top-6 left-0 sm:-left-4 lg:left-6 z-10 animate-float-subtle origin-top-left w-[82%] sm:w-[78%] lg:w-[76%] max-w-[380px] pointer-events-none select-none">
+              <CourseCard
+                course={COURSES_DATA[0]}
+                className="shadow-2xl border-neutral-100 rounded-3xl"
               />
             </div>
 
-            {/* Floating Mini Course Card (Top-Left) */}
-            <div className="absolute top-0 sm:top-4 left-0 sm:left-4 lg:left-8 z-20 animate-float-subtle origin-top-left scale-[0.7] xs:scale-[0.82] sm:scale-95 lg:scale-100">
-              <div className="bg-white rounded-2xl p-3 sm:p-3.5 shadow-2xl border border-neutral-100/90 w-[200px] sm:w-[220px] text-left space-y-2">
-                <div className="relative w-full aspect-16/10 rounded-xl overflow-hidden bg-neutral-100">
-                  <NextImage
-                    src="/images/courses/course-figma.jpg"
-                    alt="Learn Figma from Basic"
-                    fill
-                    className="object-cover"
-                  />
-                  <div className="absolute inset-x-1.5 bottom-1.5 flex items-center justify-between text-[9px] font-medium text-neutral-800">
-                    <span className="px-1.5 py-0.5 rounded-full bg-white/85 backdrop-blur-xs shadow-xs">
-                      17 Lessons
-                    </span>
-                    <span className="px-1.5 py-0.5 rounded-full bg-white/85 backdrop-blur-xs shadow-xs">
-                      2 hours 16 mins
-                    </span>
-                  </div>
-                </div>
-                <div>
-                  <h4 className="font-heading font-semibold text-label-s text-neutral-950 truncate">
-                    Learn Figma from Basic
-                  </h4>
-                  <p className="text-[11px] text-neutral-500">
-                    by{" "}
-                    <span className="text-primary font-medium">
-                      purepearl studio
-                    </span>
-                  </p>
-                </div>
-                <div className="flex items-center justify-between pt-1 border-t border-neutral-100">
-                  <span className="px-2 py-0.5 rounded-full bg-neutral-100 text-[10px] font-medium text-neutral-600">
-                    Beginner
-                  </span>
-                  <span className="font-heading font-bold text-label-s text-primary">
-                    $25
-                    <span className="text-[10px] text-neutral-400 font-normal">
-                      /lifetime
-                    </span>
-                  </span>
-                </div>
-              </div>
+            {/* Central Student Portrait (z-20, overlapping course card) */}
+            <div className="relative z-20 w-[85%] sm:w-[82%] lg:w-full max-w-[420px] sm:max-w-[460px] lg:max-w-[577px] ml-auto translate-x-4 sm:translate-x-8 lg:translate-x-12 translate-y-4 pointer-events-none select-none">
+              <NextImage
+                src="/images/growth/laptop-guy.png"
+                alt="Student smiling with laptop"
+                width={1444}
+                height={1030}
+                priority
+                className="block w-full h-auto drop-shadow-2xl"
+              />
             </div>
 
-            {/* Floating Learning Progress Card (Mid-Right) */}
-            <div className="absolute bottom-12 sm:bottom-20 right-0 sm:right-4 lg:right-8 z-20 animate-float-slow origin-bottom-right scale-[0.72] xs:scale-[0.85] sm:scale-95 lg:scale-100">
-              <div className="bg-white rounded-2xl p-3.5 sm:p-4 shadow-2xl border border-neutral-100/90 min-w-[160px] sm:min-w-[190px] text-left space-y-1.5">
-                <span className="font-body text-[11px] text-neutral-500 font-medium">
+            {/* Floating Learning Progress Card (Mid-Right, overlapping student) */}
+            <div className="absolute top-[44%] sm:top-[32%] -right-2 sm:right-2 lg:-right-6 z-30 animate-float-slow origin-right scale-[0.8] sm:scale-95 lg:scale-100">
+              <div className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-4 shadow-2xl border border-neutral-100/90 flex flex-col gap-1.5 sm:gap-2 min-w-[200px] sm:min-w-[240px] text-left">
+                <span className="text-label-s text-neutral-950 font-body font-medium">
                   Learning Progress
                 </span>
-                <div className="text-heading-s font-bold text-neutral-950 leading-none">
+                <span className="text-4xl sm:text-5xl lg:text-heading-m font-bold text-neutral-950 leading-none">
                   55%
-                </div>
-                <div className="w-full bg-neutral-200 h-2 sm:h-2.5 rounded-full overflow-hidden mt-1">
+                </span>
+                {/* Progress Bar track and fill */}
+                <div className="w-full bg-neutral-100 h-2 sm:h-2.5 rounded-full overflow-hidden mt-1">
                   <div
-                    className="bg-secondary h-full rounded-full w-[55%]"
+                    className="bg-secondary h-full rounded-full transition-all duration-1000 w-[55%]"
                     role="progressbar"
                     aria-valuenow={55}
                     aria-valuemin={0}
