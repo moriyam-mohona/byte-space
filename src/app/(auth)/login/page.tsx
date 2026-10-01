@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import { AuthVisualStage, LoginForm } from "@/features/auth";
 
 export const metadata: Metadata = {
-  title: "Login | ByteSpace",
+  title: "Sign In | ByteSpace",
   description:
     "Sign in to your ByteSpace account to access your courses and creators.",
 };
