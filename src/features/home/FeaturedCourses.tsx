@@ -97,12 +97,12 @@ export function FeaturedCourses() {
       <div className="container">
         {/* ─── Section Header (Headline & Subtitle) ─── */}
         <div className="text-center max-w-4xl mx-auto space-y-4 sm:space-y-5">
-          <h2 className="font-heading text-3xl sm:heading-s font-medium lg:text-heading-m text-neutral-950 tracking-tight leading-tight">
+          <h2 className="font-heading text-3xl font-medium lg:text-heading-m text-neutral-950 tracking-tight leading-tight">
             Discover Your Passion,
             <br />
             Build Your Skills
           </h2>
-          <p className="font-body text-body-s sm:text-body-l text-neutral-400 leading-relaxed px-2">
+          <p className="font-body text-body-m sm:text-body-l text-black-700 leading-relaxed px-2">
             At Bytespace Courses, we bring you closer to life-changing
             knowledge. Explore a variety of courses across different fields,
             from technology to the arts, and make a difference in your career

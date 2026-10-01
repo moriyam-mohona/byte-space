@@ -108,12 +108,12 @@ export function CreatorBanner() {
           CENTERED HERO COPY & CALL-TO-ACTION
       ═══════════════════════════════════════════════════════════════ */}
       <div className="relative z-20 max-w-3xl mx-auto px-4 sm:px-6 text-center space-y-5 sm:space-y-6">
-        <h2 className="font-heading font-bold text-2xl xs:text-3xl sm:text-4xl md:text-[42px] lg:text-[48px] leading-[1.16] tracking-tight text-white drop-shadow-sm">
+        <h2 className="font-heading text-3xl font-medium lg:text-heading-m text-neutral-950 text-white drop-shadow-sm">
           Unlock Your Potential as a <br className="hidden sm:inline" />
           Creator with ByteSpace
         </h2>
 
-        <p className="font-body text-white/85 text-xs sm:text-[13.5px] lg:text-[14.5px] leading-relaxed max-w-170 mx-auto font-normal">
+        <p className="font-body text-body-m sm:text-body-l text-black-700 leading-relaxed max-w-170 mx-auto font-normal">
           Experience the collaboration of numerous creators and an expanding
           selection of courses. Register now and become a part of a community
           comprising over 10,000 local and international creators. Utilize our

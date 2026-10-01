@@ -8,6 +8,9 @@ const STUDENT_AVATARS = [
   "/images/avatars/avatar-2.jpg",
   "/images/avatars/avatar-3.jpg",
   "/images/avatars/avatar-4.jpg",
+  "/images/avatars/avatar-1.jpg",
+  "/images/avatars/avatar-2.jpg",
+  "/images/avatars/avatar-3.jpg",
 ];
 
 export function GrowthFeatures() {
@@ -84,18 +87,18 @@ export function GrowthFeatures() {
         />
       </div>
 
-      <div className="relative z-10 container space-y-24 sm:space-y-32 lg:space-y-40">
+      <div className="relative z-10 container space-y-24 sm:space-y-10 lg:space-y-18">
         {/* ═══════════════════════════════════════════════════════════════
             BLOCK 1: Your Path to Professional Growth Starts Here!
         ═══════════════════════════════════════════════════════════════ */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           {/* Left Column: Copy & Stats (5 Cols) */}
           <div className="lg:col-span-6 space-y-6 sm:space-y-8">
-            <div className="space-y-10">
-              <h2 className="font-heading text-3xl sm:text-4xl lg:text-heading-m text-neutral-950t">
+            <div className="space-y-6 sm:space-y-10">
+              <h2 className="font-heading text-3xl font-medium lg:text-heading-m text-neutral-950">
                 Your Path to Professional Growth Starts Here!
               </h2>
-              <p className="font-body text-body-m sm:text-body-l text-neutral-700 leading-relaxed max-w-119.25">
+              <p className="font-body text-body-m sm:text-body-l text-black-700 leading-relaxed px-2 max-w-119.25">
                 Explore our curated selection of courses tailored to enhance
                 your capabilities and accelerate your career journey. Whether
                 you are looking to sharpen specific skills, gain industry
@@ -197,15 +200,15 @@ export function GrowthFeatures() {
         ═══════════════════════════════════════════════════════════════ */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           {/* Left Column: Visual Stage with Female Creator (7 Cols) */}
-          <div className="order-2 lg:order-1 lg:col-span-7 relative flex justify-center items-center py-6 sm:py-10">
+          <div className="order-2 lg:order-1 lg:col-span-6 relative flex justify-center items-center py-6 sm:py-10">
             {/* 3D Floating Lime Zigzag behind creator */}
-            <div className="absolute top-10 sm:top-16 right-4 sm:right-12 lg:right-16 w-24 sm:w-36 lg:w-44 h-auto pointer-events-none select-none z-0 animate-float-reverse opacity-90">
+            <div className="absolute top-10 sm:top-16 right-4 sm:right-12 lg:right-16 w-24 sm:w-36 lg:w-52 h-auto pointer-events-none select-none z-20 animate-float-reverse">
               <NextImage
-                src="/images/hero/lime-zigzag.png"
+                src="/images/growth/zigzag-girl.png"
                 alt=""
                 width={531}
                 height={774}
-                className="w-full h-auto drop-shadow-xl"
+                className="w-full h-auto"
                 aria-hidden="true"
               />
             </div>
@@ -213,23 +216,23 @@ export function GrowthFeatures() {
             {/* Central Female Creator Portrait */}
             <div className="relative z-10 w-full max-w-[340px] sm:max-w-[400px] lg:max-w-[420px]">
               <NextImage
-                src="/images/laptop-girl.png"
+                src="/images/growth/laptop-girl.png"
                 alt="Female creator smiling with headset and tablet"
                 width={600}
                 height={800}
-                className="w-full h-auto object-contain drop-shadow-2xl"
+                className="w-full h-auto object-contain"
                 priority
               />
             </div>
 
             {/* Floating Card 1: Total Revenue (Top-Left, Blue) */}
-            <div className="absolute top-2 sm:top-6 left-0 sm:left-4 lg:left-8 z-20 animate-float-subtle origin-top-left scale-[0.72] xs:scale-[0.82] sm:scale-95 lg:scale-100">
-              <div className="bg-primary text-white rounded-2xl p-3.5 sm:p-4 shadow-2xl border border-primary-400/30 min-w-[160px] sm:min-w-[185px] text-left space-y-1">
-                <div className="flex items-center justify-between text-[11px] text-white/80 font-medium">
+            <div className="absolute top-2 sm:top-16 left-0 sm:left-4 lg:left-8 z-0 animate-float-subtle origin-top-left sm:scale-95 lg:scale-100">
+              <div className="bg-primary-800 text-white rounded-2xl p-3 border border-primary-400/30 min-w-[160px] sm:min-w-[185px] text-left space-y-1">
+                <div className="flex flex-col text-body-s text-white/80 font-medium">
                   <span>Total Revenue</span>
                   <span className="text-[10px] text-white/60">July 1-28</span>
                 </div>
-                <div className="font-heading font-bold text-xl sm:text-2xl tracking-tight text-white">
+                <div className="font-heading text-xl sm:text-2xl tracking-tight text-white">
                   $120.29
                 </div>
                 <div className="w-full bg-white/25 h-1.5 rounded-full overflow-hidden mt-1">
@@ -239,13 +242,15 @@ export function GrowthFeatures() {
             </div>
 
             {/* Floating Card 2: Year to Date (Mid-Left, Blue) */}
-            <div className="absolute top-28 sm:top-36 left-0 sm:left-2 lg:left-6 z-20 animate-float-slow origin-left scale-[0.72] xs:scale-[0.82] sm:scale-95 lg:scale-100">
-              <div className="bg-primary text-white rounded-2xl p-3.5 sm:p-4 shadow-2xl border border-primary-400/30 min-w-[160px] sm:min-w-[185px] text-left space-y-1">
-                <div className="flex items-center justify-between text-[11px] text-white/80 font-medium">
-                  <span>Year to Date</span>
-                  <span className="text-[10px] text-white/60">2023</span>
+            <div className="absolute top-28 sm:top-46 left-0 sm:left-26 lg:left-10 z-0 animate-float-slow origin-left scale-[0.72] xs:scale-[0.82] sm:scale-95 lg:scale-100">
+              <div className="bg-primary-800 text-white rounded-2xl p-3.5 sm:p-2.5 border border-primary-400/30 text-left space-y-1">
+                <div className="flex flex-col text-body-xs text-white/80 font-medium">
+                  <span className="text-body-s">Year to Date</span>
+                  <span className="font-body text-body-xs text-white/60">
+                    2023
+                  </span>
                 </div>
-                <div className="font-heading font-bold text-xl sm:text-2xl tracking-tight text-white">
+                <div className="text-xl sm:text-heading-xs tracking-tight text-white">
                   $1,200.38
                 </div>
                 <div className="pt-0.5">
@@ -257,22 +262,22 @@ export function GrowthFeatures() {
             </div>
 
             {/* Floating Card 3: Happy Students (Bottom-Right) */}
-            <div className="absolute bottom-2 sm:bottom-8 right-0 sm:right-4 lg:right-8 z-20 animate-float-reverse origin-bottom-right scale-[0.72] xs:scale-[0.82] sm:scale-95 lg:scale-100">
-              <div className="bg-white rounded-2xl p-3 sm:p-3.5 shadow-2xl border border-neutral-100/90 min-w-[180px] sm:min-w-[210px] text-left space-y-1.5">
-                <div className="flex items-center justify-between gap-3">
-                  <h4 className="font-heading font-bold text-label-s text-neutral-950">
+            <div className="absolute bottom-2 sm:bottom-48 right-0 sm:right-4 lg:right-8 z-20 animate-float-reverse origin-bottom-right scale-[0.72] xs:scale-[0.82] sm:scale-95 lg:scale-100">
+              <div className="bg-white rounded-2xl p-3.5 sm:p-3 shadow-2xl border border-neutral-100 flex flex-col gap-2 min-w-50 sm:min-w-60 text-left">
+                <div className="flex flex-col">
+                  <h4 className="text-label-m font-body text-neutral-950">
                     Happy Students
                   </h4>
-                  <div className="flex items-center gap-1 text-[11px] font-semibold text-neutral-800">
-                    <span>4.5</span>
+                  <div className="flex items-center gap-1 text-body-xs font-body">
+                    <span className="text-neutral-800">4.5</span>
                     <span className="text-neutral-400 font-normal">(240)</span>
-                    <span className="text-amber-400">★</span>
+                    <span className="text-secondary-400 text-xl">★</span>
                   </div>
                 </div>
                 <AvatarGroup
                   avatars={STUDENT_AVATARS}
                   badgeText="2K+"
-                  size={24}
+                  size={36}
                 />
               </div>
             </div>
@@ -281,12 +286,13 @@ export function GrowthFeatures() {
           {/* Right Column: Copy & Checklist (5 Cols) */}
           <div className="order-1 lg:order-2 lg:col-span-5 space-y-6 sm:space-y-8">
             <div className="space-y-4">
-              <h2 className="font-heading font-bold text-3xl sm:text-4xl lg:text-heading-m text-neutral-950 tracking-tight leading-tight">
+              <h2 className="font-heading text-3xl font-medium lg:text-heading-m text-neutral-950">
                 Create & Manage Courses Easily.
               </h2>
-              <p className="font-body text-body-s sm:text-body-m text-neutral-600 leading-relaxed">
-                ByteSpace supports individuals or entities in the creation,
-                publication, and administration of educational courses.
+              <p className="font-body text-body-m sm:text-body-l text-black-700 leading-relaxed max-w-119.25">
+                <b>ByteSpace</b> supports individuals or entities in the
+                creation, publication, and administration of educational
+                courses.
               </p>
             </div>
 
@@ -295,9 +301,9 @@ export function GrowthFeatures() {
               {checklist.map((item) => (
                 <li key={item} className="flex items-center gap-3">
                   {/* Blue Circular Checkmark Icon */}
-                  <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-primary flex items-center justify-center text-white shrink-0 shadow-xs">
+                  <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-primary-800 flex items-center justify-center text-white shrink-0 shadow-xs">
                     <svg
-                      className="w-3 h-3 sm:w-3.5 sm:h-3.5"
+                      className="w-3 h-3 sm:w-4.5 sm:h-4.5"
                       viewBox="0 0 24 24"
                       fill="none"
                       stroke="currentColor"
@@ -308,7 +314,7 @@ export function GrowthFeatures() {
                       <polyline points="20 6 9 17 4 12" />
                     </svg>
                   </div>
-                  <span className="font-heading font-semibold text-label-m sm:text-label-l text-neutral-900">
+                  <span className="font-body text-label-m sm:text-label-l text-neutral-950">
                     {item}
                   </span>
                 </li>
