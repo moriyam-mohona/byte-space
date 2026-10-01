@@ -14,12 +14,12 @@ export function SignupForm() {
   };
 
   return (
-    <div className="bg-white rounded-3xl p-8 sm:p-10 lg:p-14 shadow-2xl w-full max-w-lg mx-auto space-y-6">
+    <div className="bg-white rounded-3xl p-6 sm:p-10 lg:p-14 shadow-2xl w-full max-w-lg mx-auto space-y-6">
       <div className="space-y-1.5 text-left">
-        <span className="font-body text-body-l text-primary-800">
+        <span className="font-body text-body-m sm:text-body-l text-primary-800">
           Create an Account
         </span>
-        <h2 className="font-heading text-heading-m text-neutral-950 tracking-tight">
+        <h2 className="font-heading text-heading-s lg:text-heading-m text-neutral-950 tracking-tight">
           Welcome to ByteSpace
         </h2>
       </div>
@@ -77,7 +77,7 @@ export function SignupForm() {
         </div>
       </form>
 
-      <div className="pt-28 text-center">
+      <div className="pt-16 sm:pt-20 lg:pt-28 text-center">
         <p className="font-body text-body-m text-neutral-600">
           Already have an account?{" "}
           <Link
