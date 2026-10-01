@@ -14,10 +14,10 @@ export function LoginForm() {
   };
 
   return (
-    <div className="bg-white rounded-3xl p-8 sm:p-10 lg:p-14 shadow-2xl w-full max-w-lg mx-auto space-y-6">
+    <div className="bg-white rounded-3xl p-6 sm:p-10 lg:p-14 shadow-2xl w-full max-w-lg mx-auto space-y-6">
       <div className="space-y-1.5 text-left">
-        <span className="font-body text-body-l text-primary-800">Sign In</span>
-        <h2 className="font-heading text-heading-m text-neutral-950 tracking-tight">
+        <span className="font-body text-body-m sm:text-body-l text-primary-800">Sign In</span>
+        <h2 className="font-heading text-heading-s lg:text-heading-m text-neutral-950 tracking-tight">
           Welcome Back
         </h2>
       </div>
@@ -62,7 +62,7 @@ export function LoginForm() {
       </form>
 
       {/* ─── Social Logins Divider ─── */}
-      <div className="relative flex items-center justify-center my-4">
+      <div className="relative flex items-center justify-center mt-10 sm:mt-14 lg:mt-18 mb-6 sm:mb-8 lg:mb-10">
         <div className="w-full border-t border-neutral-200" />
         <span className="bg-white px-3 font-body text-body-l text-neutral-400 font-medium">
           or

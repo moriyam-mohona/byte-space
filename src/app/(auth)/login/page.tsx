@@ -3,7 +3,8 @@ import { AuthVisualStage, LoginForm } from "@/features/auth";
 
 export const metadata: Metadata = {
   title: "Login | ByteSpace",
-  description: "Sign in to your ByteSpace account to access your courses and creators.",
+  description:
+    "Sign in to your ByteSpace account to access your courses and creators.",
 };
 
 export default function LoginPage() {

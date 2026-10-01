@@ -3,22 +3,9 @@ import { Navbar } from "@/components/layout/Navbar";
 
 export default function NotFound() {
   return (
-    <div className="min-h-screen w-full bg-primary-800 text-white flex flex-col justify-between overflow-hidden relative selection:bg-secondary selection:text-neutral-950">
+    <div className="min-h-screen w-full bg-primary-800 bg-hero-grid text-white flex flex-col justify-between overflow-hidden relative selection:bg-secondary selection:text-neutral-950">
       {/* ─── Top Header Navigation ─── */}
       <Navbar />
-
-      {/* ─── Geometric Grid Overlay (88px square grid) ─── */}
-      <div
-        className="pointer-events-none absolute inset-0 z-0 opacity-30 select-none"
-        style={{
-          backgroundImage: `
-            linear-gradient(to right, rgba(255, 255, 255, 0.2) 1px, transparent 1px),
-            linear-gradient(to bottom, rgba(255, 255, 255, 0.2) 1px, transparent 1px)
-          `,
-          backgroundSize: "88px 88px",
-        }}
-        aria-hidden="true"
-      />
 
       {/* ─── 404 Visual Content Stage ─── */}
       <main className="relative z-10 flex-1 flex flex-col items-center justify-center px-4 sm:px-6 py-12 sm:py-16 text-center my-auto">
