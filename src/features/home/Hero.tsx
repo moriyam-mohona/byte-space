@@ -29,11 +29,11 @@ export function Hero() {
   };
 
   return (
-    <section className="relative w-full bg-primary-800 bg-hero-grid overflow-hidden pt-28 sm:pt-32 lg:pt-36 pb-0">
+    <section className="relative w-full bg-primary-800 bg-hero-grid overflow-hidden pt-46 sm:pt-32 lg:pt-36 pb-0">
       {/* ─── 3D Floating Shapes: Left Side ─── */}
       <>
         {/* Top-Left Lime Zigzag (bleeds partially off the top-left edge) */}
-        <div className="absolute top-16 md:top-32 lg:top-46 left-0 w-24 md:w-32 xl:w-64 h-auto pointer-events-none select-none z-10 animate-float-slow">
+        <div className="absolute top-16 md:top-32 lg:top-46 left-0 w-40 md:w-32 xl:w-64 h-auto pointer-events-none select-none z-10 animate-float-slow">
           <Image
             src="/images/hero/lime-zigzag.png"
             alt=""
@@ -46,7 +46,7 @@ export function Hero() {
         </div>
 
         {/* Mid-Left White Small Zigzag (tilted floating squiggle) */}
-        <div className="absolute top-68 -left-6 w-14 sm:-top-10 sm:w-20 md:top-88 md:w-24 lg:top-100 lg:w-32 xl:top-96 xl:left-48 xl:w-40 pointer-events-none select-none z-10 animate-float-reverse rotate-12 ">
+        <div className="absolute w-24 sm:w-20 md:w-24 lg:w-32 xl:w-40 top-18 sm:-top-10 md:top-88  lg:top-100 xl:top-96 left-26 xl:left-48 pointer-events-none select-none z-10 animate-float-reverse rotate-12 ">
           <Image
             src="/images/hero/whiye-small-zigzag.png"
             alt=""
@@ -59,7 +59,7 @@ export function Hero() {
         </div>
 
         {/* Bottom-Left White Donut / Torus (BIGGER, tilted ~35deg, right edge close to lime arc) */}
-        <div className="absolute bottom-4 -left-6 w-40 sm:bottom-8 sm:left-20 sm:w-56 md:bottom-12 md:-left-8 md:w-64 lg:bottom-4 lg:-left-14 xl:-bottom-4 xl:left-4 2xl:bottom-4 2xl:left-64 xl:w-72 pointer-events-none select-none z-20 animate-float-zoom rotate-12">
+        <div className="absolute -left-6 sm:left-20 md:-left-8 lg:-left-14 xl:left-4 2xl:left-64 w-40 sm:w-56 md:w-64 xl:w-72 bottom-4 sm:bottom-8 md:bottom-12 lg:bottom-4 xl:-bottom-4 2xl:bottom-4  pointer-events-none select-none z-20 animate-float-zoom rotate-12">
           <Image
             src="/images/hero/white-donut.png"
             alt=""
@@ -73,7 +73,7 @@ export function Hero() {
 
         {/* ─── 3D Floating Shapes: Right Side ─── */}
         {/* Top-Right Lime Cylinder (bleeds partially off the top-right edge) */}
-        <div className="absolute top-8 sm:top-12 xl:top-36 right-0 w-20 sm:w-26 lg:w-40 xl:w-48 h-auto pointer-events-none select-none z-10 animate-float-slow">
+        <div className="absolute top-8 sm:top-12 xl:top-36 right-0 w-30 sm:w-26 lg:w-40 xl:w-48 h-auto pointer-events-none select-none z-10 animate-float-slow">
           <Image
             src="/images/hero/lime-cylinder.png"
             alt=""
@@ -86,7 +86,7 @@ export function Hero() {
         </div>
 
         {/* Mid-Right White Pyramid */}
-        <div className="absolute top-48 sm:top-72 lg:top-96 -right-4 sm:right-2 lg:right-42 w-20 sm:w-32 lg:w-44 h-auto pointer-events-none select-none z-10 animate-float-subtle">
+        <div className="absolute top-50 sm:top-72 lg:top-96 -right-5 sm:right-2 lg:right-42 w-24 sm:w-32 lg:w-44 h-auto pointer-events-none select-none z-10 animate-float-subtle">
           <Image
             src="/images/hero/white-pyramid.png"
             alt=""
@@ -119,7 +119,7 @@ export function Hero() {
         </h1>
 
         {/* Subtitle */}
-        <p className="font-body text-body-m sm:text-body-l text-neutral-100 mt-4 sm:mt-8 leading-relaxed">
+        <p className="max-w-xs md:max-w-full font-body text-body-m sm:text-body-l text-neutral-100 mt-4 sm:mt-8 leading-relaxed">
           Unlock your creativity, gain valuable knowledge, and grow your
           business with our wide range of courses.
         </p>
