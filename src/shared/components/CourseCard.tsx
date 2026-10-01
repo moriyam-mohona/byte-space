@@ -31,7 +31,7 @@ export function CourseCard({
   return (
     <article
       className={cn(
-        "group relative flex flex-col rounded-3xl bg-white text-neutral-950 border border-neutral-200 p-5 sm:p-6 shadow-xs transition-all duration-200 hover:-translate-y-1 hover:shadow-md",
+        "group relative flex flex-col rounded-3xl bg-white text-neutral-950 border border-neutral-200 p-3 shadow-xs transition-all duration-200 hover:-translate-y-1 hover:shadow-md",
         className,
       )}
     >
@@ -63,7 +63,7 @@ export function CourseCard({
       {/* ─── Title, Instructor & Rating ─── */}
       <div className="mt-5 flex items-start justify-between gap-3">
         <div className="flex-1 min-w-0">
-          <h3 className="text-heading-xs font-semibold tracking-tight truncate">
+          <h3 className="text-level-m lg:text-heading-xs font-semibold tracking-tight truncate">
             <Link
               href={`/courses/${course.slug}`}
               className="text-neutral-950 hover:text-primary transition-colors focus:outline-hidden focus:ring-2 focus:ring-primary/40 rounded-sm"
@@ -87,7 +87,7 @@ export function CourseCard({
           className="flex items-center gap-1 shrink-0 pt-0.5"
           aria-label={`Rating: ${course.rating} out of 5 stars`}
         >
-          <span className="font-body text-body-l font-medium text-neutral-600">
+          <span className="font-body text-body-m lg:text-body-l font-medium text-neutral-600">
             {course.rating.toFixed(1)}
           </span>
           <svg
