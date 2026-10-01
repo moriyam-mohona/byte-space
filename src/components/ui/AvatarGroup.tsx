@@ -17,11 +17,11 @@ export function AvatarGroup({
   size = 32,
 }: AvatarGroupProps) {
   return (
-    <div className={cn("flex items-center -space-x-2", className)}>
+    <div className={cn("flex items-center -space-x-3 ", className)}>
       {avatars.map((src, index) => (
         <div
           key={index}
-          className="relative inline-block w-8 h-8 rounded-full overflow-hidden ring-2 ring-white bg-neutral-200 shrink-0"
+          className="relative inline-block w-16 h-16 rounded-full overflow-hidden bg-neutral-200 shrink-0"
           style={{ width: size, height: size }}
         >
           <Image
@@ -36,7 +36,7 @@ export function AvatarGroup({
       {badgeText && (
         <div
           className={cn(
-            "relative inline-flex items-center justify-center w-8 h-8 rounded-full bg-neutral-900 text-white font-bold text-xs ring-2 ring-white shrink-0 select-none",
+            "relative inline-flex items-center justify-center w-16 h-16 rounded-full bg-secondary-400 font-bold text-xs font-body shrink-0 select-none",
             badgeClassName,
           )}
           style={{ width: size, height: size }}
