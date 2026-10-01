@@ -7,7 +7,7 @@ export const COURSES_DATA: Course[] = [
     title: "Learn Figma from Basic",
     description:
       "Master modern user interface and user experience design in Figma with practical projects.",
-    image: "/images/courses/course-figma.jpg",
+    image: "/images/courses/course-figma.png",
     instructor: {
       name: "purepearl studio",
       avatar: "/images/avatars/avatar-1.jpg",
@@ -37,7 +37,7 @@ export const COURSES_DATA: Course[] = [
     title: "Build Digital Asset",
     description:
       "Learn how to conceptualize, design, and monetize digital products and design systems.",
-    image: "/images/courses/course-digital-assets.jpg",
+    image: "/images/courses/course-digital-assets.png",
     instructor: {
       name: "purepearl studio",
       avatar: "/images/avatars/avatar-2.jpg",
@@ -67,7 +67,7 @@ export const COURSES_DATA: Course[] = [
     title: "the Power of Big Data",
     description:
       "Harness the power of data analytics, cloud pipelines, and visualization architectures.",
-    image: "/images/courses/course-big-data.jpg",
+    image: "/images/courses/course-big-data.png",
     instructor: {
       name: "purepearl studio",
       avatar: "/images/avatars/avatar-3.jpg",
@@ -97,7 +97,7 @@ export const COURSES_DATA: Course[] = [
     title: "Balancing Productivity and Life",
     description:
       "Design your personal operating system to achieve deep work and maintain work-life harmony.",
-    image: "/images/courses/course-productivity.jpg",
+    image: "/images/courses/course-productivity.png",
     instructor: {
       name: "purepearl studio",
       avatar: "/images/avatars/avatar-4.jpg",
@@ -127,7 +127,7 @@ export const COURSES_DATA: Course[] = [
     title: "Mastering Money Management",
     description:
       "Actionable personal and business finance, investing strategies, and cash flow fundamentals.",
-    image: "/images/courses/course-finance.jpg",
+    image: "/images/courses/course-finance.png",
     instructor: {
       name: "purepearl studio",
       avatar: "/images/avatars/avatar-1.jpg",
@@ -157,7 +157,7 @@ export const COURSES_DATA: Course[] = [
     title: "From Idea to Startup Success",
     description:
       "A battle-tested blueprint to validate ideas, build MVPs, and scale early-stage ventures.",
-    image: "/images/courses/course-startup.jpg",
+    image: "/images/courses/course-startup.png",
     instructor: {
       name: "purepearl studio",
       avatar: "/images/avatars/avatar-2.jpg",

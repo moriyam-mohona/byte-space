@@ -43,7 +43,7 @@ const DEFAULT_BIG_DATA: Course = COURSES_DATA[2] ?? {
   title: "the Power of Big Data",
   description:
     "Harness the power of data analytics, cloud pipelines, and visualization architectures.",
-  image: "/images/courses/course-big-data.jpg",
+  image: "/images/courses/course-finance.png",
   instructor: {
     name: "purepearl studio",
     avatar: "/images/avatars/avatar-3.jpg",
