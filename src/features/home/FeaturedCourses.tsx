@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { CourseCard } from "@/shared/components/CourseCard";
 import { COURSES_DATA } from "@/data/courses";
 import { cn } from "@/lib/utils";
@@ -27,10 +27,13 @@ const CATEGORY_ROWS = [
   ["Productivity", "Web Development", "Data Science", "Cooking"],
 ];
 
+const ALL_CATEGORIES = CATEGORY_ROWS.flat();
+
 export function FeaturedCourses() {
   const [selectedCategory, setSelectedCategory] = useState("Featured");
   const [mobileIndex, setMobileIndex] = useState(0);
   const [touchStartX, setTouchStartX] = useState<number | null>(null);
+  const pillsContainerRef = useRef<HTMLDivElement>(null);
 
   const filteredCourses =
     selectedCategory === "Featured"
@@ -73,6 +76,12 @@ export function FeaturedCourses() {
     setTouchStartX(null);
   };
 
+  const scrollPillsRight = () => {
+    if (pillsContainerRef.current) {
+      pillsContainerRef.current.scrollBy({ left: 160, behavior: "smooth" });
+    }
+  };
+
   const renderPill = (category: string) => {
     const isActive = selectedCategory === category;
     return (
@@ -81,7 +90,7 @@ export function FeaturedCourses() {
         type="button"
         onClick={() => handleCategorySelect(category)}
         className={cn(
-          "font-body px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-label-xs md:text-label-m transition-all duration-200 cursor-pointer select-none",
+          "font-body px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-label-xs md:text-label-m transition-all duration-200 cursor-pointer select-none whitespace-nowrap",
           isActive
             ? "bg-secondary text-neutral-950 shadow-xs"
             : "bg-neutral-50 text-neutral-700 hover:bg-neutral-100 hover:text-neutral-950 font-medium active:scale-95",
@@ -102,7 +111,7 @@ export function FeaturedCourses() {
             <br />
             Build Your Skills
           </h2>
-          <p className="font-body text-body-m sm:text-body-l text-black-700 leading-relaxed px-2">
+          <p className="font-body text-body-m sm:text-body-l text-neutral-700 leading-relaxed px-2">
             At Bytespace Courses, we bring you closer to life-changing
             knowledge. Explore a variety of courses across different fields,
             from technology to the arts, and make a difference in your career
@@ -110,8 +119,45 @@ export function FeaturedCourses() {
           </p>
         </div>
 
-        {/* ─── Category Filter Pills (3 Centered Rows Matching Figma) ─── */}
-        <div className="mt-10 sm:mt-12 flex flex-col items-center gap-2.5 sm:gap-3 w-full">
+        {/* ─── Mobile / Tablet View: Single Horizontal Scrolling Pill Bar with Right Arrow ─── */}
+        <div className="flex lg:hidden items-center gap-2 mt-8 sm:mt-10 w-full">
+          <div
+            ref={pillsContainerRef}
+            className="flex items-center gap-2 sm:gap-2.5 overflow-x-auto no-scrollbar scroll-smooth py-1 px-1 flex-1"
+            style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+          >
+            {ALL_CATEGORIES.map((category) => (
+              <div key={category} className="shrink-0">
+                {renderPill(category)}
+              </div>
+            ))}
+          </div>
+
+          {/* Next / Scroll Right Circular Arrow Button Matching Figma */}
+          <button
+            type="button"
+            onClick={scrollPillsRight}
+            aria-label="Scroll categories right"
+            className="w-10 h-10 rounded-full bg-neutral-50 hover:bg-neutral-100 border border-neutral-200/70 flex items-center justify-center text-neutral-700 shrink-0 active:scale-95 transition-all cursor-pointer shadow-xs"
+          >
+            <svg
+              className="w-4 h-4"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth="2.5"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M9 5l7 7-7 7"
+              />
+            </svg>
+          </button>
+        </div>
+
+        {/* ─── Desktop View: 3 Centered Rows Matching Figma ─── */}
+        <div className="hidden lg:flex flex-col items-center gap-2.5 sm:gap-3 w-full mt-10 sm:mt-12">
           {/* Row 1 */}
           <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3">
             {CATEGORY_ROWS[0].map((category) => renderPill(category))}

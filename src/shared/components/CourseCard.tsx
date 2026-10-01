@@ -31,7 +31,7 @@ export function CourseCard({
   return (
     <article
       className={cn(
-        "group relative flex flex-col rounded-3xl bg-white text-neutral-950 border border-neutral-200 p-5 sm:p-6 shadow-xs transition-all duration-200 hover:-translate-y-1 hover:shadow-md",
+        "group relative flex flex-col rounded-3xl bg-white text-neutral-950 border border-neutral-200 p-3 shadow-xs transition-all duration-200 hover:-translate-y-1 hover:shadow-md",
         className,
       )}
     >
