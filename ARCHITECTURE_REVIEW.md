@@ -33,23 +33,11 @@ src/
 
 ## 2. Architecture Issues
 
-### 2.1 ❌ `"use client"` Overuse — Losing Server Component Benefits
+### 2.1 ✅ `"use client"` Optimized — Server Component Benefits Restored
 
-| File | Problem |
-|------|---------|
-| `Hero.tsx` | Marked `"use client"` only for `useState` (search query) & `useRouter` |
-| `FeaturedCourses.tsx` | `"use client"` for category filter & carousel state |
-| `Testimonials.tsx` | `"use client"` for carousel index & touch swipe state |
-
-**The real issue:** The entire section becomes a Client Component just because one small piece of interactivity was embedded directly. This forces ALL child images, SVGs, and static content to hydrate on the client.
-
-**Fix:** Extract the interactive part (search input, carousel controls, category filter) into its own small `"use client"` component. Keep the static parent as a Server Component.
-
-```tsx
-// ✅ Recommended pattern:
-// HeroSearchBar.tsx → "use client" (only the input + button)
-// Hero.tsx → Server Component (images, 3D shapes, typography)
-```
+- [Hero.tsx](file:///d:/byte-space/src/features/home/Hero.tsx) is now a pure Server Component; extracted [HeroSearchBar.tsx](file:///d:/byte-space/src/features/home/HeroSearchBar.tsx) as the client interactive component.
+- [FeaturedCourses.tsx](file:///d:/byte-space/src/features/home/FeaturedCourses.tsx) is now a Server Component; extracted [FeaturedCoursesInteractive.tsx](file:///d:/byte-space/src/features/home/FeaturedCoursesInteractive.tsx) for category filtering & mobile carousel.
+- [Testimonials.tsx](file:///d:/byte-space/src/features/home/Testimonials.tsx) is now a Server Component; extracted [TestimonialsCarousel.tsx](file:///d:/byte-space/src/features/home/TestimonialsCarousel.tsx) for mobile swipe interactions.
 
 ### 2.2 ❌ Duplicate Data Definitions in `AuthVisualStage.tsx`
 
@@ -65,17 +53,12 @@ const DEFAULT_BUILD_DIGITAL_ASSET: Course = COURSES_DATA[1] ?? { id: "2", ... }
 const course = COURSES_DATA.find(c => c.slug === 'build-digital-asset');
 ```
 
-### 2.3 ❌ Carousel Logic Is Copy-Pasted Twice
+### 2.3 ✅ Carousel Logic Centralized & DRY
 
-`FeaturedCourses.tsx` and `Testimonials.tsx` contain **identical carousel state and touch gesture logic**:
-- `mobileIndex` state
-- `touchStartX` state
-- `handlePrev`, `handleNext`, `handleTouchStart`, `handleTouchEnd` handlers
-- Bottom navigation bar JSX (counter pill + dots + arrows)
-
-This violates **DRY** (Don't Repeat Yourself). Every fix or enhancement must be applied twice.
-
-**Fix:** Extract a `useCarousel` hook + a `CarouselControls` component.
+Extracted:
+1. [src/hooks/useCarousel.ts](file:///d:/byte-space/src/hooks/useCarousel.ts) — reusable touch gestures and pagination state.
+2. [src/components/ui/CarouselControls.tsx](file:///d:/byte-space/src/components/ui/CarouselControls.tsx) — shared counter pill, tablist dots, and arrow buttons.
+Used across both [FeaturedCoursesInteractive.tsx](file:///d:/byte-space/src/features/home/FeaturedCoursesInteractive.tsx) and [TestimonialsCarousel.tsx](file:///d:/byte-space/src/features/home/TestimonialsCarousel.tsx).
 
 ### 2.4 ❌ `navLinks` Defined in Both `Navbar.tsx` and `lib/constants.ts`
 
@@ -305,9 +288,9 @@ Currently only defines `Testimonial`. Shared types like `NavLink`, `StatItem`, a
 
 `LoginForm.tsx` and `SignupForm.tsx` have local `useState` but no visual error messages or field validation. Integrating `react-hook-form` + `zod` will streamline production readiness.
 
-### 6.4 ⚠️ Dead Code: `useDebounce`
+### 6.4 ✅ Dead Code Cleaned Up
 
-`src/hooks/useDebounce.ts` is implemented but unused. It should be wired into search inputs or cleaned up.
+Unused `useDebounce` hook has been cleaned up from `src/hooks/` and dependencies. Active hooks are exported from `src/hooks/index.ts`.
 
 ---
 
