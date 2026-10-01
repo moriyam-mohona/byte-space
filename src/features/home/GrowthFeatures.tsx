@@ -29,8 +29,6 @@ export function GrowthFeatures() {
         aria-hidden="true"
       >
         {/* Ellipse 11: Top Left Lime Glow (1137x1137, Top: -466px, Left: -152px, Blur: 40px) */}
-        {/* Ellipse 11: Top Left Lime Glow */}
-        {/* Ellipse 11: Top Left Lime Glow */}
         <div
           className="absolute rounded-full pointer-events-none"
           style={{
@@ -87,7 +85,7 @@ export function GrowthFeatures() {
         />
       </div>
 
-      <div className="relative z-10 container space-y-24 sm:space-y-10 lg:space-y-18">
+      <div className="relative z-10 container space-y-2">
         {/* ═══════════════════════════════════════════════════════════════
             BLOCK 1: Your Path to Professional Growth Starts Here!
         ═══════════════════════════════════════════════════════════════ */}
@@ -160,7 +158,7 @@ export function GrowthFeatures() {
             </div>
 
             {/* Central Student Portrait (z-20, overlapping course card) */}
-            <div className="relative z-20 w-[85%] sm:w-[82%] lg:w-full max-w-[420px] sm:max-w-[460px] lg:max-w-[577px] ml-auto translate-x-4 sm:translate-x-8 lg:translate-x-12 translate-y-4 pointer-events-none select-none">
+            <div className="relative z-20 w-190 lg:w-full max-w-144.25 ml-auto translate-x-4 sm:translate-x-8 lg:translate-x-12 translate-y-4 pointer-events-none select-none">
               <NextImage
                 src="/images/growth/laptop-guy.png"
                 alt="Student smiling with laptop"
@@ -202,7 +200,7 @@ export function GrowthFeatures() {
           {/* Left Column: Visual Stage with Female Creator (7 Cols) */}
           <div className="order-2 lg:order-1 lg:col-span-6 relative flex justify-center items-center py-6 sm:py-10">
             {/* 3D Floating Lime Zigzag behind creator */}
-            <div className="absolute top-10 sm:top-16 right-4 sm:right-12 lg:right-16 w-24 sm:w-36 lg:w-52 h-auto pointer-events-none select-none z-20 animate-float-reverse">
+            <div className="absolute top-10 sm:top-16 right-4 sm:right-12 lg:right-16 w-46 lg:w-52 h-auto pointer-events-none select-none z-20 animate-float-reverse">
               <NextImage
                 src="/images/growth/zigzag-girl.png"
                 alt=""
@@ -214,7 +212,7 @@ export function GrowthFeatures() {
             </div>
 
             {/* Central Female Creator Portrait */}
-            <div className="relative z-10 w-full max-w-[340px] sm:max-w-[400px] lg:max-w-[420px]">
+            <div className="relative z-10 w-full max-w-105">
               <NextImage
                 src="/images/growth/laptop-girl.png"
                 alt="Female creator smiling with headset and tablet"
@@ -226,7 +224,7 @@ export function GrowthFeatures() {
             </div>
 
             {/* Floating Card 1: Total Revenue (Top-Left, Blue) */}
-            <div className="absolute top-2 sm:top-16 left-0 sm:left-4 lg:left-8 z-0 animate-float-subtle origin-top-left sm:scale-95 lg:scale-100">
+            <div className="absolute top-2 sm:top-16 left-0 sm:left-4 lg:left-8 z-0 animate-float-subtle origin-top-left">
               <div className="bg-primary-800 text-white rounded-2xl p-3 border border-primary-400/30 min-w-[160px] sm:min-w-[185px] text-left space-y-1">
                 <div className="flex flex-col text-body-s text-white/80 font-medium">
                   <span>Total Revenue</span>
@@ -242,7 +240,7 @@ export function GrowthFeatures() {
             </div>
 
             {/* Floating Card 2: Year to Date (Mid-Left, Blue) */}
-            <div className="absolute top-28 sm:top-46 left-0 sm:left-26 lg:left-10 z-0 animate-float-slow origin-left scale-[0.72] xs:scale-[0.82] sm:scale-95 lg:scale-100">
+            <div className="absolute top-28 sm:top-46 left-0 sm:left-26 lg:left-10 z-0 animate-float-slow origin-left scale-[0.82]">
               <div className="bg-primary-800 text-white rounded-2xl p-3.5 sm:p-2.5 border border-primary-400/30 text-left space-y-1">
                 <div className="flex flex-col text-body-xs text-white/80 font-medium">
                   <span className="text-body-s">Year to Date</span>
@@ -262,7 +260,7 @@ export function GrowthFeatures() {
             </div>
 
             {/* Floating Card 3: Happy Students (Bottom-Right) */}
-            <div className="absolute bottom-2 sm:bottom-48 right-0 sm:right-4 lg:right-8 z-20 animate-float-reverse origin-bottom-right scale-[0.72] xs:scale-[0.82] sm:scale-95 lg:scale-100">
+            <div className="absolute bottom-28 sm:bottom-48 right-0 sm:right-4 lg:right-8 z-20 animate-float-reverse origin-bottom-right">
               <div className="bg-white rounded-2xl p-3.5 sm:p-3 shadow-2xl border border-neutral-100 flex flex-col gap-2 min-w-50 sm:min-w-60 text-left">
                 <div className="flex flex-col">
                   <h4 className="text-label-m font-body text-neutral-950">
