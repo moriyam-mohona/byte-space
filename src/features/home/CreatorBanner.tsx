@@ -3,12 +3,12 @@ import Link from "next/link";
 
 export function CreatorBanner() {
   return (
-    <section className="relative w-full bg-primary-800 bg-hero-grid text-white py-28 xl:py-24 overflow-hidden">
+    <section className="relative w-full bg-primary-800 bg-hero-grid text-white py-32 xl:py-24 overflow-hidden">
       {/* ═══════════════════════════════════════════════════════════════
           3D FLOATING ELEMENTS (Left & Right Flanks)
       ═══════════════════════════════════════════════════════════════ */}
       {/* 1. Top-Left: Lime Spiral */}
-      <div className="pointer-events-none absolute top-0 left-0 w-28 sm:w-48 lg:w-62 z-10 animate-float-slow select-none">
+      <div className="pointer-events-none absolute top-0 left-0 w-48 lg:w-62 z-10 animate-float-slow select-none">
         <NextImage
           src="/images/cta/top-left-lime-spiral.png"
           alt=""
@@ -20,7 +20,7 @@ export function CreatorBanner() {
       </div>
 
       {/* 2. Top-Left: White Squiggle */}
-      <div className="pointer-events-none absolute top-4 sm:top-6 xl:top-8 left-20 sm:left-26 xl:left-52 w-28 xl:w-46 z-10 animate-float-subtle select-none">
+      <div className="pointer-events-none absolute top-10 sm:top-6 xl:top-8 left-20 sm:left-26 xl:left-52 w-20 sm:w-28 xl:w-46 z-10 animate-float-subtle select-none">
         <NextImage
           src="/images/cta/top-left-white-squiggle.png"
           alt=""
@@ -56,7 +56,7 @@ export function CreatorBanner() {
       </div>
 
       {/* 5. Top-Right: Lime Pyramid */}
-      <div className="pointer-events-none absolute top-4 sm:top-6 lg:top-2 right-20 sm:left-auto sm:right-20 xl:right-46 w-20 sm:w-32 xl:w-46 z-10 animate-float-subtle select-none">
+      <div className="pointer-events-none absolute top-4 sm:top-6 lg:top-2 right-20 sm:left-auto sm:right-20 xl:right-46 w-32 xl:w-46 z-10 animate-float-subtle select-none">
         <NextImage
           src="/images/cta/top-right-lime-pyramid.png"
           alt=""
@@ -68,7 +68,7 @@ export function CreatorBanner() {
       </div>
 
       {/* 6. Top-Right: White Cylinder */}
-      <div className="pointer-events-none absolute top-0 right-0 w-20 sm:w-32 xl:w-58 z-10 animate-float-slow select-none">
+      <div className="pointer-events-none absolute top-0 right-0 w-28 sm:w-32 xl:w-58 z-10 animate-float-slow select-none">
         <NextImage
           src="/images/cta/top-right-white-cylinder.png"
           alt=""
@@ -94,13 +94,13 @@ export function CreatorBanner() {
       {/* ═══════════════════════════════════════════════════════════════
           CENTERED HERO COPY & CALL-TO-ACTION
       ═══════════════════════════════════════════════════════════════ */}
-      <div className="relative z-20 max-w-280 mx-auto px-4 sm:px-6 text-center space-y-5 sm:space-y-6">
+      <div className="relative z-20 max-w-90 sm:max-w-280 mx-auto px-4 sm:px-6 text-center space-y-5 sm:space-y-6">
         <h2 className="font-heading text-3xl lg:text-heading-m text-white drop-shadow-sm">
           Unlock Your Potential as a <br className="hidden sm:inline" />
           Creator with ByteSpace
         </h2>
 
-        <p className="font-body text-body-m sm:text-body-l leading-relaxed max-w-280 mx-auto">
+        <p className="font-body text-body-m sm:text-body-l leading-relaxed  mx-auto">
           Experience the collaboration of numerous creators and an expanding
           selection of courses. Register now and become a part of a community
           comprising over 10,000 local and international creators. Utilize our
