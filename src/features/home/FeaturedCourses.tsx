@@ -81,7 +81,7 @@ export function FeaturedCourses() {
         type="button"
         onClick={() => handleCategorySelect(category)}
         className={cn(
-          "font-body px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-label-s sm:text-label-m transition-all duration-200 cursor-pointer select-none",
+          "font-body px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-label-xs md:text-label-m transition-all duration-200 cursor-pointer select-none",
           isActive
             ? "bg-secondary text-neutral-950 shadow-xs"
             : "bg-neutral-50 text-neutral-700 hover:bg-neutral-100 hover:text-neutral-950 font-medium active:scale-95",
@@ -134,26 +134,28 @@ export function FeaturedCourses() {
           </div>
         </div>
 
-        {/* ─── Mobile View: Peek Card Carousel with Bottom Navigation ─── */}
-        <div className="block md:hidden mt-10 space-y-6">
+        {/* ─── Mobile / Tablet View: Peek Card Carousel with Bottom Navigation ─── */}
+        <div className="block lg:hidden mt-10 space-y-6">
           {/* Peeking Carousel Track with Touch Swipe */}
           <div
-            className="w-full overflow-hidden"
+            className="w-full overflow-hidden [--card-width:85%] sm:[--card-width:65%] md:[--card-width:44%] [--card-gap:1rem] md:[--card-gap:1.5rem]"
             onTouchStart={handleTouchStart}
             onTouchEnd={handleTouchEnd}
           >
             <div
-              className="flex transition-transform duration-500 ease-out gap-4"
+              className="flex transition-transform duration-500 ease-out gap-4 md:gap-6"
               style={{
-                transform: `translateX(calc(-${mobileIndex * 85}% - ${mobileIndex * 1}rem))`,
+                transform: `translateX(calc(-${mobileIndex} * (var(--card-width) + var(--card-gap))))`,
               }}
             >
               {displayedCourses.map((course, idx) => (
                 <div
                   key={course.id}
                   className={cn(
-                    "w-[85%] shrink-0 transition-opacity duration-300",
-                    idx === mobileIndex ? "opacity-100" : "opacity-60",
+                    "w-(--card-width) shrink-0 transition-opacity duration-300",
+                    idx === mobileIndex || idx === mobileIndex + 1
+                      ? "opacity-100"
+                      : "opacity-60",
                   )}
                 >
                   <CourseCard course={course} />
@@ -247,7 +249,7 @@ export function FeaturedCourses() {
         </div>
 
         {/* ─── Desktop View: 3-Column Grid ─── */}
-        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mt-12 sm:mt-16">
+        <div className="hidden lg:grid lg:grid-cols-3 gap-6 sm:gap-8 mt-12 sm:mt-16">
           {displayedCourses.map((course) => (
             <CourseCard key={course.id} course={course} />
           ))}
